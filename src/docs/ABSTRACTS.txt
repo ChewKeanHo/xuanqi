@@ -1,0 +1,32 @@
+################################################################################
+# NOTE                                                                         #
+#                                                                              #
+# This is a line-by-line long package descripton usually append after the      #
+# pitch or acting independently. You can write as long as you want as long as  #
+# it complies to the following rules:                                          #
+#       (1) Keep it text-form only; AND                                        #
+#       (2) Max 69 characters per line (DEB, RPM, and Citation requires it);   #
+#           AND                                                                #
+#       (3) Keep it ASCII for backward compatibilities purposes.               #
+#                                                                              #
+# You should write the long description of the project repository like an      #
+# abstract: introducing, specify the problem, actions, and ends with what to   #
+# to exect from exploring it.                                                  #
+################################################################################
+#                                                                  🠳 Max       #
+################################################################################
+Dependency hell; too many build processes; constant updates;
+brittle frameworks and workspaces; security nightmares;
+unmaintainable time bombs at scale; and geopolitical instability
+troubling your content production system? Don't let them hamper
+your progress. Xuan Qi offers a powerful solution:
+**a highly portable and customizable software for reliably
+reproduce your contents consistently anywhere anytime**.
+
+With a focus on consistency, decentralization supply chain,
+and simplicity, XuanQi achieves data sovereignty by ensuring
+both data and its production processor is reproducible anywhere
+anytime without compromising maintainability, introducing critical
+dependencies, and continuous development.
+
+***XuanQi - Just Build The Contents Seamlessly!**
