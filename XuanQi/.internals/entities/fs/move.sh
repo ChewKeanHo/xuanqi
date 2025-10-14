@@ -1,0 +1,77 @@
+#!/bin/sh
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+# Parameters:
+#       ____destination_path
+#               - REQUIRED
+#               - The destination filepath to move as.
+#       ____source_path
+#               - REQUIRED
+#               - The source filepath to move from.
+# Returns:
+#       Return Code
+#               - '0' means ok; error otherwise.
+#               - error on empty any value.
+#               - error on existing target.
+#               - error on missing source.
+#               - error on missing target's housing directory.
+#               - error on move failure.
+entities_fs_move() {
+        #____destination_path="$1"
+        #____source_path="$2"
+
+
+        # validate inputs
+        if [ "$1" = "" ]; then
+                return 1
+        fi
+
+        if [ "$2" = "" ]; then
+                return 1
+        fi
+
+        if [ -e "$1" ]; then
+                return 1
+        fi
+
+        if [ ! "${1%/*}" = "$1" ] && [ ! -e "${1%/*}" ]; then
+                return 1
+        fi
+
+        if [ ! -e "$2" ]; then
+                return 1
+        fi
+
+
+        # execute
+        mv "$2" "$1"
+        if [ $? -ne 0 ]; then
+                return 1
+        fi
+
+
+        # report status
+        return 0
+}
+
+
+
+
+# report import status
+return 0
