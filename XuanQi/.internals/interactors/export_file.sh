@@ -20,47 +20,19 @@
 # Parameters:
 #       ____destination_path
 #               - REQUIRED
-#               - The destination filepath to copy as.
-#       ____source_path
-#               - REQUIRED
-#               - The source filepath to copy from.
+#               - The destination filepath to export as.
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
 #               - error on empty any value.
-#               - error on existing target.
 #               - error on missing source.
-#               - error on missing target's housing directory.
-#               - error on copy failure.
-entities_fs_copy() {
-        #____destination_path="$1"
-        #____source_path="$2"
-
-
-        # validate inputs
-        if [ "$1" = "" ]; then
-                return 1
-        fi
-
-        if [ "$2" = "" ]; then
-                return 1
-        fi
-
-        if [ -e "$1" ]; then
-                return 1
-        fi
-
-        if [ ! "${1%/*}" = "$1" ] && [ ! -e "${1%/*}" ]; then
-                return 1
-        fi
-
-        if [ ! -e "$2" ]; then
-                return 1
-        fi
+#               - error on execution failure.
+interactors_export_file() {
+        #____path_dest="$1"
 
 
         # execute
-        cp -r "$2" "$1" 2> /dev/null
+        entities_fs_move "$1" "${1}.tmp"
         if [ $? -ne 0 ]; then
                 return 1
         fi

@@ -60,7 +60,7 @@ entities_fs_move() {
 
 
         # execute
-        mv "$2" "$1"
+        mv "$2" "$1" 2> /dev/null
         if [ $? -ne 0 ]; then
                 return 1
         fi
