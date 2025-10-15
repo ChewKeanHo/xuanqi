@@ -1,0 +1,54 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+#
+#
+# This is the product brand printed across its entire system contents like
+# help section and etc. It starts at the first non-empty line.
+
+
+
+
+      0000000000    0000           0000
+         000 0000                  0000
+     00 000000000   0000            00000
+     00  00000000   0000         00000000000000000000
+     000  0   000   0000  0000000000000000000000000000
+     00000000 000   0000 00000      000  000
+    00 000000 000                 000  00000
+   00         000   0000         0000  00000
+ 00         00000              00000000000
+              00    0000       0000000000
+                               00000000   00
+          00        0000           000   00000
+    00    00000     0000         00000000000000
+   000000000000000  0000         000000000 0000
+  00  0000000       0000          000       00
+00 0 0000000000
+  00   0000000      0000        00000   00000000
+  000000 00000000             000   0000000 0000
+  00 00000000       0000      00   000  00 0000
+  0000  0000000000  0000       0000000  0000000
+  00       0000000             00000 00  0
+      000           0000        0    000 0000
+       0000000      0000            00000000000000
+    0000000                000000000000000000000000
+      00000         0000    000    000 0000
+     000000000000   0000          000   0000000
+  00  0000   00000              0000      00000
+ 00   000000        0000     0000000000000000000000
+    0000000                  000   0000000    00000
+    000000000       0000      00  0000  00   00000
+     0  00  000               0000000   000000000
+      0000          0000      00000     000

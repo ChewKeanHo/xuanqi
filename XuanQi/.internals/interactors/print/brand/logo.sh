@@ -23,9 +23,9 @@
 #               - '0' means ok; error otherwise.
 #               - error when internal brand file is missing.
 #               - error when internal brand file is unreadable.
-interactors_print_brand() {
+interactors_print_brand_logo() {
         # validate inputs
-        ____path="${XUANQI_PATH_ROOT}/entities/docs/brand.txt"
+        ____path="${XUANQI_PATH_ROOT}/entities/docs/brand/logo.txt"
         if [ ! -f "$____path" ]; then
                 printf -- ""
                 unset ____path
