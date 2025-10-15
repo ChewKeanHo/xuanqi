@@ -20,21 +20,21 @@
 # Parameters:
 # Returns:
 #       String
-#               - the brand's pitch content.
+#               - the license name content.
 #               - empty on error.
 #       Return Code
 #               - '0' means ok; error otherwise.
 #               - error when internal file is missing.
 #               - error when internal file is unreadable.
-interactors_print_brand_name() {
+interactors_print_license_name() {
         # validate inputs
         ____path="\
-${XUANQI_PATH_ROOT}/entities/docs/brand/name/${XUANQI_LANGUAGE}.txt\
+${XUANQI_PATH_ROOT}/entities/docs/license/name/${XUANQI_LANGUAGE}.txt\
 "
         if [ ! -f "$____path" ]; then
                 # fallback to english
                 ____path="\
-${XUANQI_PATH_ROOT}/entities/docs/brand/name/en.txt\
+${XUANQI_PATH_ROOT}/entities/docs/license/name/en.txt\
 "
         fi
 

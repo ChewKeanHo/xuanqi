@@ -24,8 +24,8 @@
 #               - empty on error.
 #       Return Code
 #               - '0' means ok; error otherwise.
-#               - error when internal brand file is missing.
-#               - error when internal brand file is unreadable.
+#               - error when internal brand is missing.
+#               - error when internal brand is unreadable.
 interactors_print_brand_logo() {
         # validate inputs
         ____path="${XUANQI_PATH_ROOT}/entities/docs/brand/logo.txt"
