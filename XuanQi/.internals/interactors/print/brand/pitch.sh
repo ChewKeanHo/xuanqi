@@ -20,27 +20,32 @@
 # Parameters:
 # Returns:
 #       String
-#               - the brand's logo content.
+#               - the brand's pitch content.
 #               - empty on error.
 #       Return Code
 #               - '0' means ok; error otherwise.
 #               - error when internal brand file is missing.
 #               - error when internal brand file is unreadable.
-interactors_print_brand_logo() {
+interactors_print_brand_pitch() {
         # validate inputs
-        ____path="${XUANQI_PATH_ROOT}/entities/docs/brand/logo.txt"
+        ____path="\
+${XUANQI_PATH_ROOT}/entities/docs/brand/pitch/${XUANQI_LANGUAGE}.txt\
+"
         if [ ! -f "$____path" ]; then
-                printf -- ""
-                unset ____path
-                return 1
+                # fallback to english
+                ____path="\
+${XUANQI_PATH_ROOT}/entities/docs/brand/pitch/en.txt\
+"
         fi
 
 
         # execute
         entities_fs_read_text_file "$____path"
         if [ $? -ne 0 ]; then
+                unset ____path
                 return 1
         fi
+        unset ____path
 
 
         # report status
