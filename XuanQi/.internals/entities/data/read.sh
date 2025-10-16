@@ -24,6 +24,7 @@
 #               - Capable of reading multi-line value.
 #               - Capable of reading multi key:value entries
 #                 when '____variable_name' is not set.
+#               - Resolve symlink.
 #       ____variable_name
 #               - OPTIONAL
 #               - The key of the value.
@@ -51,6 +52,17 @@ entities_data_read() {
         fi
 
         if [ ! -f "$1" ]; then
+                return 1
+        fi
+
+        if [ -f "$1" ]; then
+                : # accepted
+        elif [ -L "$1" ]; then
+                if [ ! -f "$(readlink --canonicalize "$1")" ]; then
+                        return 1
+                fi
+                : # accepted
+        else
                 return 1
         fi
 
