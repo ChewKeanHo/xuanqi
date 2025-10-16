@@ -309,6 +309,12 @@ XUANQI_LANGUAGE="${XUANQI_LANGUAGE%%_*}"
 
 # execute by first parameter
 case "$1" in
+create)
+        . "${XUANQI_PATH_ROOT}/presenters/create/main.sh"
+        if [ $? -ne 0 ]; then
+                return 1
+        fi
+        ;;
 -h|help|Help|HELP|--help|--Help|--HELP)
         . "${XUANQI_PATH_ROOT}/presenters/help/main.sh"
         if [ $? -ne 0 ]; then
