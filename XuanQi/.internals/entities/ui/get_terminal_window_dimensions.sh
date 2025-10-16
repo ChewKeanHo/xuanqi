@@ -28,6 +28,11 @@
 #               - no error raised.
 entities_ui_get_terminal_window_dimensions() {
         # execute
+        if [ ! "$COLUMNS" = "" ] && [ ! "$LINES" = "" ]; then
+                printf -- "%s" "${COLUMNS} ${LINES} 0"
+                return 0
+        fi
+
         command -v stty 2> /dev/null
         if [ $? -eq 0 ]; then
                 printf -- "%s" "$(stty size) 0"
@@ -40,6 +45,7 @@ entities_ui_get_terminal_window_dimensions() {
                 return 0
         fi
 
+        # final fallback
         printf -- "%s" "80 80 80"
 
 
