@@ -29,7 +29,9 @@ interactors_print_brand_header() {
         # execute
         printf -- "%s" "\
 $(interactors_print_brand_logo)
+$(interactors_print_ui_horizontal_line 3)
 $(interactors_print_brand_pitch)
+$(interactors_print_ui_horizontal_line 3)
 SKU
 $(interactors_print_sku)
 
