@@ -315,6 +315,12 @@ case "$1" in
                 return 1
         fi
         ;;
+purge)
+        . "${XUANQI_PATH_ROOT}/presenters/purge/main.sh"
+        if [ $? -ne 0 ]; then
+                return 1
+        fi
+        ;;
 *)
         . "${XUANQI_PATH_ROOT}/presenters/help/main.sh"
         return 1
