@@ -20,10 +20,7 @@
 # Parameters:
 #       ____filepath
 #               - COMPULSORY
-#               - The text file to read from.
-#               - Capable of reading multi-line value.
-#               - Capable of reading multi key:value entries
-#                 when '____variable_name' is not set.
+#               - The text file to write into.
 #       ____key
 #               - COMPULSORY
 #               - The key of the key:value entry.

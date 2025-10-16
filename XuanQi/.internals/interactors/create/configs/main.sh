@@ -21,25 +21,19 @@
 #       ____filepath
 #               - COMPULSORY
 #               - The text file to write into.
+#       ____type
+#               - OPTIONAL
+#               - The configuration type.
+#               - Determines the documentation contents.
+#               - If unrecognized, the default will be used.
 #       ____key
 #               - COMPULSORY
 #               - The key of the key:value entry.
 #               - Must be an environment variable name.
 #       ____value
-#               - COMPULSORY
+#               - OPTIONAL
 #               - The value of the key:value entry.
 #               - Can be empty.
-#       ____license_header
-#               - OPTIONAL
-#               - The license notice content without any comment
-#                 symbol. This will be first written at the top
-#                 of the file.
-#       ____entry_comment_doc
-#               - OPTIONAL
-#               - The documentation of the key:value without any
-#                 comment symbol.
-#               - When available, it will be commented out and
-#                 prefix on top of the key:value line.
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
@@ -47,19 +41,27 @@
 #               - error on existing file.
 #               - error on empty '____key'.
 #               - error on bad execution.
-interactors_data_write_file() {
+interactors_create_configs() {
         #____filepath="$1"
-        #____key="$2"
-        #____value="$3"
-        #____header_comment_license="$4"
-        #____entry_comment_doc"$5"
+        #____type="$2"
+        #____key="$3"
+        #____value="$4"
 
 
         # execute
-        entities_data_write "$1" "$2" "$3" "$4" "$5"
-        if [ $? -ne 0 ]; then
-                return 1
-        fi
+        case "$2" in
+        *)
+                interactors_data_write_file \
+                        "$1" \
+                        "$3" \
+                        "$4" \
+                        "$(interactors_print_license_notice)" \
+                        "$(interactors_print_configs_default)"
+                if [ $? -ne 0 ]; then
+                        return 1
+                fi
+                ;;
+        esac
 
 
         # report status
