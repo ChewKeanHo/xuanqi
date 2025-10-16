@@ -42,15 +42,12 @@ interactors_data_read_directory() {
                 return 1
         fi
 
-        if [ -d "$1" ]; then
-                : # accepted
+        if [ ! -d "$1" ]; then
+                return 1
         elif [ -L "$1" ]; then
                 if [ ! -d "$(readlink --canonicalize "$1")" ]; then
                         return 1
                 fi
-                : # accepted
-        else
-                return 1
         fi
 
 

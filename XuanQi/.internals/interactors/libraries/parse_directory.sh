@@ -17,65 +17,12 @@
 
 
 
-# Parameters:
-#       ____path_source
-#               - input directory path.
-# Returns:
-#       Return Code
-#               - '0' means ok; error otherwise.
-#               - error when given path is empty.
-#               - error when given path is invalid.
-#               - error on bad execution.
-unset interactors_libraries_parse_directory # remove persenter's early version
-interactors_libraries_parse_directory() {
-        #____path_source="$1"
-
-
-        # validate inputs
-        if [ "$1" = "" ]; then
-                return 1
-        fi
-
-        if [ ! -d "$1" ]; then
-                return 1
-        fi
-
-
-        # execute
-        for ____item in "${1}/"*; do
-                if [ -d "$____item" ]; then
-                        interactors_libraries_parse_directory "$____item"
-                        continue
-                elif [ ! -f "$____item" ]; then
-                        continue
-                fi
-
-                if [ ${____item%".sh"} = "$____item" ]; then
-                        continue
-                fi
-
-                if [ ${____item%"_test.sh"} = "$____item" ]; then
-                        continue # do not include test file
-                fi
-
-                if [ ! ${____item#"."} = "$____item" ]; then
-                        continue # do not import hidden file
-                fi
-
-                if [ ! ${____item#"~"} = "$____item" ]; then
-                        continue # do not import temporary file
-                fi
-
-                . "$____item"
-                if [ $? -ne 0 ]; then
-                        return 1
-                fi
-        done
-
-
-        # report status
-        return 0
-}
+# !!! IMPORTANT NOTICE !!!
+# Due to early presenter setup, the function is defined inside
+# presenters/start.sh for consistency. Hence, refer to that location
+# for code editing.
+#
+# This is just a placeholder file to mark the function is used.
 
 
 
