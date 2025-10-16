@@ -29,8 +29,9 @@
 #               - The key of the key:value entry.
 #               - Must be an environment variable name.
 #       ____value
-#               - COMPULSORY
+#               - OPTIONAL
 #               - The value of the key:value entry.
+#               - Can be empty.
 #       ____license_header
 #               - OPTIONAL
 #               - The license notice content without any comment
