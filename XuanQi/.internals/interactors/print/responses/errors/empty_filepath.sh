@@ -18,14 +18,14 @@
 
 
 # Parameters:
-# Returns:
+# Outputs:
 #       String
-#               - the brand's pitch content.
+#               - the string content.
 #               - empty on error.
+# Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
-#               - error when internal file is missing.
-#               - error when internal file is unreadable.
+#               - error on bad execution.
 interactors_print_responses_errors_empty_filepath() {
         # execute
         entities_i18n_errors_get_empty_filepath

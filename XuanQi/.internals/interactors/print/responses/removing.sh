@@ -20,11 +20,15 @@
 # Parameters:
 #       ____target
 #               - the target's label (e.g. filepath).
+# Outputs:
+#       String
+#               - the string content.
+#               - empty on error.
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
 #               - error when '____target' is empty.
-#               - error on bad execution
+#               - error on bad execution.
 interactors_print_responses_removing() {
         #____target ="$1"
 

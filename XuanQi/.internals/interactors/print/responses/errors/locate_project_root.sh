@@ -18,14 +18,14 @@
 
 
 # Parameters:
-# Returns:
+# Outputs:
 #       String
-#               - the brand's pitch content.
+#               - the string content.
 #               - empty on error.
+# Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
-#               - error when internal file is missing.
-#               - error when internal file is unreadable.
+#               - error on bad execution.
 interactors_print_responses_errors_locate_project_root() {
         # validate inputs
         ____path="\
