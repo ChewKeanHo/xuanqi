@@ -1,0 +1,26 @@
+#!/bin/sh
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+这是一个中文（简体）文档模板，用于描述您在下面的配置。您应准确
+说明这是什么以及它的用途是什么。
+
+第二段在这里解释它导致了什么后果。您可以选择在此处解释其工作原理。
+
+第三段在这里解释它采用什么值。您可以在此处分配“变量名”注释，以防
+用户需要从失败的实验中恢复，同时提供“推荐值”。

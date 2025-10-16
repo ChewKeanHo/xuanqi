@@ -1,0 +1,28 @@
+#!/bin/sh
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+以下は、あなたの設定を説明するドキュメントテンプレートです。
+これが何であり、その目的が何であるかを正確に説明する必要があります。
+
+2番目の段落では、それによって引き起こされた結果を説明します。
+オプションとして、その仕組みをここで説明できます。
+
+3番目の段落では、どのような値を受け取るかを説明します。ユーザーが
+失敗した実験から回復する必要がある場合に備えて、ここに「変数名」のコ
+メントと「推奨値」を割り当てることができます。

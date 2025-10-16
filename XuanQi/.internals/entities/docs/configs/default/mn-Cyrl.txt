@@ -1,0 +1,29 @@
+#!/bin/sh
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+Доорх тайлбар нь таны тохиргоог тайлбарладаг баримт бичгийг хэлнэ.
+Энэ нь яг юу болох, ямар зорилготой болохыг тайлбарлах ёстой.
+
+Хоёр дахь догол мөр нь энэ нь ямар үр дагаврыг авчирсан болохыг
+тайлбарлана. Дурын сонголтоор энэ нь хэрхэн ажилладаг болохыг
+тайлбарлаж болно.
+
+Гурав дахь догол мөр нь ямар утгыг авч болохыг тайлбарлана. Хэрэглэгч
+муу туршилтаас сэргэх шаардлагатай тохиолдолд 'VARIABLE_NAME'
+сэтгэгдлийг 'Санал болгож буй Утга' хамтаар энд өгч болно.

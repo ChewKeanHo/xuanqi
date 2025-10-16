@@ -1,0 +1,30 @@
+#!/bin/sh
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+Det här är en dokumentationsmall på svenska som beskriver din
+konfiguration nedan. Du bör förklara exakt vad detta är och vad
+dess syften är.
+
+Det andra stycket här förklarar vilka konsekvenser det orsakade.
+Du kan också förklara hur det fungerar här.
+
+Det tredje stycket här förklarar vilket värde det tar. Du kan
+tilldela kommentaren 'VARIABELNAMN' här ifall användaren behöver
+återhämta sig från dålig experimentering tillsammans
+med 'Rekommenderat Värde'.

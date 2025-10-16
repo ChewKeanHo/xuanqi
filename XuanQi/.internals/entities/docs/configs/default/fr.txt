@@ -1,0 +1,31 @@
+#!/bin/sh
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+Voici un modèle de documentation en français décrivant votre
+configuration ci-dessous. Vous devez expliquer ce que c'est
+exactement et quels sont ses objectifs.
+
+Le deuxième paragraphe ici explique les conséquences que cela a
+entraînées. Optionnellement, vous pouvez expliquer comment cela
+fonctionne ici.
+
+Le troisième paragraphe ici explique les valeurs qu'il peut prendre.
+Vous pouvez ajouter le commentaire 'NOM_DE_VARIABLE' ici au cas où
+l'utilisateur aurait besoin de se remettre d'une mauvaise
+expérimentation, ainsi qu'une 'Valeur Recommandée'.
