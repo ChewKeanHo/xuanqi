@@ -160,7 +160,7 @@ EOF
 
         ## write 'key = \"value\"' field
         printf -- "%s" "\
-$(entities_string_trim_whitespace "$2") = \"\\
+$(entities_strings_trim_whitespace "$2") = \"\\
 ${3}
 \"
 " >> "${1}.tmp"
