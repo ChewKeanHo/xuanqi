@@ -190,6 +190,18 @@ unset ____pathing ____previous
 
 
 
+# ensure safe operation outside local .internals directory
+if [ ! "${XUANQI_PATH_ROOT%".internals"}" = "$XUANQI_PATH_ROOT" ] &&
+[ "$PWD" = "$XUANQI_PATH_ROOT" ]; then
+        interactors_print_error "\
+$(interactors_print_responses_errors_inside_internals_directory)
+"
+        return 1
+fi
+
+
+
+
 # define all directory names
 XUANQI_DIRECTORY_CONFIGS="configs"
 XUANQI_DIRECTORY_COMPONENTS="components"
