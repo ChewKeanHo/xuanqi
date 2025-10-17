@@ -23,16 +23,16 @@ ____path="${____path#/}"
 ____path="${PROJECT_PATH_ROOT%/}/${____path%.conf}.conf"
 interactors_print_info "\
 $(interactors_print_responses_type)
-${2}
+${2:-"???"}
 
 PROJECT_PATH_ROOT
-${PROJECT_PATH_ROOT}
+${PROJECT_PATH_ROOT:-"???"}
 
 $(interactors_print_responses_given_path)
-${3}
+${3:-"???"}
 
 $(interactors_print_responses_target)
-${____path}
+${____path:-"???"}
 "
 
 
