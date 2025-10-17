@@ -17,11 +17,94 @@
 
 
 
-# validate path
-interactors_print_debug "Placeholder"
+# validate inputs
+____path="${3##"${PROJECT_PATH_ROOT}"}"
+____path="${____path#/}"
+____path="${PROJECT_PATH_ROOT%/}/${____path%.conf}.conf"
+interactors_print_info "\
+$(interactors_print_responses_type)
+${2}
+
+PROJECT_PATH_ROOT
+${PROJECT_PATH_ROOT}
+
+$(interactors_print_responses_given_path)
+${3}
+
+$(interactors_print_responses_target)
+${____path}
+"
+
+
+if [ "$PROJECT_PATH_ROOT" = "" ] ||
+[ "${____path##"${PROJECT_PATH_ROOT}/"}" = "$____path" ]; then
+        interactors_print_error "\
+$(interactors_print_responses_errors_outside_project_path)
+"
+        return 1
+fi
+
+
+
+
+# execute
+interactors_print_info "\
+
+
+$(interactors_print_responses_creating "$____path")
+"
+interactors_create_data \
+        "$____path" \
+        "$4" \
+        "${5:-"$(interactors_print_responses_sample_value)"}"
+case $? in
+0)
+        # ok
+        ;;
+1)
+        # empty filepath
+        interactors_print_error "\
+$(interactors_print_responses_errors_empty_filepath)
+"
+        return 1
+        ;;
+2)
+        # target already exists
+        interactors_print_error "\
+$(interactors_print_responses_errors_target_exists)
+"
+        return 1
+        ;;
+3)
+        # empty key
+        interactors_print_error "\
+$(interactors_print_responses_errors_empty_key)
+"
+        return 1
+        ;;
+4)
+        # error creating housing directory
+        interactors_print_error "\
+$(interactors_print_responses_errors_create_housing_directory)
+"
+        return 1
+        ;;
+5)
+        # error execution
+        interactors_print_error "\
+$(interactors_print_responses_errors_bad_execution)
+"
+        return 1
+        ;;
+*)
+        ;;
+esac
 
 
 
 
 # report status
+        interactors_print_success "\
+$(interactors_print_responses_operation_successful)
+"
 return 0
