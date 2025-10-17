@@ -28,7 +28,7 @@
 #               - error on bad execution.
 interactors_print_responses_errors_outside_project_path() {
         # execute
-        entities_i18n_errors_outside_project_path
+        entities_i18n_errors_get_outside_project_path
         if [ $? -ne 0 ]; then
                 return 1
         fi

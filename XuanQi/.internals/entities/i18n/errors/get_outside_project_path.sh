@@ -24,7 +24,7 @@
 #       Return Code
 #               - '0' means ok; error otherwise.
 #               - error on bad execution.
-entities_i18n_errors_outside_project_path() {
+entities_i18n_errors_get_outside_project_path() {
         # execute
         case "$XUANQI_LANGUAGE" in
         "de")
