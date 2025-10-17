@@ -26,9 +26,9 @@
 #       Return Code
 #               - '0' means ok; error otherwise.
 #               - error on bad execution.
-interactors_print_i18n_type() {
+interactors_print_responses_given_path() {
         # execute
-        entities_i18n_get_type
+        entities_i18n_get_given_path
         if [ $? -ne 0 ]; then
                 return 1
         fi
