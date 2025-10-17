@@ -242,6 +242,8 @@ ${XUANQI_PATH_ROOT%/*}/${XUANQI_DIRECTORY_CONFIGS}\
         if [ ! -d "$XUANQI_PATH_CONFIGS" ]; then
                 if [ "$1" = "create" ] && [ "$2" = "workspace" ]; then
                         : # exempted
+                elif [ "$1" = "create" ] && [ "$2" = "data" ]; then
+                        : # exempted
                 else
                         interactors_print_error "\
 $(interactors_print_responses_errors_locate_directory_configs)

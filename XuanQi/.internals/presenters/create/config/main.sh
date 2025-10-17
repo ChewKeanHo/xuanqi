@@ -58,6 +58,13 @@ $(interactors_print_responses_errors_locate_directory_configs)
         return 1
 fi
 
+if [ "$3" = "" ]; then
+        interactors_print_error "\
+$(interactors_print_responses_errors_empty_filepath)
+"
+        return 1
+fi
+
 
 
 
@@ -67,7 +74,7 @@ interactors_print_info "\
 
 $(interactors_print_responses_creating "$____path")
 "
-interactors_create_data \
+interactors_data_create \
         "$____path" \
         "$4" \
         "${5:-"$(interactors_print_responses_sample_value)"}"
