@@ -19,14 +19,21 @@
 
 # validate inputs
 ____path="${3##"${PROJECT_PATH_ROOT}"}"
+____path="${____path##"${XUANQI_DIRECTORY_CONFIGS}"}"
 ____path="${____path#/}"
-____path="${PROJECT_PATH_ROOT%/}/${____path%.conf}.conf"
+____path="${XUANQI_PATH_CONFIGS:-"???"}/${____path%.conf}.conf"
 interactors_print_info "\
 $(interactors_print_responses_type)
 ${2:-"???"}
 
 PROJECT_PATH_ROOT
 ${PROJECT_PATH_ROOT:-"???"}
+
+PROJECT_DIRECTORY_CONFIGS
+${XUANQI_DIRECTORY_CONFIGS:-"???"}
+
+PROJECT_PATH_CONFIGS
+${XUANQI_PATH_CONFIGS:-"???"}
 
 $(interactors_print_responses_given_path)
 ${3:-"???"}
@@ -44,9 +51,9 @@ $(interactors_print_responses_errors_outside_project_path)
         return 1
 fi
 
-if [ "$3" = "" ]; then
+if [ ! -d "$XUANQI_PATH_CONFIGS" ]; then
         interactors_print_error "\
-$(interactors_print_responses_errors_empty_filepath)
+$(interactors_print_responses_errors_locate_directory_configs)
 "
         return 1
 fi
@@ -60,7 +67,7 @@ interactors_print_info "\
 
 $(interactors_print_responses_creating "$____path")
 "
-interactors_data_create \
+interactors_create_data \
         "$____path" \
         "$4" \
         "${5:-"$(interactors_print_responses_sample_value)"}"

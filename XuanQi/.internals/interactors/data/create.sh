@@ -21,11 +21,6 @@
 #       ____filepath
 #               - COMPULSORY
 #               - The text file to write into.
-#       ____type
-#               - OPTIONAL
-#               - The configuration type.
-#               - Determines the documentation contents.
-#               - If unrecognized, the default will be used.
 #       ____key
 #               - COMPULSORY
 #               - The key of the key:value entry.
@@ -41,27 +36,46 @@
 #               - error on existing file.
 #               - error on empty '____key'.
 #               - error on bad execution.
-interactors_create_configs() {
+interactors_data_create() {
         #____filepath="$1"
-        #____type="$2"
-        #____key="$3"
-        #____value="$4"
+        #____key="$2"
+        #____value="$3"
+
+
+        # validate input
+        if [ "$1" = "" ]; then
+                return 1
+        fi
+
+        if [ -e "$1" ]; then
+                return 2
+        fi
+
+        if [ "$2" = "" ]; then
+                return 3
+        fi
 
 
         # execute
-        case "$2" in
-        *)
-                interactors_data_write_file \
-                        "$1" \
-                        "$3" \
-                        "$4" \
-                        "$(interactors_print_license_notice)" \
-                        "$(interactors_print_configs_default)"
+        # create housing directory
+        if [ ! "${1%/*}" = "$1" ]; then
+                mkdir -p "${1%/*}"
                 if [ $? -ne 0 ]; then
-                        return 1
+                        return 4
                 fi
-                ;;
-        esac
+        fi
+
+
+        # create the data file
+        interactors_data_write_file \
+                "$1" \
+                "$2" \
+                "$3" \
+                "$(interactors_print_license_notice)" \
+                "$(interactors_print_configs_default)"
+        if [ $? -ne 0 ]; then
+                return 5
+        fi
 
 
         # report status
