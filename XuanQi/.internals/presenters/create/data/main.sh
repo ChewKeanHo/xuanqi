@@ -44,6 +44,13 @@ $(interactors_print_responses_errors_outside_project_path)
         return 1
 fi
 
+if [ "$3" = "" ]; then
+        interactors_print_error "\
+$(interactors_print_responses_errors_empty_filepath)
+"
+        return 1
+fi
+
 
 
 
