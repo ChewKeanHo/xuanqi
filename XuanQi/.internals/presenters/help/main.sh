@@ -30,6 +30,10 @@ interactors_print_info "$(interactors_print_ui_horizontal_line 3)"
 case "$2" in
 create)
         case "$3" in
+        config)
+                interactors_print_info \
+                        "$(interactors_print_help_create_config_index)"
+                ;;
         data)
                 interactors_print_info \
                         "$(interactors_print_help_create_data_index)"
