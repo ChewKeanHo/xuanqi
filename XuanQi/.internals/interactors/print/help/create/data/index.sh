@@ -26,15 +26,15 @@
 #               - '0' means ok; error otherwise.
 #               - error when internal file is missing.
 #               - error when internal file is unreadable.
-interactors_print_help_purge_index() {
+interactors_print_help_create_data_index() {
         # validate inputs
         ____path="\
-${XUANQI_PATH_ROOT}/entities/docs/help/purge/${XUANQI_LANGUAGE}.md\
+${XUANQI_PATH_ROOT}/entities/docs/help/create/data/${XUANQI_LANGUAGE}.md\
 "
         if [ ! -f "$____path" ]; then
                 # fallback to english
                 ____path="\
-${XUANQI_PATH_ROOT}/entities/docs/help/purge/en.md\
+${XUANQI_PATH_ROOT}/entities/docs/help/create/data/en.md\
 "
         fi
 

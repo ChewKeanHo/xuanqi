@@ -28,6 +28,17 @@ interactors_print_info "$(interactors_print_ui_horizontal_line 3)"
 
 # run through each specific section
 case "$2" in
+create)
+        case "$3" in
+        data)
+                interactors_print_info \
+                        "$(interactors_print_help_create_data_index)"
+                ;;
+        *)
+                interactors_print_debug "From dev: Coming Soon!"
+                ;;
+        esac
+        ;;
 purge)
         interactors_print_info "$(interactors_print_help_purge_index)"
         ;;

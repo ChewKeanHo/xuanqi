@@ -20,7 +20,7 @@
 # Parameters:
 # Returns:
 #       String
-#               - the help index section content.
+#               - the content.
 #               - empty on error.
 #       Return Code
 #               - '0' means ok; error otherwise.
