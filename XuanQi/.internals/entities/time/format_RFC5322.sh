@@ -36,82 +36,17 @@
 #       Return Code
 #               - '0' means ok; error otherwise.
 #               - error on bad execution.
-entities_format_RFC5322() {
+entities_time_format_RFC5322() {
         #____unix_epoch="$1"
         #____timezone="$2"
 
 
-        # validate inputs
-        command -v date > /dev/null
-        if [ $? -ne 0 ]; then
-                printf -- ""
-                return 1
-        fi
-
-        case "$1" in
-        ""|*[!0-9]*)
-                printf -- ""
-                return 1
-                ;;
-        *)
-                # accepted
-                ;;
-        esac
-
-        case "$2" in
-        "")
-                ____timezone="+00:00"
-                ;;
-        [+-][0-9][0-9][0-9][0-9])
-                ## get sign
-                ____timezone="${2%%"${2#?}"}"
-
-                ## check hour
-                ____sample="${2#?}"
-                ____sample="${____sample%??}"
-                if [ "$____sample" -lt 0 ] || [ "$____sample" -gt 23 ]; then
-                        unset ____sample ____timezone
-                        printf -- ""
-                        return 1
-                fi
-                ____timezone="${____timezone}${____sample}:"
-
-                ## check minute
-                ____sample="${2#???}"
-                if [ "$____sample" -lt 0 ] || [ "$____sample" -gt 59 ]; then
-                        unset ____sample ____timezone
-                        printf -- ""
-                        return 1
-                fi
-                ____timezone="${____timezone}${____sample}"
-                ;;
-        *)
-                printf -- ""
-                return 1
-                ;;
-        esac
-        unset ____sample
-
-
         # execute
-        if [ "$(echo "$(uname)" | tr '[:upper:]' '[:lower:]')" = "darwin" ]; then
-                printf -- "%s" \
-                        "$( \
-                                TZ="UTC${____timezone}" \
-                                date -j -f "%s" "${1}" +"%a, %d %b %Y %H:%M:%S %z" \
-                        )"
-        else
-                printf -- "%s" \
-                        "$( \
-                                TZ="UTC${____timezone}" \
-                                date --date="@${1}" +"%a, %d %b %Y %H:%M:%S %z" \
-                        )"
-        fi
+        entities_time_format "%a, %d %b %Y %H:%M:%S %z" "$1" "$2"
         if [ $? -ne 0 ]; then
-                unset ____timezone
+                printf -- ""
                 return 1
         fi
-        unset ____timezone
 
 
         # report status
