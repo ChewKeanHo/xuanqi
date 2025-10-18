@@ -29,7 +29,7 @@
 # Outputs:
 #       String
 #               - the timestamp string in the following format:
-#                   "[Year]-[Month]-[Day]T[Hour]:[Minutes]:[Seconds][Timezone]"
+#                   '[Year]-[Month]-[Day]T[Hour]:[Minutes]:[Seconds][Timezone]'
 #               - Examples
 #                       "1760742707" + "+0230" = "2025-10-18T01:41:47+0230"
 # Returns:

@@ -29,7 +29,7 @@
 # Outputs:
 #       String
 #               - the timestamp string in the following format:
-#                   "WeekDay, Day Month Year Hour:Minute:Second Timezone"
+#                   'Weekday, Day Month Year Hour:Minute:Second Timezone'
 #               - Examples
 #                   "1760742707" + "+0230" = "Sat, 18 Oct 2025 01:41:47 +0230"
 # Returns:
