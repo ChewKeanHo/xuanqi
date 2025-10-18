@@ -27,25 +27,11 @@
 #               - error when internal file is missing.
 #               - error when internal file is unreadable.
 interactors_print_responses_errors_parse_directory_configs() {
-        # validate inputs
-        ____path="\
-${XUANQI_PATH_ROOT}/entities/docs/responses/errors/parse_directory_configs/${XUANQI_LANGUAGE}.txt\
-"
-        if [ ! -f "$____path" ]; then
-                # fallback to english
-                ____path="\
-${XUANQI_PATH_ROOT}/entities/docs/responses/errors/parse_directory_configs/en.txt\
-"
-        fi
-
-
         # execute
-        entities_fs_read_text_file "$____path"
+        entities_i18n_errors_parse_directory_configs
         if [ $? -ne 0 ]; then
-                unset ____path
                 return 1
         fi
-        unset ____path
 
 
         # report status
