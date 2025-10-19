@@ -1,6 +1,7 @@
 #!/bin/sh
 # Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
 #
 #
 # Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
@@ -35,6 +36,7 @@
 #       Return Code
 #               - '0' means ok; error otherwise.
 #               - error on invalid '$____path_dest' (e.g. 'empty').
+#               - error on invalid '$____indent' (e.g. not a number).
 #               - error on bad execution.
 views_shell_write_comment() {
         #____path_dest="$1"
@@ -47,6 +49,17 @@ views_shell_write_comment() {
                 return 1
         fi
 
+        if [ ! "${1%/*}" = "$1" ]; then
+                if [ -d "${1%/*}" ]; then
+                        : # accepted
+                elif [ -L "${1%/*}" ] &&
+                [ -d "$(readlink --canonicalize "$1")" ]; then
+                        : # accepted
+                else
+                        return 1
+                fi
+        fi
+
         if [ "$2" = "" ]; then
                 printf -- ""
                 return 0
@@ -55,8 +68,12 @@ views_shell_write_comment() {
 
         # execute
         case "$3" in
-        ""|*[!0-9]*)
+        "")
                 ____indent=0
+                ;;
+        *[!0-9]*)
+                unset ____indent
+                return 1
                 ;;
         *)
                 ____indent="$3"
