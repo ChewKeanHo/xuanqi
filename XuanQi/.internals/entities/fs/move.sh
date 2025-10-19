@@ -20,10 +20,10 @@
 # Parameters:
 #       ____destination_path
 #               - REQUIRED
-#               - The destination filepath to move as.
+#               - The destination path to move as.
 #       ____source_path
 #               - REQUIRED
-#               - The source filepath to move from.
+#               - The source path to move from.
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.

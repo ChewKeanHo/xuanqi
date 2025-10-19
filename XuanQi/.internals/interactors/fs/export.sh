@@ -18,27 +18,23 @@
 
 
 # Parameters:
-#       ____destination_path
+#       ____path
 #               - REQUIRED
-#               - The destination filepath to clean up.
-#               - Create housing directory ready for writing.
+#               - The source path to export.
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
-#               - error on empty any value.
-#               - error on execution failure.
-interactors_clean_up_file() {
-        #____destination_path="$1"
+#               - error on empty value.
+#               - error on existing target.
+#               - error on missing '.tmp' source.
+#               - error on missing target's housing directory.
+#               - error on move failure.
+interactors_fs_export() {
+        #____path="$1"
 
 
         # execute
-        if [ ! "${1%/*}" = "$1" ]; then
-                entities_fs_make_directory "${1%/*}"
-                if [ $? -ne 0 ]; then
-                        return 1
-                fi
-        fi
-        entities_fs_remove "${1}.tmp"
+        interactors_fs_move "$1" "${1}.tmp"
         if [ $? -ne 0 ]; then
                 return 1
         fi

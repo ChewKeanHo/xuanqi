@@ -20,7 +20,7 @@
 # Parameters:
 #       ____source_path
 #               - REQUIRED
-#               - The source filepath to remove.
+#               - The source path to remove.
 #               - Sync housing directory upon remove for atomic
 #                 expectation.
 # Returns:
@@ -30,42 +30,14 @@
 #               - error on removing item outside of user home
 #                 directory or itself (e.g. '/' or '~').
 #               - error on missing target's housing directory.
-entities_fs_remove() {
+interactors_fs_delete() {
         #____source_path="$1"
 
 
-        # validate inputs
-        if [ "$1" = "" ]; then
-                return 1
-        fi
-
-        if [ ! -e "$1" ]; then
-                return 0
-        fi
-
-        if [ "${1%/}" = "${HOME%/}" ] || [ "${1%/}" = "~" ] ||
-        [ "$1" = "/" ] ||
-        [ "$1" = "/usr" ] ||
-        [ "$1" = "/boot" ] ||
-        [ "$1" = "/etc" ] ||
-        [ "$1" = "/run" ] ||
-        [ "$1" = "/sys" ] ||
-        [ "$1" = "/bin" ] ||
-        [ "$1" = "/sbin" ] ||
-        [ "$1" = "/dev" ] ||
-        [ "$1" = "/proc" ] ||
-        [ "$1" = "/vmlinuz" ] ||
-        [ "$1" = "/initrd.img" ]; then
-                return 1
-        fi
-
-
         # execute
-        rm -rf "$1" 2> /dev/null
-        if [ ! "${1%/*}" = "$1" ]; then
-                sync "${1%/*}" 2> /dev/null
-        else
-                sync "$PWD" 2> /dev/null
+        entities_fs_delete "$1"
+        if [ $? -ne 0 ]; then
+                return 1
         fi
 
 

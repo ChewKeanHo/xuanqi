@@ -38,7 +38,7 @@ while IFS="" read -r ____line || [ -n "$____line" ]; do
                 interactors_print_info "\
 $(interactors_print_responses_removing "\$${____line%%": "*}")
 "
-                interactors_fs_remove "${PROJECT_PATH_ROOT}/${____line#*": "}"
+                interactors_fs_delete "${PROJECT_PATH_ROOT}/${____line#*": "}"
                 continue
         fi
 done<<EOF

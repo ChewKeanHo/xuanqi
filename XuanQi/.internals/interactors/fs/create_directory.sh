@@ -20,31 +20,21 @@
 # Parameters:
 #       ____path
 #               - REQUIRED
-#               - The destination filepath to create.
+#               - The destination directory path to create.
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
 #               - error on empty value.
 #               - error on existing target but is not a directory.
 #               - error on create failure.
-entities_fs_make_directory() {
+interactors_fs_create_directory() {
         #____path="$1"
 
 
-        # validate inputs
-        if [ "$1" = "" ]; then
-                return 1
-        fi
-
-        if [ -e "$1" ] && [ ! -d "$1" ]; then
-                return 1
-        fi
-
-
         # execute
-        mkdir -p "$1"
+        interactors_fs_create_directory "$1"
         if [ $? -ne 0 ]; then
-                return 1
+                 return 1
         fi
 
 

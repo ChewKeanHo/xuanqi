@@ -18,27 +18,31 @@
 
 
 # Parameters:
-#       ____destination_path
+#       ____path
 #               - REQUIRED
-#               - The destination path to move as.
-#       ____source_path
-#               - REQUIRED
-#               - The source path to move from.
+#               - The destination directory path to create.
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
-#               - error on empty any value.
-#               - error on existing target.
-#               - error on missing source.
-#               - error on missing target's housing directory.
-#               - error on move failure.
-interactors_fs_move() {
-        #____destination_path="$1"
-        #____source_path="$2"
+#               - error on empty value.
+#               - error on existing target but is not a directory.
+#               - error on create failure.
+entities_fs_create_directory() {
+        #____path="$1"
+
+
+        # validate inputs
+        if [ "$1" = "" ]; then
+                return 1
+        fi
+
+        if [ -e "$1" ] && [ ! -d "$1" ]; then
+                return 1
+        fi
 
 
         # execute
-        entities_fs_move "$1" "$2"
+        mkdir -p "$1"
         if [ $? -ne 0 ]; then
                 return 1
         fi

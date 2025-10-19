@@ -18,24 +18,28 @@
 
 
 # Parameters:
-#       ____source_path
+#       ____path
 #               - REQUIRED
-#               - The source filepath to remove.
-#               - Sync housing directory upon remove for atomic
-#                 expectation.
+#               - The destination path to clean up.
+#               - Create housing directory ready for writing.
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
 #               - error on empty any value.
-#               - error on removing item outside of user home
-#                 directory or itself (e.g. '/' or '~').
-#               - error on missing target's housing directory.
-interactors_fs_remove() {
-        #____source_path="$1"
+#               - error on execution failure.
+interactors_clean_up() {
+        #____path="$1"
 
 
         # execute
-        entities_fs_remove "$1"
+        if [ ! "${1%/*}" = "$1" ]; then
+                interactors_fs_create_directory "${1%/*}"
+                if [ $? -ne 0 ]; then
+                        return 1
+                fi
+        fi
+
+        interactors_fs_delete "${1}.tmp"
         if [ $? -ne 0 ]; then
                 return 1
         fi

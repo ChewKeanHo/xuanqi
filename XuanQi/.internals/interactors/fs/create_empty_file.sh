@@ -18,23 +18,24 @@
 
 
 # Parameters:
-#       ____destination_path
+#       ____path
 #               - REQUIRED
-#               - The destination filepath to export as.
+#               - The filepath to create.
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
-#               - error on empty any value.
-#               - error on missing source.
-#               - error on execution failure.
-interactors_export_file() {
-        #____path_dest="$1"
+#               - error on empty value.
+#               - error on existing target.
+#               - error on write failure.
+interactors_fs_create_empty_file() {
+        #____destination_path="$1"
+        #____source_path="$2"
 
 
         # execute
-        entities_fs_move "$1" "${1}.tmp"
+        entities_fs_create_empty_file "$1"
         if [ $? -ne 0 ]; then
-                return 1
+                 return 1
         fi
 
 

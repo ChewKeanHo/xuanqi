@@ -20,10 +20,10 @@
 # Parameters:
 #       ____destination_path
 #               - REQUIRED
-#               - The destination filepath to copy as.
+#               - The destination path to copy as.
 #       ____source_path
 #               - REQUIRED
-#               - The source filepath to copy from.
+#               - The source path to copy from.
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.

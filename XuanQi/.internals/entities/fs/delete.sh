@@ -18,23 +18,20 @@
 
 
 # Parameters:
-#       ____destination_path
-#               - REQUIRED
-#               - The destination path to copy as.
 #       ____source_path
 #               - REQUIRED
-#               - The source path to copy from.
+#               - The source path to remove.
+#               - Sync housing directory upon remove for atomic
+#                 expectation.
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
 #               - error on empty any value.
-#               - error on existing target.
-#               - error on missing source.
+#               - error on removing item outside of user home
+#                 directory or itself (e.g. '/' or '~').
 #               - error on missing target's housing directory.
-#               - error on copy failure.
-entities_fs_copy() {
-        #____destination_path="$1"
-        #____source_path="$2"
+entities_fs_delete() {
+        #____source_path="$1"
 
 
         # validate inputs
@@ -42,27 +39,33 @@ entities_fs_copy() {
                 return 1
         fi
 
-        if [ "$2" = "" ]; then
-                return 1
+        if [ ! -e "$1" ]; then
+                return 0
         fi
 
-        if [ -e "$1" ]; then
-                return 1
-        fi
-
-        if [ ! "${1%/*}" = "$1" ] && [ ! -e "${1%/*}" ]; then
-                return 1
-        fi
-
-        if [ ! -e "$2" ]; then
+        if [ "${1%/}" = "${HOME%/}" ] || [ "${1%/}" = "~" ] ||
+        [ "$1" = "/" ] ||
+        [ "$1" = "/usr" ] ||
+        [ "$1" = "/boot" ] ||
+        [ "$1" = "/etc" ] ||
+        [ "$1" = "/run" ] ||
+        [ "$1" = "/sys" ] ||
+        [ "$1" = "/bin" ] ||
+        [ "$1" = "/sbin" ] ||
+        [ "$1" = "/dev" ] ||
+        [ "$1" = "/proc" ] ||
+        [ "$1" = "/vmlinuz" ] ||
+        [ "$1" = "/initrd.img" ]; then
                 return 1
         fi
 
 
         # execute
-        cp -r "$2" "$1" 2> /dev/null
-        if [ $? -ne 0 ]; then
-                return 1
+        rm -rf "$1" 2> /dev/null
+        if [ ! "${1%/*}" = "$1" ]; then
+                sync "${1%/*}" 2> /dev/null
+        else
+                sync "$PWD" 2> /dev/null
         fi
 
 
