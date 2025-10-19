@@ -53,7 +53,10 @@ fi
 
 if [ ! -d "$XUANQI_PATH_CONFIGS" ]; then
         interactors_print_error "\
-$(interactors_print_responses_errors_locate_directory_configs)
+$(\
+        interactors_print_responses_errors_locate \
+                "\$XUANQI_DIRECTORY_CONFIGS (configs/)"
+)
 "
         return 1
 fi

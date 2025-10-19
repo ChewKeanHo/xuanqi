@@ -174,7 +174,10 @@ PROJECT_PATH_ROOT=""
 while [ "$____pathing" != "" ]; do
         if [ "$____pathing" = "$____previous" ]; then
                 interactors_print_error "\
-$(interactors_print_responses_errors_locate_project_root)
+$(\
+        interactors_print_responses_errors_locate \
+                "\$PROJECT_PATH_ROOT"
+)
 "
                 return 1
         fi
@@ -248,7 +251,10 @@ ${XUANQI_PATH_ROOT%/*}/${XUANQI_DIRECTORY_CONFIGS}\
                         : # exempted
                 else
                         interactors_print_error "\
-$(interactors_print_responses_errors_locate_directory_configs)
+$(\
+        interactors_print_responses_errors_locate \
+                "\$XUANQI_DIRECTORY_CONFIGS (configs/)"
+)
 "
                         return 1
                 fi

@@ -18,17 +18,20 @@
 
 
 # Parameters:
-# Outputs:
-#       String
-#               - the string content.
-#               - empty on error.
+#       ____subject
+#               - the subject that could not be located.
 # Returns:
+#       String
+#               - the translated content.
 #       Return Code
 #               - '0' means ok; error otherwise.
 #               - error on bad execution.
-interactors_print_responses_errors_locate_directory_configs() {
+interactors_print_responses_errors_locate() {
+        #____subject="$1"
+
+
         # execute
-        entities_i18n_errors_locate_directory_configs
+        entities_i18n_errors_locate "$1"
         if [ $? -ne 0 ]; then
                 return 1
         fi
