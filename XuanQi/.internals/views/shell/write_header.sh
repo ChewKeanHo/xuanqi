@@ -1,0 +1,143 @@
+#!/bin/sh
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+# Parameters:
+#       ____path_dest
+#               - COMPULSORY
+#               - The destination file to write into.
+#       ____source_license
+#               - COMPULSORY
+#               - License copyright entries.
+#               - Multiline values where each line is an entry.
+#               - No need to prefix '#' comment syntax.
+#               - Recommended entry format:
+#                       'Copyright [YEAR] [AUTHOR] [CONTACT (email/url)]'
+#       ____path_source_notice
+#               - OPTIONAL
+#               - License copyright notice filepath.
+#               - No need to prefix '#' comment syntax.
+#               - When not supplied, a '# [LICENSE_NOTICE_HERE]' will be
+#                 rendered instead.
+# Outputs:
+#       Write to $____path_dest File
+#               - the rendered output written into file.
+#               - no action on error.
+# Returns:
+#       Return Code
+#               - '0' means ok; error otherwise.
+#               - error on invalid '$____path_dest' (e.g. 'empty').
+#               - error on empty '$____source_license' (e.g. 'empty').
+#               - error on invalid '$____path_source_notice' (e.g. 'not a file').
+#               - error on bad execution.
+views_shell_write_header() {
+        #____path_dest="$1"
+        #____source_license="$2"
+        #____path_source_notice="$3"
+
+
+        # validate inputs
+        if [ "$1" = "" ]; then
+                return 1
+        fi
+
+        if [ "$2" = "" ]; then
+                return 1
+        fi
+
+        if [ ! "$3" = "" ] && [ ! -f "$3" ]; then
+                return 1
+        fi
+
+
+        # execute
+        ## write shebang
+        views_shell_write_raw_content "$1" "\
+#!/bin/sh
+"
+        if [ $? -ne 0 ]; then
+                return 1
+        fi
+
+        ## write license header
+        ____old_IFS="$IFS"
+        while IFS="" read -r ____line || [ -n "$____line" ]; do
+                if [ ! "$____line" = "" ]; then
+                        ____line="${____line#"#"}"
+                        ____line=" ${____line#" "}"
+                fi
+
+                views_shell_write_raw_content "$1" "\
+#${____line}
+"
+                if [ $? -ne 0 ]; then
+                        IFS="$____old_IFS"
+                        unset ____line ____old_IFS
+                        return 1
+                fi
+        done <<EOF
+${2}
+EOF
+        IFS="$____old_IFS"
+        unset ____line ____old_IFS
+
+        ## write spacing
+        views_shell_write_raw_content "$1" "\
+#
+#
+"
+        if [ $? -ne 0 ]; then
+                return 1
+        fi
+
+        ## write notice
+        if [ ! "$3" = "" ]; then
+                ____old_IFS="$IFS"
+                while IFS="" read -r ____line || [ -n "$____line" ]; do
+                        if [ ! "$____line" = "" ]; then
+                                ____line="${____line#"#"}"
+                                ____line=" ${____line#" "}"
+                        fi
+
+                        views_shell_write_raw_content "$1" "\
+#${____line}
+"
+                        if [ $? -ne 0 ]; then
+                                IFS="$____old_IFS"
+                                unset ____line ____old_IFS
+                                return 1
+                        fi
+                done < "$3"
+                IFS="$____old_IFS"
+                unset ____line ____old_IFS
+        else
+                views_shell_write_raw_content "$1" "\
+# [LICENSE_NOTICE_HERE]
+"
+                if [ $? -ne 0 ]; then
+                        return 1
+                fi
+        fi
+
+
+        # report status
+        return 0
+}
+
+
+
+
+# report import status
+return 0
