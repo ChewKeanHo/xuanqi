@@ -27,7 +27,7 @@
 #               - '0' means ok; error otherwise.
 #               - error on bad execution.
 entities_i18n_errors_locate_directory() {
-        ____subject="$1"
+        #____subject="$1"
 
 
         # validate inputs
