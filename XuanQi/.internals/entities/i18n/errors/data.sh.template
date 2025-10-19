@@ -30,21 +30,21 @@ entities_i18n_errors_EDIT_THIS_FUNCTION_NAME() {
         "de")
                 printf -- "%s" "\
 [EDIT STATEMENT HERE]
-Kann nicht fortfahren.
-Beende jetzt...
+Kann Nicht Fortfahren.
+Beende Jetzt...
 "
                 ;;
         "es")
                 printf -- "%s" "\
 [EDIT STATEMENT HERE]
-No se puede proceder.
+No Se Puede Proceder.
 Saliendo...
 "
                 ;;
         "fr")
                 printf -- "%s" "\
 [EDIT STATEMENT HERE]
-Impossible de continuer.
+Impossible De Continuer.
 Abandon...
 "
                 ;;
@@ -65,7 +65,7 @@ Abandon...
         "mn-Cyrl")
                 printf -- "%s" "\
 [EDIT STATEMENT HERE]
-Үргэлжлүүлэх боломжгүй.
+Үргэлжлүүлэх Боломжгүй.
 Гарах...
 "
                 ;;
@@ -79,42 +79,42 @@ Keluar Sekarang...
         "nb")
                 printf -- "%s" "\
 [EDIT STATEMENT HERE]
-Kan ikke fortsette.
-Avbryter nå...
+Kan Ikke Fortsette.
+Avbryter Nå...
 "
                 ;;
         "nl")
                 printf -- "%s" "\
 [EDIT STATEMENT HERE]
-Kan niet doorgaan.
+Kan Niet Doorgaan.
 Beëindigen...
 "
                 ;;
         "nn")
                 printf -- "%s" "\
 [EDIT STATEMENT HERE]
-Kan ikkje halda fram.
-Avbryt no...
+Kan Ikkje Halda Fram.
+Avbryt No...
 "
                 ;;
         "ru")
                 printf -- "%s" "\
 [EDIT STATEMENT HERE]
-Невозможно продолжить.
+Невозможно Продолжить.
 Выхожу...
 "
                 ;;
         "sv")
                 printf -- "%s" "\
 [EDIT STATEMENT HERE]
-Kan inte fortsätta.
+Kan Inte Fortsätta.
 Avbryter...
 "
                 ;;
         "uk")
                 printf -- "%s" "\
 [EDIT STATEMENT HERE]
-Неможливо продовжити.
+Неможливо Продовжити.
 Виходимо...
 "
                 ;;

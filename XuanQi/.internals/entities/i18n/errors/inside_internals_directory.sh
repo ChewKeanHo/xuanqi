@@ -29,25 +29,25 @@ entities_i18n_errors_inside_internals_directory() {
         case "$XUANQI_LANGUAGE" in
         "de")
                 printf -- "%s" "\
-Sie befinden sich aktuell im '.internals/' Engine-Verzeichnis!
-Gehen Sie heraus und versuchen Sie es erneut.
-Kann nicht fortfahren.
-Beende jetzt...
+Sie Befinden Sich Aktuell Im '.internals/' Engine-Verzeichnis!
+Gehen Sie Heraus Und Versuchen Sie Es Erneut.
+Kann Nicht Fortfahren.
+Beende Jetzt...
 "
                 ;;
         "es")
                 printf -- "%s" "\
-¡Actualmente estás dentro del directorio '.internals/' del motor!
-Sal y vuelve a intentarlo.
-No se puede proceder.
+¡Actualmente Estás Dentro Del Directorio '.internals/' Del Motor!
+Sal Y Vuelve A Intentarlo.
+No Se Puede Proceder.
 Saliendo...
 "
                 ;;
         "fr")
                 printf -- "%s" "\
-Vous êtes actuellement dans le répertoire moteur '.internals/'!
-Sortez et réessayez.
-Impossible de continuer.
+Vous Êtes Actuellement Dans Le Répertoire Moteur '.internals/'!
+Sortez Et Réessayez.
+Impossible De Continuer.
 Abandon...
 "
                 ;;
@@ -69,9 +69,9 @@ Abandon...
                 ;;
         "mn-Cyrl")
                 printf -- "%s" "\
-Та одоо '.internals/' хөдөлгүүрийн хавтас дотор байна!
-Гарч дахин оролдоно уу.
-Үргэлжлүүлэх боломжгүй.
+Та Одоо '.internals/' Хөдөлгүүрийн Хавтас Дотор Байна!
+Гарч Дахин Оролдоно Уу.
+Үргэлжлүүлэх Боломжгүй.
 Гарах...
 "
                 ;;
@@ -85,49 +85,49 @@ Keluar Sekarang...
                 ;;
         "nb")
                 printf -- "%s" "\
-Du er for tiden inne i '.internals/' Engine-katalogen!
-Gå ut og prøv på nytt.
-Kan ikke fortsette.
-Avbryter nå...
+Du Er For Tiden Inne I '.internals/' Engine-Katalogen!
+Gå Ut Og Prøv På Nytt.
+Kan Ikke Fortsette.
+Avbryter Nå...
 "
                 ;;
         "nl")
                 printf -- "%s" "\
-U bevindt zich momenteel in de '.internals/' Engine-map!
-Ga naar buiten en probeer het opnieuw.
-Kan niet doorgaan.
+U Bevindt Zich Momenteel In De '.internals/' Engine-Map!
+Ga Naar Buiten En Probeer Het Opnieuw.
+Kan Niet Doorgaan.
 Beëindigen...
 "
                 ;;
         "nn")
                 printf -- "%s" "\
-Du er for tida inne i '.internals/' Engine-mappa!
-Gå ut og prøv igjen.
-Kan ikkje halda fram.
-Avbryt no...
+Du Er For Tida Inne I '.internals/' Engine-Mappa!
+Gå Ut Og Prøv Igjen.
+Kan Ikkje Halda Fram.
+Avbryt No...
 "
                 ;;
         "ru")
                 printf -- "%s" "\
-Вы сейчас находитесь в каталоге движка '.internals/'!
-Выйдите и попробуйте снова.
-Невозможно продолжить.
+Вы Сейчас Находитесь В Каталоге Движка '.internals/'!
+Выйдите И Попробуйте Снова.
+Невозможно Продолжить.
 Выхожу...
 "
                 ;;
         "sv")
                 printf -- "%s" "\
-Du befinner dig för närvarande i '.internals/' Engine-katalogen!
-Gå ut och försök igen.
-Kan inte fortsätta.
+Du Befinner Dig För Närvarande I '.internals/' Engine-Katalogen!
+Gå Ut Och Försök Igen.
+Kan Inte Fortsätta.
 Avbryter...
 "
                 ;;
         "uk")
                 printf -- "%s" "\
-Ви зараз перебуваєте в каталозі двигуна '.internals/'!
-Вийдіть і спробуйте ще раз.
-Неможливо продовжити.
+Ви Зараз Перебуваєте В Каталозі Двигуна '.internals/'!
+Вийдьте І Спробуйте Ще Раз.
+Неможливо Продовжити.
 Виходимо...
 "
                 ;;
@@ -152,7 +152,7 @@ Avbryter...
                 printf -- "%s" "\
 You Are Currently Inside '.internals/' Engine Directory!
 Get Out And Try Again.
-Unable to Proceed.
+Unable To Proceed.
 Bailing Out...
 "
                 ;;

@@ -29,22 +29,22 @@ entities_i18n_errors_parse_directory_configs() {
         case "$XUANQI_LANGUAGE" in
         "de")
                 printf -- "%s" "\
-Fehler beim Parsen von \$XUANQI_PATH_CONFIGS.
-Kann nicht fortfahren.
-Beende jetzt...
+Fehler Beim Parsen Von \$XUANQI_PATH_CONFIGS.
+Kann Nicht Fortfahren.
+Beende Jetzt...
 "
                 ;;
         "es")
                 printf -- "%s" "\
-Error al analizar \$XUANQI_PATH_CONFIGS.
-No se puede proceder.
+Error Al Analizar \$XUANQI_PATH_CONFIGS.
+No Se Puede Proceder.
 Saliendo...
 "
                 ;;
         "fr")
                 printf -- "%s" "\
-Échec de l'analyse de \$XUANQI_PATH_CONFIGS.
-Impossible de continuer.
+Échec De L'analyse De \$XUANQI_PATH_CONFIGS.
+Impossible De Continuer.
 Abandon...
 "
                 ;;
@@ -64,57 +64,57 @@ Abandon...
                 ;;
         "mn-Cyrl")
                 printf -- "%s" "\
-\$XUANQI_PATH_CONFIGS-ийг задлан шинжлэхэд алдаа гарлаа.
-Үргэлжлүүлэх боломжгүй.
+\$XUANQI_PATH_CONFIGS-Ийг Задлан Шинжлэхэд Алдаа Гарлаа.
+Үргэлжлүүлэх Боломжгүй.
 Гарах...
 "
                 ;;
         "ms")
                 printf -- "%s" "\
-Gagal menghuraikan \$XUANQI_PATH_CONFIGS.
+Gagal Menghuraikan \$XUANQI_PATH_CONFIGS.
 Tidak Dapat Sembung.
 Keluar Sekarang...
 "
                 ;;
         "nb")
                 printf -- "%s" "\
-Kunne ikke parse \$XUANQI_PATH_CONFIGS.
-Kan ikke fortsette.
-Avbryter nå...
+Kunne Ikke Parse \$XUANQI_PATH_CONFIGS.
+Kan Ikke Fortsette.
+Avbryter Nå...
 "
                 ;;
         "nl")
                 printf -- "%s" "\
-Parseren van \$XUANQI_PATH_CONFIGS mislukt.
-Kan niet doorgaan.
+Parseren Van \$XUANQI_PATH_CONFIGS Mislukt.
+Kan Niet Doorgaan.
 Beëindigen...
 "
                 ;;
         "nn")
                 printf -- "%s" "\
-Kunne ikkje parse \$XUANQI_PATH_CONFIGS.
-Kan ikkje halda fram.
-Avbryt no...
+Kunne Ikkje Parse \$XUANQI_PATH_CONFIGS.
+Kan Ikkje Halda Fram.
+Avbryt No...
 "
                 ;;
         "ru")
                 printf -- "%s" "\
-Kunde inte tolka \$XUANQI_PATH_CONFIGS.
-Невозможно продолжить.
+Ошибка При Разборе \$XUANQI_PATH_CONFIGS.
+Невозможно Продолжить.
 Выхожу...
 "
                 ;;
         "sv")
                 printf -- "%s" "\
-Kunde inte tolka \$XUANQI_PATH_CONFIGS.
-Kan inte fortsätta.
+Kunne Ikkje Parse \$XUANQI_PATH_CONFIGS.
+Kan Inte Fortsätta.
 Avbryter...
 "
                 ;;
         "uk")
                 printf -- "%s" "\
-Не вдалося обробити \$XUANQI_PATH_CONFIGS.
-Неможливо продовжити.
+Не Вдалося Обробити \$XUANQI_PATH_CONFIGS.
+Неможливо Продовжити.
 Виходимо...
 "
                 ;;
