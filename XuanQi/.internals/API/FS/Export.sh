@@ -17,6 +17,10 @@
 
 
 
+# Specifications:
+#       - To export an object (e.g. file, directory, etc) from its
+#         '.tmp' temporary file into its actual file.
+#       - Will raise error if its '.tmp' source is missing.
 # Parameters:
 #       ____path
 #               - REQUIRED
@@ -24,11 +28,11 @@
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
-#               - error on empty value.
-#               - error on missing '.tmp' source.
-#               - error on missing target's housing directory.
-#               - error on move failure.
-interactors_fs_export() {
+#               - Error on empty value (code: 1).
+#               - Error on missing '.tmp' source (code: 2).
+#               - Error on missing housing directory (code: 3).
+#               - Error on bad execution (code: 4).
+XuanQi_FS_Export() {
         #____path="$1"
 
 
@@ -38,18 +42,18 @@ interactors_fs_export() {
         fi
 
         if [ ! -e "${1%.tmp}.tmp" ]; then
-                return 1
+                return 2
         fi
 
         if [ ! "${1%/*}" = "$1" ] && [ ! -d "${1%/*}" ]; then
-                return 1
+                return 3
         fi
 
 
         # execute
-        interactors_fs_move "$1" "${1%.tmp}.tmp"
+        interactors_fs_export "$1"
         if [ $? -ne 0 ]; then
-                return 1
+                return 4
         fi
 
 
