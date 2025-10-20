@@ -63,7 +63,7 @@ fi
 
 if [ "$3" = "" ]; then
         interactors_print_error "\
-$(interactors_print_responses_errors_empty_filepath)
+$(interactors_print_responses_errors_empty "[RELATIVE_PATH]")
 "
         return 1
 fi
@@ -88,7 +88,7 @@ case $? in
 1)
         # empty filepath
         interactors_print_error "\
-$(interactors_print_responses_errors_empty_filepath)
+$(interactors_print_responses_errors_empty "[RELATIVE_PATH]")
 "
         return 1
         ;;
@@ -102,7 +102,7 @@ $(interactors_print_responses_errors_target_exists)
 3)
         # empty key
         interactors_print_error "\
-$(interactors_print_responses_errors_empty_key)
+$(interactors_print_responses_errors_empty "[KEY]")
 "
         return 1
         ;;
