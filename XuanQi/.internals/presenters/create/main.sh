@@ -28,6 +28,12 @@ interactors_print_info "$(interactors_print_ui_horizontal_line 3)"
 
 # execute by type
 case "$2" in
+component)
+        . "${XUANQI_PATH_ROOT}/presenters/create/component/main.sh"
+        if [ $? -ne 0 ]; then
+                return 1
+        fi
+        ;;
 config)
         . "${XUANQI_PATH_ROOT}/presenters/create/config/main.sh"
         if [ $? -ne 0 ]; then

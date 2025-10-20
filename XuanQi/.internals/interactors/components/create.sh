@@ -29,8 +29,8 @@
 #               - '0' means ok; error otherwise.
 #               - error on empty '____filepath' (code: 1).
 #               - error on existing file (code: 2).
-#               - error on empty '____key' (code: 3).
-#               - error on invalid '____key' (code: 4).
+#               - error on empty '____type' (code: 3).
+#               - error on invalid '____type' (code: 4).
 #               - error on bad execution (code: 5).
 interactors_components_create() {
         #____path="$1"
