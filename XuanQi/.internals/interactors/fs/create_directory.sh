@@ -32,7 +32,7 @@ interactors_fs_create_directory() {
 
 
         # execute
-        interactors_fs_create_directory "$1"
+        entities_fs_create_directory "$1"
         if [ $? -ne 0 ]; then
                  return 1
         fi
