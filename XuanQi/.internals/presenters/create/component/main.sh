@@ -18,13 +18,40 @@
 
 
 # validate inputs
-XUANQI_DIRECTORY_COMPONENTS="${XUANQI_DIRECTORY_COMPONENTS:-"???"}"
-XUANQI_PATH_COMPONENTS="${PROJECT_PATH_ROOT%/}/${XUANQI_DIRECTORY_COMPONENTS#/}"
+## just in case config parsing did not reset it to empty
+XUANQI_DIRECTORY_COMPONENTS="${XUANQI_DIRECTORY_COMPONENTS:-"components"}"
 
-____path="${4##"${PROJECT_PATH_ROOT}"}"
-____path="${____path##"${XUANQI_DIRECTORY_COMPONENTS}"}"
-____path="${____path#/}"
-____path="${XUANQI_PATH_COMPONENTS:-"???"}/${____path}"
+
+## locate XUANQI_PATH_COMPONENTS - try from $PROJECT_PATH_ROOT
+XUANQI_PATH_COMPONENTS="${PROJECT_PATH_ROOT%/}/${XUANQI_DIRECTORY_COMPONENTS#/}"
+if [ ! -d "$XUANQI_PATH_COMPONENTS" ]; then
+        ## try from $PWD
+        XUANQI_PATH_COMPONENTS="${PWD}/${XUANQI_DIRECTORY_COMPONENTS#/}"
+fi
+
+if [ ! -d "$XUANQI_PATH_COMPONENTS" ]; then
+        ## try from .internals/ neighbour
+        XUANQI_PATH_COMPONENTS="${XUANQI_PATH_ROOT%/}/${XUANQI_DIRECTORY_COMPONENTS#/}"
+fi
+
+if [ ! -d "$XUANQI_PATH_COMPONENTS" ]; then
+        ## reset and fail the run
+        unset XUANQI_PATH_COMPONENTS
+fi
+
+
+## formulate target path
+____path=""
+if [ -d "$XUANQI_PATH_COMPONENTS" ]; then
+        ____path="${4##"${PROJECT_PATH_ROOT}"}"
+        ____path="${____path#/}"
+        ____path="${____path##"${XUANQI_DIRECTORY_COMPONENTS}"}"
+        ____path="${____path#/}"
+        ____path="${XUANQI_PATH_COMPONENTS}/${____path}"
+fi
+
+
+## report request to dashboard
 interactors_print_info "\
 $(interactors_print_responses_type)
 ${2:-"???"}
@@ -46,7 +73,13 @@ ${____path:-"???"}
 "
 
 
-if [ "$PROJECT_PATH_ROOT" = "" ] ||
+## early error responses
+if [ "$PROJECT_PATH_ROOT" = "" ]; then
+        interactors_print_error "\
+$(interactors_print_responses_errors_locate "\$PROJECT_PATH_ROOT")
+"
+        return 1
+elif [ ! "$____path" = "" ] &&
 [ "${____path##"${PROJECT_PATH_ROOT}/"}" = "$____path" ]; then
         interactors_print_error "\
 $(\
@@ -56,9 +89,8 @@ $(\
 )
 "
         return 1
-fi
-
-if [ ! -d "$XUANQI_PATH_COMPONENTS" ]; then
+elif [ "$XUANQI_PATH_COMPONENTS" = "" ] ||
+[ ! -d "$XUANQI_PATH_COMPONENTS" ]; then
         interactors_print_error "\
 $(\
         interactors_print_responses_errors_locate \
@@ -66,9 +98,7 @@ $(\
 )
 "
         return 1
-fi
-
-if [ "$4" = "" ]; then
+elif [ "$4" = "" ]; then
         interactors_print_error "\
 $(interactors_print_responses_errors_empty "[RELATIVE_PATH]")
 "

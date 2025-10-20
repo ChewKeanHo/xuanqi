@@ -225,20 +225,18 @@ case "$1" in
         ;;
 *)
         # locate XUANQI_PATH_CONFIGS
+        ## try from PROJECT_PATH_ROOT workspace path
         XUANQI_PATH_CONFIGS="${PROJECT_PATH_ROOT}/${XUANQI_DIRECTORY_CONFIGS}"
+
         if [ ! -d "$XUANQI_PATH_CONFIGS" ]; then
-                # try current directory
+                # not found - try from current directory
                 XUANQI_PATH_CONFIGS="${PWD}/${XUANQI_DIRECTORY_CONFIGS}"
         fi
 
-
-        if [ ! -d "$XUANQI_PATH_CONFIGS" ]; then
-                # try XUANQI_PATH_ROOT workspace path
-                if [ "${XUANQI_PATH_ROOT#"/usr/"}" = "$XUANQI_PATH_ROOT" ]; then
-                        XUANQI_PATH_CONFIGS="\
-${XUANQI_PATH_ROOT%/*}/${XUANQI_DIRECTORY_CONFIGS}\
-"
-                fi
+        if [ ! -d "$XUANQI_PATH_CONFIGS" ] &&
+        [ ! "${XUANQI_PATH_ROOT%"/.internals"}" = "$XUANQI_PATH_ROOT" ]; then
+                # try as .internals/ neighbour
+                XUANQI_PATH_CONFIGS="${XUANQI_PATH_ROOT%/*}/${XUANQI_DIRECTORY_CONFIGS}"
         fi
 
 
