@@ -75,16 +75,16 @@ entities_data_write() {
 
         # execute
         ## clear any existing temporary file
-        entities_fs_remove "${1}.tmp"
+        entities_fs_delete "${1}.tmp"
 
         ## write copyright holders
         printf -- "%s" "\
-# (C) $(entities_time_get_current_year) Project Authors
+# (C) $(entities_time_format_year "$(entities_time_now)") Project Authors
 #
 #
 " >> "${1}.tmp"
         if [ $? -ne 0 ]; then
-                entities_fs_remove "${1}.tmp"
+                entities_fs_delete "${1}.tmp"
         fi
 
         ## write license header when available
@@ -104,7 +104,7 @@ entities_data_write() {
 #${____line}
 " >> "${1}.tmp"
                         if [ $? -ne 0 ]; then
-                                entities_fs_remove "${1}.tmp"
+                                entities_fs_delete "${1}.tmp"
                                 IFS="$____old_IFS"
                                 unset ____line ____old_IFS
                                 return 1
@@ -125,7 +125,7 @@ EOF
 
 " >> "${1}.tmp"
                 if [ $? -ne 0 ]; then
-                        entities_fs_remove "${1}.tmp"
+                        entities_fs_delete "${1}.tmp"
                         return 1
                 fi
 
@@ -145,7 +145,7 @@ EOF
 #${____line}
 " >> "${1}.tmp"
                         if [ $? -ne 0 ]; then
-                                entities_fs_remove "${1}.tmp"
+                                entities_fs_delete "${1}.tmp"
                                 IFS="$____old_IFS"
                                 unset ____line ____old_IFS
                                 return 1
@@ -165,7 +165,7 @@ ${3}
 \"
 " >> "${1}.tmp"
         if [ $? -ne 0 ]; then
-                entities_fs_remove "${1}.tmp"
+                entities_fs_delete "${1}.tmp"
                 return 1
         fi
 
@@ -173,7 +173,7 @@ ${3}
         # all good - export
         entities_fs_move "$1" "${1}.tmp"
         if [ $? -ne 0 ]; then
-                entities_fs_remove "${1}.tmp"
+                entities_fs_delete "${1}.tmp"
                 return 1
         fi
 
