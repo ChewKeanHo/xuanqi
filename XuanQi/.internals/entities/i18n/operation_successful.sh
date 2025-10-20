@@ -18,63 +18,96 @@
 
 
 # Parameters:
-# Returns:
+# Outputs:
 #       String
 #               - the translated content.
+# Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
 #               - error on bad execution.
-entities_i18n_get_operation_successful() {
+entities_i18n_operation_successful() {
         # execute
         case "$XUANQI_LANGUAGE" in
         "de")
-                printf -- "%s" "Operation erfolgreich!"
+                printf -- "%s" "\
+Operation Erfolgreich!
+"
                 ;;
         "es")
-                printf -- "%s" "¡Operación exitosa!"
+                printf -- "%s" "\
+¡Operación Exitosa!
+"
                 ;;
         "fr")
-                printf -- "%s" "Opération réussie!"
+                printf -- "%s" "\
+Opération Réussie!
+"
                 ;;
         "ja")
-                printf -- "%s" "操作が成功しました！"
+                printf -- "%s" "\
+操作が成功しました！
+"
                 ;;
         "ko")
-                printf -- "%s" "작업 성공!"
+                printf -- "%s" "\
+작업 성공!
+"
                 ;;
         "mn-Cyrl")
-                printf -- "%s" "Үйлдэл амжилттай!"
+                printf -- "%s" "\
+Үйлдэл Амжилттай!
+"
                 ;;
         "ms")
-                printf -- "%s" "Operasi Berjaya!"
+                printf -- "%s" "\
+Operasi Berjaya!
+"
                 ;;
         "nb")
-                printf -- "%s" "Operasjon vellykket!"
+                printf -- "%s" "\
+Operasjon Vellykket!
+"
                 ;;
         "nl")
-                printf -- "%s" "Operatie geslaagd!"
+                printf -- "%s" "\
+Operatie Geslaagd!
+"
                 ;;
         "nn")
-                printf -- "%s" "Operasjon vellykka!"
+                printf -- "%s" "\
+Operasjon Vellykka!
+"
                 ;;
         "ru")
-                printf -- "%s" "Операция успешна!"
+                printf -- "%s" "\
+Операция Успешна!
+"
                 ;;
         "sv")
-                printf -- "%s" "Åtgärd lyckades!"
+                printf -- "%s" "\
+Åtgärd Lyckades!
+"
                 ;;
         "uk")
-                printf -- "%s" "Операція успішна!"
+                printf -- "%s" "\
+Операція Успішна!
+"
                 ;;
         "zh-Hans")
-                printf -- "%s" "执行成功！"
+                printf -- "%s" "\
+执行成功！
+"
                 ;;
         "zh-Hant")
-                printf -- "%s" "執行成功！"
+                printf -- "%s" "\
+執行成功！
+"
                 ;;
         *)
                 # fallback to english
-                printf -- "%s" "Operation Success!"
+                printf -- "%s" "\
+Operation Success!
+"
                 ;;
         esac
         if [ $? -ne 0 ]; then

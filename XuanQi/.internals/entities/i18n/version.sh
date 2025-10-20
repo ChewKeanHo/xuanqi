@@ -18,63 +18,64 @@
 
 
 # Parameters:
-# Returns:
+# Outputs:
 #       String
 #               - the translated content.
+# Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
 #               - error on bad execution.
-entities_i18n_get_given_path() {
+entities_i18n_version() {
         # execute
         case "$XUANQI_LANGUAGE" in
         "de")
-                printf -- "%s" "Gegebener Pfad"
+                printf -- "%s" "Version"
                 ;;
         "es")
-                printf -- "%s" "Ruta Dada"
+                printf -- "%s" "Versión"
                 ;;
         "fr")
-                printf -- "%s" "Chemin Donné"
+                printf -- "%s" "Version"
                 ;;
         "ja")
-                printf -- "%s" "指定されたパス"
+                printf -- "%s" "バージョン"
                 ;;
         "ko")
-                printf -- "%s" "주어진 경로"
+                printf -- "%s" "버전"
                 ;;
         "mn-Cyrl")
-                printf -- "%s" "Өгсөн Зам"
+                printf -- "%s" "Хувилбар"
                 ;;
         "ms")
-                printf -- "%s" "Laluan Yang Diberi"
+                printf -- "%s" "Versi"
                 ;;
         "nb")
-                printf -- "%s" "Gitt Bane"
+                printf -- "%s" "Versjon"
                 ;;
         "nl")
-                printf -- "%s" "Opgegeven Pad"
+                printf -- "%s" "Versie"
                 ;;
         "nn")
-                printf -- "%s" "Gjeve Bane"
+                printf -- "%s" "Versjon"
                 ;;
         "ru")
-                printf -- "%s" "Заданный Путь"
+                printf -- "%s" "Версия"
                 ;;
         "sv")
-                printf -- "%s" "Given Sökväg"
+                printf -- "%s" "Version"
                 ;;
         "uk")
-                printf -- "%s" "Заданий Шлях"
+                printf -- "%s" "Версія"
                 ;;
         "zh-Hans")
-                printf -- "%s" "呈现路径"
+                printf -- "%s" "版本"
                 ;;
         "zh-Hant")
-                printf -- "%s" "呈現路徑"
+                printf -- "%s" "版本"
                 ;;
         *)
                 # fallback to english
-                printf -- "%s" "Given Path"
+                printf -- "%s" "Version"
                 ;;
         esac
         if [ $? -ne 0 ]; then

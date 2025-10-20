@@ -28,7 +28,7 @@
 #               - error on bad execution.
 interactors_print_responses_sample_value() {
         # execute
-        entities_i18n_get_sample_value
+        entities_i18n_sample_value
         if [ $? -ne 0 ]; then
                 return 1
         fi

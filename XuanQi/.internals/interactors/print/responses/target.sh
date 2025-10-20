@@ -28,7 +28,7 @@
 #               - error on bad execution.
 interactors_print_responses_target() {
         # execute
-        entities_i18n_get_target
+        entities_i18n_target
         if [ $? -ne 0 ]; then
                 return 1
         fi

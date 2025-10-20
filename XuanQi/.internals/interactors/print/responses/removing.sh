@@ -27,14 +27,20 @@
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
-#               - error when '____target' is empty.
+#               - error on empty ____target.
 #               - error on bad execution.
 interactors_print_responses_removing() {
         #____target ="$1"
 
 
+        # validate inputs
+        if [ "$1" = "" ]; then
+                return 1
+        fi
+
+
         # execute
-        entities_i18n_get_removing "$1"
+        entities_i18n_removing "$1"
         if [ $? -ne 0 ]; then
                 return 1
         fi

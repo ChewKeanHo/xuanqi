@@ -18,63 +18,64 @@
 
 
 # Parameters:
-# Returns:
+# Outputs:
 #       String
 #               - the translated content.
+# Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
 #               - error on bad execution.
-entities_i18n_get_target() {
+entities_i18n_type() {
         # execute
         case "$XUANQI_LANGUAGE" in
         "de")
-                printf -- "%s" "Ziel"
+                printf -- "%s" "Typ"
                 ;;
         "es")
-                printf -- "%s" "Objetivo"
+                printf -- "%s" "Tipo"
                 ;;
         "fr")
-                printf -- "%s" "Cible"
+                printf -- "%s" "Type"
                 ;;
         "ja")
-                printf -- "%s" "ターゲット"
+                printf -- "%s" "タイプ"
                 ;;
         "ko")
-                printf -- "%s" "대상"
+                printf -- "%s" "유형"
                 ;;
         "mn-Cyrl")
-                printf -- "%s" "Зорилго"
+                printf -- "%s" "Төрөл"
                 ;;
         "ms")
-                printf -- "%s" "Sasaran"
+                printf -- "%s" "Jenis"
                 ;;
         "nb")
-                printf -- "%s" "Mål"
+                printf -- "%s" "Type"
                 ;;
         "nl")
-                printf -- "%s" "Doel"
+                printf -- "%s" "Type"
                 ;;
         "nn")
-                printf -- "%s" "Mål"
+                printf -- "%s" "Type"
                 ;;
         "ru")
-                printf -- "%s" "Цель"
+                printf -- "%s" "Тип"
                 ;;
         "sv")
-                printf -- "%s" "Mål"
+                printf -- "%s" "Typ"
                 ;;
         "uk")
-                printf -- "%s" "Ціль"
+                printf -- "%s" "Тип"
                 ;;
         "zh-Hans")
-                printf -- "%s" "目标"
+                printf -- "%s" "类型"
                 ;;
         "zh-Hant")
-                printf -- "%s" "目標"
+                printf -- "%s" "類型"
                 ;;
         *)
                 # fallback to english
-                printf -- "%s" "Target"
+                printf -- "%s" "Type"
                 ;;
         esac
         if [ $? -ne 0 ]; then

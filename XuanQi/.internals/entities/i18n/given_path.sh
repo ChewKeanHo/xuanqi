@@ -18,63 +18,64 @@
 
 
 # Parameters:
-# Returns:
+# Outputs:
 #       String
 #               - the translated content.
+# Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
 #               - error on bad execution.
-entities_i18n_get_sample_value() {
+entities_i18n_given_path() {
         # execute
         case "$XUANQI_LANGUAGE" in
         "de")
-                printf -- "%s" "Beispielwert"
+                printf -- "%s" "Gegebener Pfad"
                 ;;
         "es")
-                printf -- "%s" "Valor de Ejemplo"
+                printf -- "%s" "Ruta Dada"
                 ;;
         "fr")
-                printf -- "%s" "Valeur d'Exemple"
+                printf -- "%s" "Chemin Donné"
                 ;;
         "ja")
-                printf -- "%s" "サンプル値"
+                printf -- "%s" "指定されたパス"
                 ;;
         "ko")
-                printf -- "%s" "샘플 값"
+                printf -- "%s" "주어진 경로"
                 ;;
         "mn-Cyrl")
-                printf -- "%s" "Жишээ Үнэ"
+                printf -- "%s" "Өгсөн Зам"
                 ;;
         "ms")
-                printf -- "%s" "Contoh Nilai"
+                printf -- "%s" "Laluan Yang Diberi"
                 ;;
         "nb")
-                printf -- "%s" "Eksempelverdi"
+                printf -- "%s" "Gitt Bane"
                 ;;
         "nl")
-                printf -- "%s" "Voorbeeldwaarde"
+                printf -- "%s" "Opgegeven Pad"
                 ;;
         "nn")
-                printf -- "%s" "Dømeverdi"
+                printf -- "%s" "Gjeve Bane"
                 ;;
         "ru")
-                printf -- "%s" "Пример Значения"
+                printf -- "%s" "Заданный Путь"
                 ;;
         "sv")
-                printf -- "%s" "Exempelvärde"
+                printf -- "%s" "Given Sökväg"
                 ;;
         "uk")
-                printf -- "%s" "Приклад Значення"
+                printf -- "%s" "Заданий Шлях"
                 ;;
         "zh-Hans")
-                printf -- "%s" "比如样本值"
+                printf -- "%s" "呈现路径"
                 ;;
         "zh-Hant")
-                printf -- "%s" "比如樣本值"
+                printf -- "%s" "呈現路徑"
                 ;;
         *)
                 # fallback to english
-                printf -- "%s" "Example Value"
+                printf -- "%s" "Given Path"
                 ;;
         esac
         if [ $? -ne 0 ]; then

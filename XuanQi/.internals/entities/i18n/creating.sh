@@ -18,63 +18,106 @@
 
 
 # Parameters:
-# Returns:
+# Outputs:
 #       String
 #               - the translated content.
+# Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
+#               - error on empty '____target'.
 #               - error on bad execution.
-entities_i18n_get_version() {
+entities_i18n_creating() {
+        #____target="$1"
+
+
+        # validate inputs
+        if [ "$1" = "" ]; then
+                return 1
+        fi
+
+
         # execute
         case "$XUANQI_LANGUAGE" in
         "de")
-                printf -- "%s" "Version"
+                printf -- "%s" "\
+Erstelle '${1}'...
+"
                 ;;
         "es")
-                printf -- "%s" "Versión"
+                printf -- "%s" "\
+Creando '${1}'...
+"
                 ;;
         "fr")
-                printf -- "%s" "Version"
+                printf -- "%s" "\
+Création de '${1}'...
+"
                 ;;
         "ja")
-                printf -- "%s" "バージョン"
+                printf -- "%s" "\
+'${1}' を作成しています...
+"
                 ;;
         "ko")
-                printf -- "%s" "버전"
+                printf -- "%s" "\
+'${1}' 생성 중...
+"
                 ;;
         "mn-Cyrl")
-                printf -- "%s" "Хувилбар"
+                printf -- "%s" "\
+'${1}' үүсгэж байна...
+"
                 ;;
         "ms")
-                printf -- "%s" "Versi"
+                printf -- "%s" "\
+Kini Mencipta '${1}'...
+"
                 ;;
         "nb")
-                printf -- "%s" "Versjon"
+                printf -- "%s" "\
+Oppretter '${1}'...
+"
                 ;;
         "nl")
-                printf -- "%s" "Versie"
+                printf -- "%s" "\
+Aan het maken '${1}'...
+"
                 ;;
         "nn")
-                printf -- "%s" "Versjon"
+                printf -- "%s" "\
+Opprettar '${1}'...
+"
                 ;;
         "ru")
-                printf -- "%s" "Версия"
+                printf -- "%s" "\
+Создание '${1}'...
+"
                 ;;
         "sv")
-                printf -- "%s" "Version"
+                printf -- "%s" "\
+Skapar '${1}'...
+"
                 ;;
         "uk")
-                printf -- "%s" "Версія"
+                printf -- "%s" "\
+Створення '${1}'...
+"
                 ;;
         "zh-Hans")
-                printf -- "%s" "版本"
+                printf -- "%s" "\
+正在创造“${1}”...
+"
                 ;;
         "zh-Hant")
-                printf -- "%s" "版本"
+                printf -- "%s" "\
+正在創造「${1}」...
+"
                 ;;
         *)
                 # fallback to english
-                printf -- "%s" "Version"
+                printf -- "%s" "\
+Creating '${1}'...
+"
                 ;;
         esac
         if [ $? -ne 0 ]; then

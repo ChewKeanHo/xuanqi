@@ -24,66 +24,57 @@
 #       Return Code
 #               - '0' means ok; error otherwise.
 #               - error on bad execution.
-entities_i18n_get_removing() {
-        #____target="$1"
-
-
-        # validate input
-        if [ "$1" = "" ]; then
-                return 1
-        fi
-
-
+entities_i18n_target() {
         # execute
         case "$XUANQI_LANGUAGE" in
         "de")
-                printf -- "%s" "Entferne '${1}'..."
+                printf -- "%s" "Ziel"
                 ;;
         "es")
-                printf -- "%s" "Eliminando '${1}'..."
+                printf -- "%s" "Objetivo"
                 ;;
         "fr")
-                printf -- "%s" "Suppression de '${1}'..."
+                printf -- "%s" "Cible"
                 ;;
         "ja")
-                printf -- "%s" "'${1}' を削除しています..."
+                printf -- "%s" "ターゲット"
                 ;;
         "ko")
-                printf -- "%s" "'${1}' 삭제 중..."
+                printf -- "%s" "대상"
                 ;;
         "mn-Cyrl")
-                printf -- "%s" "'${1}' устгаж байна..."
+                printf -- "%s" "Зорилго"
                 ;;
         "ms")
-                printf -- "%s" "Menghampuskan '${1}'..."
+                printf -- "%s" "Sasaran"
                 ;;
         "nb")
-                printf -- "%s" "Fjerner '${1}'..."
+                printf -- "%s" "Mål"
                 ;;
         "nl")
-                printf -- "%s" "'${1}' wordt verwijderd..."
+                printf -- "%s" "Doel"
                 ;;
         "nn")
-                printf -- "%s" "Fjernar '${1}'..."
+                printf -- "%s" "Mål"
                 ;;
         "ru")
-                printf -- "%s" "Удаление '${1}'..."
+                printf -- "%s" "Цель"
                 ;;
         "sv")
-                printf -- "%s" "Tar bort '${1}'..."
+                printf -- "%s" "Mål"
                 ;;
         "uk")
-                printf -- "%s" "Видалення '${1}'..."
+                printf -- "%s" "Ціль"
                 ;;
         "zh-Hans")
-                printf -- "%s" "正在删除“${1}”..."
+                printf -- "%s" "目标"
                 ;;
         "zh-Hant")
-                printf -- "%s" "正在刪除「${1}」..."
+                printf -- "%s" "目標"
                 ;;
         *)
                 # fallback to english
-                printf -- "%s" "Removing '${1}'..."
+                printf -- "%s" "Target"
                 ;;
         esac
         if [ $? -ne 0 ]; then

@@ -28,7 +28,7 @@
 #               - error on bad execution.
 interactors_print_responses_operation_successful() {
         # execute
-        entities_i18n_get_operation_successful
+        entities_i18n_operation_successful
         if [ $? -ne 0 ]; then
                 return 1
         fi

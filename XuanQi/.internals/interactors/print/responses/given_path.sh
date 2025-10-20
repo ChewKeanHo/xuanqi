@@ -28,7 +28,7 @@
 #               - error on bad execution.
 interactors_print_responses_given_path() {
         # execute
-        entities_i18n_get_given_path
+        entities_i18n_given_path
         if [ $? -ne 0 ]; then
                 return 1
         fi

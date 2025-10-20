@@ -33,8 +33,14 @@ interactors_print_responses_creating() {
         #____target ="$1"
 
 
+        # validate inputs
+        if [ "$1" = "" ]; then
+                return 1
+        fi
+
+
         # execute
-        entities_i18n_get_creating "$1"
+        entities_i18n_creating "$1"
         if [ $? -ne 0 ]; then
                 return 1
         fi

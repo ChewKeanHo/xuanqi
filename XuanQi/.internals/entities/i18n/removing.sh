@@ -18,17 +18,19 @@
 
 
 # Parameters:
-# Returns:
+# Outputs:
 #       String
 #               - the translated content.
+# Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
+#               - error on empty ____target.
 #               - error on bad execution.
-entities_i18n_get_creating() {
+entities_i18n_removing() {
         #____target="$1"
 
 
-        # validate input
+        # validate inputs
         if [ "$1" = "" ]; then
                 return 1
         fi
@@ -37,53 +39,85 @@ entities_i18n_get_creating() {
         # execute
         case "$XUANQI_LANGUAGE" in
         "de")
-                printf -- "%s" "Erstelle '${1}'..."
+                printf -- "%s" "\
+Entferne '${1}'...
+"
                 ;;
         "es")
-                printf -- "%s" "Creando '${1}'..."
+                printf -- "%s" "\
+Eliminando '${1}'...
+"
                 ;;
         "fr")
-                printf -- "%s" "Création de '${1}'..."
+                printf -- "%s" "\
+Suppression De '${1}'...
+"
                 ;;
         "ja")
-                printf -- "%s" "'${1}' を作成しています..."
+                printf -- "%s" "\
+「${1}」を削除しています...
+"
                 ;;
         "ko")
-                printf -- "%s" "'${1}' 생성 중..."
+                printf -- "%s" "\
+'${1}' 삭제 중...
+"
                 ;;
         "mn-Cyrl")
-                printf -- "%s" "'${1}' үүсгэж байна..."
+                printf -- "%s" "\
+'${1}' устгаж байна...
+"
                 ;;
         "ms")
-                printf -- "%s" "Kini Mencipta '${1}'..."
+                printf -- "%s" "\
+Menghampuskan '${1}'...
+"
                 ;;
         "nb")
-                printf -- "%s" "Oppretter '${1}'..."
+                printf -- "%s" "\
+Fjerner '${1}'...
+"
                 ;;
         "nl")
-                printf -- "%s" "Aan het maken '${1}'..."
+                printf -- "%s" "\
+'${1}' wordt verwijderd...
+"
                 ;;
         "nn")
-                printf -- "%s" "Opprettar '${1}'..."
+                printf -- "%s" "\
+Fjernar '${1}'...
+"
                 ;;
         "ru")
-                printf -- "%s" "Создание '${1}'..."
+                printf -- "%s" "\
+Удаление '${1}'...
+"
                 ;;
         "sv")
-                printf -- "%s" "Skapar '${1}'..."
+                printf -- "%s" "\
+Tar bort '${1}'...
+"
                 ;;
         "uk")
-                printf -- "%s" "Створення '${1}'..."
+                printf -- "%s" "\
+Видалення '${1}'...
+"
                 ;;
         "zh-Hans")
-                printf -- "%s" "正在创造“${1}”..."
+                printf -- "%s" "\
+正在删除「${1}」...
+"
                 ;;
         "zh-Hant")
-                printf -- "%s" "正在創造「${1}」..."
+                printf -- "%s" "\
+正在刪除「${1}」...
+"
                 ;;
         *)
                 # fallback to english
-                printf -- "%s" "Creating '${1}'..."
+                printf -- "%s" "\
+Removing '${1}'...
+"
                 ;;
         esac
         if [ $? -ne 0 ]; then

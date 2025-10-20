@@ -24,57 +24,57 @@
 #       Return Code
 #               - '0' means ok; error otherwise.
 #               - error on bad execution.
-entities_i18n_get_type() {
+entities_i18n_sample_value() {
         # execute
         case "$XUANQI_LANGUAGE" in
         "de")
-                printf -- "%s" "Typ"
+                printf -- "%s" "Beispielwert"
                 ;;
         "es")
-                printf -- "%s" "Tipo"
+                printf -- "%s" "Valor de Ejemplo"
                 ;;
         "fr")
-                printf -- "%s" "Type"
+                printf -- "%s" "Valeur d'Exemple"
                 ;;
         "ja")
-                printf -- "%s" "タイプ"
+                printf -- "%s" "サンプル値"
                 ;;
         "ko")
-                printf -- "%s" "유형"
+                printf -- "%s" "샘플 값"
                 ;;
         "mn-Cyrl")
-                printf -- "%s" "Төрөл"
+                printf -- "%s" "Жишээ Үнэ"
                 ;;
         "ms")
-                printf -- "%s" "Jenis"
+                printf -- "%s" "Contoh Nilai"
                 ;;
         "nb")
-                printf -- "%s" "Type"
+                printf -- "%s" "Eksempelverdi"
                 ;;
         "nl")
-                printf -- "%s" "Type"
+                printf -- "%s" "Voorbeeldwaarde"
                 ;;
         "nn")
-                printf -- "%s" "Type"
+                printf -- "%s" "Dømeverdi"
                 ;;
         "ru")
-                printf -- "%s" "Тип"
+                printf -- "%s" "Пример Значения"
                 ;;
         "sv")
-                printf -- "%s" "Typ"
+                printf -- "%s" "Exempelvärde"
                 ;;
         "uk")
-                printf -- "%s" "Тип"
+                printf -- "%s" "Приклад Значення"
                 ;;
         "zh-Hans")
-                printf -- "%s" "类型"
+                printf -- "%s" "比如样本值"
                 ;;
         "zh-Hant")
-                printf -- "%s" "類型"
+                printf -- "%s" "比如樣本值"
                 ;;
         *)
                 # fallback to english
-                printf -- "%s" "Type"
+                printf -- "%s" "Example Value"
                 ;;
         esac
         if [ $? -ne 0 ]; then
