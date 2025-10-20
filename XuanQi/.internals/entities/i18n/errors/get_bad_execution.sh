@@ -31,10 +31,10 @@ entities_i18n_errors_get_bad_execution() {
                 printf -- "%s" "Ausführungsfehler!"
                 ;;
         "es")
-                printf -- "%s" "Error de ejecución!"
+                printf -- "%s" "Error De Ejecución!"
                 ;;
         "fr")
-                printf -- "%s" "Erreur d'exécution!"
+                printf -- "%s" "Erreur D'exécution!"
                 ;;
         "ja")
                 printf -- "%s" "実行エラー！"
@@ -43,7 +43,7 @@ entities_i18n_errors_get_bad_execution() {
                 printf -- "%s" "실행 오류!"
                 ;;
         "mn-Cyrl")
-                printf -- "%s" "Гүйцэтгэлийн алдаа!"
+                printf -- "%s" "Гүйцэтгэлийн Алдаа!"
                 ;;
         "ms")
                 printf -- "%s" "Masalah Dalam Pelaksanaan!"
@@ -58,13 +58,13 @@ entities_i18n_errors_get_bad_execution() {
                 printf -- "%s" "Køyringsfeil!"
                 ;;
         "ru")
-                printf -- "%s" "Ошибка выполнения!"
+                printf -- "%s" "Ошибка Выполнения!"
                 ;;
         "sv")
                 printf -- "%s" "Körningsfel!"
                 ;;
         "uk")
-                printf -- "%s" "Помилка виконання!"
+                printf -- "%s" "Помилка Виконання!"
                 ;;
         "zh-Hans")
                 printf -- "%s" "执行出错！"
@@ -74,7 +74,7 @@ entities_i18n_errors_get_bad_execution() {
                 ;;
         *)
                 # fallback to english
-                printf -- "%s" "Bad execution!"
+                printf -- "%s" "Bad Execution!"
                 ;;
         esac
         if [ $? -ne 0 ]; then
