@@ -18,116 +18,119 @@
 
 
 # Parameters:
+#       ____subject
+#               - The subject for why cannot proceed.
+#               - **MUST** be pre-translated first.
 # Returns:
 #       String
 #               - the translated content.
 #       Return Code
 #               - '0' means ok; error otherwise.
 #               - error on bad execution.
-entities_i18n_errors_EDIT_THIS_FUNCTION_NAME() {
+entities_i18n_errors_unable_to_proceed_stop() {
         # execute
         case "$XUANQI_LANGUAGE" in
         "de")
                 printf -- "%s" "\
-[EDIT STATEMENT HERE]
+${1}
 Kann Nicht Fortfahren.
 Beende Jetzt...
 "
                 ;;
         "es")
                 printf -- "%s" "\
-[EDIT STATEMENT HERE]
+${1}
 No Se Puede Proceder.
 Saliendo...
 "
                 ;;
         "fr")
                 printf -- "%s" "\
-[EDIT STATEMENT HERE]
+${1}
 Impossible De Continuer.
 Abandon...
 "
                 ;;
         "ja")
                 printf -- "%s" "\
-[EDIT STATEMENT HERE]
+${1}
 続行できません。
 終了します...
 "
                 ;;
         "ko")
                 printf -- "%s" "\
-[EDIT STATEMENT HERE]
+${1}
 진행할 수 없습니다.
 지금 종료합니다...
 "
                 ;;
         "mn-Cyrl")
                 printf -- "%s" "\
-[EDIT STATEMENT HERE]
+${1}
 Үргэлжлүүлэх Боломжгүй.
 Гарах...
 "
                 ;;
         "ms")
                 printf -- "%s" "\
-[EDIT STATEMENT HERE]
+${1}
 Tidak Dapat Sembung.
 Keluar Sekarang...
 "
                 ;;
         "nb")
                 printf -- "%s" "\
-[EDIT STATEMENT HERE]
+${1}
 Kan Ikke Fortsette.
 Avbryter Nå...
 "
                 ;;
         "nl")
                 printf -- "%s" "\
-[EDIT STATEMENT HERE]
+${1}
 Kan Niet Doorgaan.
 Beëindigen...
 "
                 ;;
         "nn")
                 printf -- "%s" "\
-[EDIT STATEMENT HERE]
+${1}
 Kan Ikkje Halda Fram.
 Avbryt No...
 "
                 ;;
         "ru")
                 printf -- "%s" "\
-[EDIT STATEMENT HERE]
+${1}
 Невозможно Продолжить.
 Выхожу...
 "
                 ;;
         "sv")
                 printf -- "%s" "\
-[EDIT STATEMENT HERE]
+${1}
 Kan Inte Fortsätta.
 Avbryter...
 "
                 ;;
         "uk")
                 printf -- "%s" "\
-[EDIT STATEMENT HERE]
+${1}
 Неможливо Продовжити.
 Виходимо...
 "
                 ;;
         "zh-Hans")
                 printf -- "%s" "\
-[EDIT STATEMENT HERE]
+${1}
 无法继续。
 正在退出。。。
 "
                 ;;
         "zh-Hant")
                 printf -- "%s" "\
-[EDIT STATEMENT HERE]
+${1}
 無法繼續。
 正在退出。。。
 "
@@ -135,7 +138,7 @@ Avbryter...
         *)
                 # fallback to english
                 printf -- "%s" "\
-[EDIT STATEMENT HERE]
+${1}
 Unable to Proceed.
 Bailing Out...
 "
