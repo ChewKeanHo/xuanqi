@@ -37,7 +37,7 @@ interactors_components_create_directories() {
         fi
 
         if [ -e "$1" ]; then
-                return 2
+                return 1
         fi
 
 
@@ -48,15 +48,15 @@ interactors_components_create_directories() {
                 if [ $? -ne 0 ]; then
                         IFS="$____old_IFS"
                         unset ____line ____old_IFS
-                        return 3
+                        return 1
                 fi
 
 
-                interactors_fs_create_empty_file "${1}/${____line}/.gitkeep"
+                interactors_git_create_gitkeep "${1}/${____line}"
                 if [ $? -ne 0 ]; then
                         IFS="$____old_IFS"
                         unset ____line ____old_IFS
-                        return 3
+                        return 1
                 fi
         done<<EOF
 CSS
