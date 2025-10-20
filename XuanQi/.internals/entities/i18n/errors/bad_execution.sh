@@ -18,9 +18,10 @@
 
 
 # Parameters:
-# Returns:
+# Outputs:
 #       String
 #               - the translated content.
+# Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
 #               - error on bad execution.
@@ -29,115 +30,83 @@ entities_i18n_errors_bad_execution() {
         case "$XUANQI_LANGUAGE" in
         "de")
                 printf -- "%s" "\
-$(entities_i18n_errors_get_bad_execution)
-Kann Nicht Fortfahren.
-Beende Jetzt...
+Ausführungsfehler!
 "
                 ;;
         "es")
                 printf -- "%s" "\
-$(entities_i18n_errors_get_bad_execution)
-No Se Puede Proceder.
-Saliendo...
+Error De Ejecución!
 "
                 ;;
         "fr")
                 printf -- "%s" "\
-$(entities_i18n_errors_get_bad_execution)
-Impossible De Continuer.
-Abandon...
+Erreur D'exécution!
 "
                 ;;
         "ja")
                 printf -- "%s" "\
-$(entities_i18n_errors_get_bad_execution)
-続行できません。
-終了します...
+実行エラー！
 "
                 ;;
         "ko")
                 printf -- "%s" "\
-$(entities_i18n_errors_get_bad_execution)
-진행할 수 없습니다.
-지금 종료합니다...
+실행 오류!
 "
                 ;;
         "mn-Cyrl")
                 printf -- "%s" "\
-$(entities_i18n_errors_get_bad_execution)
-Үргэлжлүүлэх Боломжгүй.
-Гарах...
+Гүйцэтгэлийн Алдаа!
 "
                 ;;
         "ms")
                 printf -- "%s" "\
-$(entities_i18n_errors_get_bad_execution)
-Tidak Dapat Sembung.
-Keluar Sekarang...
+Masalah Dalam Pelaksanaan!
 "
                 ;;
         "nb")
                 printf -- "%s" "\
-$(entities_i18n_errors_get_bad_execution)
-Kan Ikke Fortsette.
-Avbryter Nå...
+Kjøringsfeil!
 "
                 ;;
         "nl")
                 printf -- "%s" "\
-$(entities_i18n_errors_get_bad_execution)
-Kan Niet Doorgaan.
-Beëindigen...
+Uitvoeringsfout!
 "
                 ;;
         "nn")
                 printf -- "%s" "\
-$(entities_i18n_errors_get_bad_execution)
-Kan Ikkje Halda Fram.
-Avbryt No...
+Køyringsfeil!
 "
                 ;;
         "ru")
                 printf -- "%s" "\
-$(entities_i18n_errors_get_bad_execution)
-Невозможно Продолжить.
-Выхожу...
+Ошибка Выполнения!
 "
                 ;;
         "sv")
                 printf -- "%s" "\
-$(entities_i18n_errors_get_bad_execution)
-Kan Inte Fortsätta.
-Avbryter...
+Körningsfel!
 "
                 ;;
         "uk")
                 printf -- "%s" "\
-$(entities_i18n_errors_get_bad_execution)
-Неможливо Продовжити.
-Виходимо...
+Помилка Виконання!
 "
                 ;;
         "zh-Hans")
                 printf -- "%s" "\
-$(entities_i18n_errors_get_bad_execution)
-无法继续。
-正在退出。。。
+执行出错！
 "
                 ;;
         "zh-Hant")
                 printf -- "%s" "\
-$(entities_i18n_errors_get_bad_execution)
-無法繼續。
-正在退出。。。
+執行出錯！
 "
                 ;;
         *)
                 # fallback to english
                 printf -- "%s" "\
-$(entities_i18n_errors_get_bad_execution)
-Unable to Proceed.
-Bailing Out...
+Bad Execution!
 "
                 ;;
         esac

@@ -28,7 +28,8 @@
 #               - error on bad execution.
 interactors_print_responses_errors_inside_internals_directory() {
         # execute
-        entities_i18n_errors_inside_internals_directory
+        entities_i18n_errors_unable_to_proceed_stop \
+                "$(entities_i18n_errors_inside_internals_directory)"
         if [ $? -ne 0 ]; then
                 return 1
         fi

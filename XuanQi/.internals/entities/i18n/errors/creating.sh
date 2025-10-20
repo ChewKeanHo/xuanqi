@@ -18,63 +18,108 @@
 
 
 # Parameters:
-# Returns:
+#       ____subject
+#               - the subject that could not be created.
+# Outputs:
 #       String
 #               - the translated content.
+# Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
+#               - error on empty '____subject'.
 #               - error on bad execution.
-entities_i18n_errors_get_target_exists() {
+entities_i18n_errors_creating() {
+        #____subject="$1"
+
+
+        # validate inputs
+        if [ "$1" = "" ]; then
+                return 1
+        fi
+
+
         # execute
         case "$XUANQI_LANGUAGE" in
         "de")
-                printf -- "%s" "Ziel existiert bereits!"
+                printf -- "%s" "\
+Fehler Beim Erstellen Von '${1}'.
+"
                 ;;
         "es")
-                printf -- "%s" "¡El objetivo ya existe!"
+                printf -- "%s" "\
+Error Al Crear '${1}'.
+"
                 ;;
         "fr")
-                printf -- "%s" "La cible existe déjà !"
+                printf -- "%s" "\
+Erreur Lors De La Création De '${1}'.
+"
                 ;;
         "ja")
-                printf -- "%s" "ターゲットは既に存在します！"
+                printf -- "%s" "\
+「${1}」の作成中にエラーが発生しました。
+"
                 ;;
         "ko")
-                printf -- "%s" "대상이 이미 존재합니다!"
+                printf -- "%s" "\
+'${1}' 생성 중 오류 발생.
+"
                 ;;
         "mn-Cyrl")
-                printf -- "%s" "Зорилго аль хэдийн байна!"
+                printf -- "%s" "\
+'${1}' Үүсгэх Үед Алдаа Гарлаа.
+"
                 ;;
         "ms")
-                printf -- "%s" "Sasaran sudah wujud!"
+                printf -- "%s" "\
+Ralat Semasa Penciptaan '${1}'!
+"
                 ;;
         "nb")
-                printf -- "%s" "Målet finnes allerede!"
+                printf -- "%s" "\
+Feil Ved Opprettelse Av '${1}'.
+"
                 ;;
         "nl")
-                printf -- "%s" "Doel bestaat al!"
+                printf -- "%s" "\
+Fout Bij Het Maken Van '${1}'.
+"
                 ;;
         "nn")
-                printf -- "%s" "Målet finst allereie!"
+                printf -- "%s" "\
+Feil Ved Oppretting Av '${1}'.
+"
                 ;;
         "ru")
-                printf -- "%s" "Цель уже существует!"
+                printf -- "%s" "\
+Ошибка При Создании '${1}'.
+"
                 ;;
         "sv")
-                printf -- "%s" "Målet finns redan!"
+                printf -- "%s" "\
+Fel Vid Skapande Av '${1}'.
+"
                 ;;
         "uk")
-                printf -- "%s" "Ціль вже існує!"
+                printf -- "%s" "\
+Помилка Під Створення '${1}'.
+"
                 ;;
         "zh-Hans")
-                printf -- "%s" "目标己经存在了！"
+                printf -- "%s" "\
+创建「${1}」时出错！
+"
                 ;;
         "zh-Hant")
-                printf -- "%s" "目標已經存在了！"
+                printf -- "%s" "\
+創建「${1}」時出錯！
+"
                 ;;
         *)
                 # fallback to english
-                printf -- "%s" "Target already exists!"
+                printf -- "%s" "\
+Error Creating '${1}'.
+"
                 ;;
         esac
         if [ $? -ne 0 ]; then

@@ -274,11 +274,11 @@ ____lang="$XUANQI_LANGUAGE"
 if [ ! "$XUANQI_PATH_CONFIGS" = "" ] && [ -d "$XUANQI_PATH_CONFIGS" ]; then
         interactors_data_read_directory "$XUANQI_PATH_CONFIGS"
         if [ $? -ne 0 ]; then
-                        interactors_print_error "\
-\$XUANQI_PATH_CONFIGS
-${XUANQI_PATH_CONFIGS}
-
-$(interactors_print_responses_errors_parse_directory_configs)
+                interactors_print_error "\
+$(\
+        interactors_print_responses_errors_parse \
+                "\$XUANQI_PATH_CONFIGS (${XUANQI_PATH__CONFIGS})" \
+)
 "
                 return 1
         fi

@@ -18,126 +18,115 @@
 
 
 # Parameters:
-# Returns:
+#       ____context
+#               - the context for locating the ____subject.
+#       ____subject
+#               - the subject that is located inside ____context.
+# Outputs:
 #       String
 #               - the translated content.
+# Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
+#               - error on empty '____context'.
+#               - error on empty '____subject'.
 #               - error on bad execution.
-entities_i18n_errors_parse_directory_configs() {
+entities_i18n_errors_inside_of() {
+        #____context="$1"
+        #____subject="$2"
+
+
+        # validate inputs
+        if [ "$1" = "" ]; then
+                return 1
+        fi
+
+        if [ "$2" = "" ]; then
+                return 1
+        fi
+
+
         # execute
         case "$XUANQI_LANGUAGE" in
         "de")
                 printf -- "%s" "\
-Fehler Beim Parsen Von \$XUANQI_PATH_CONFIGS.
-Kann Nicht Fortfahren.
-Beende Jetzt...
+'${2}' Ist In '${1}'.
 "
                 ;;
         "es")
                 printf -- "%s" "\
-Error Al Analizar \$XUANQI_PATH_CONFIGS.
-No Se Puede Proceder.
-Saliendo...
+'${2}' Está Dentro De '${1}'.
 "
                 ;;
         "fr")
                 printf -- "%s" "\
-Échec De L'analyse De \$XUANQI_PATH_CONFIGS.
-Impossible De Continuer.
-Abandon...
+'${2}' Est À L'intérieur De '${1}'.
 "
                 ;;
         "ja")
                 printf -- "%s" "\
-\$XUANQI_PATH_CONFIGSの解析に失敗しました。
-続行できません。
-終了します...
+「${2}」は「${1}」の中にあります。
 "
                 ;;
         "ko")
                 printf -- "%s" "\
-\$XUANQI_PATH_CONFIGS 구문 분석 실패.
-진행할 수 없습니다.
-지금 종료합니다...
+'${2}' 가 '${1}' 안에 있습니다.
 "
                 ;;
         "mn-Cyrl")
                 printf -- "%s" "\
-\$XUANQI_PATH_CONFIGS-Ийг Задлан Шинжлэхэд Алдаа Гарлаа.
-Үргэлжлүүлэх Боломжгүй.
-Гарах...
+'${2}' Нь '${1}' Дотор Байна.
 "
                 ;;
         "ms")
                 printf -- "%s" "\
-Gagal Menghuraikan \$XUANQI_PATH_CONFIGS.
-Tidak Dapat Sembung.
-Keluar Sekarang...
+'${2}' Kini Di Dalam '${1}'.
 "
                 ;;
         "nb")
                 printf -- "%s" "\
-Kunne Ikke Parse \$XUANQI_PATH_CONFIGS.
-Kan Ikke Fortsette.
-Avbryter Nå...
+'${2}' Er Inni '${1}'.
 "
                 ;;
         "nl")
                 printf -- "%s" "\
-Parseren Van \$XUANQI_PATH_CONFIGS Mislukt.
-Kan Niet Doorgaan.
-Beëindigen...
+'${2}' Bevindt Zich In '${1}'.
 "
                 ;;
         "nn")
                 printf -- "%s" "\
-Kunne Ikkje Parse \$XUANQI_PATH_CONFIGS.
-Kan Ikkje Halda Fram.
-Avbryt No...
+'${2}' Er Inni '${1}'.
 "
                 ;;
         "ru")
                 printf -- "%s" "\
-Ошибка При Разборе \$XUANQI_PATH_CONFIGS.
-Невозможно Продолжить.
-Выхожу...
+'${2}' Находится Внутри '${1}'.
 "
                 ;;
         "sv")
                 printf -- "%s" "\
-Kunne Ikkje Parse \$XUANQI_PATH_CONFIGS.
-Kan Inte Fortsätta.
-Avbryter...
+'${2}' Är Inuti '${1}'.
 "
                 ;;
         "uk")
                 printf -- "%s" "\
-Не Вдалося Обробити \$XUANQI_PATH_CONFIGS.
-Неможливо Продовжити.
-Виходимо...
+'${2}' Знаходиться Всередині '${1}'.
 "
                 ;;
         "zh-Hans")
                 printf -- "%s" "\
-无法解析\$XUANQI_PATH_CONFIGS。
-无法继续。
-正在退出。。。
+「${2}」在「${1}」之内。
 "
                 ;;
         "zh-Hant")
                 printf -- "%s" "\
-無法解析\$XUANQI_PATH_CONFIGS。
-無法繼續。
-正在退出。。。
+「${2}」在「${1}」之内。
 "
                 ;;
         *)
                 # fallback to english
                 printf -- "%s" "\
-Failed to Parse \$XUANQI_PATH_CONFIGS.
-Unable to Proceed.
-Bailing Out...
+'${2}' Is Inside Of '${1}'.
 "
                 ;;
         esac

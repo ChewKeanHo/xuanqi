@@ -20,11 +20,13 @@
 # Parameters:
 #       ____subject
 #               - the subject that could not be located.
-# Returns:
+# Outputs:
 #       String
 #               - the translated content.
+# Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
+#               - error on empty '____subject'.
 #               - error on bad execution.
 entities_i18n_errors_locate() {
         #____subject="$1"
@@ -40,115 +42,83 @@ entities_i18n_errors_locate() {
         case "$XUANQI_LANGUAGE" in
         "de")
                 printf -- "%s" "\
-Konnte '${1}' nicht finden.
-Kann nicht fortfahren.
-Beende jetzt...
+Konnte '${1}' Nicht Finden.
 "
                 ;;
         "es")
                 printf -- "%s" "\
-No se pudo encontrar '${1}'.
-No se puede proceder.
-Saliendo...
+No Se Pudo Encontrar '${1}'.
 "
                 ;;
         "fr")
                 printf -- "%s" "\
-Échec de la localisation de '${1}'.
-Impossible de continuer.
-Abandon...
+Échec De La Localisation De '${1}'.
 "
                 ;;
         "ja")
                 printf -- "%s" "\
 「${1}」を見つけられませんでした。
-続行できません。
-終了します...
 "
                 ;;
         "ko")
                 printf -- "%s" "\
 '${1}'을(를) 찾을 수 없습니다.
-진행할 수 없습니다.
-지금 종료합니다...
 "
                 ;;
         "mn-Cyrl")
                 printf -- "%s" "\
-'${1}'-ийг олсонгүй.
-Үргэлжлүүлэх боломжгүй.
-Гарах...
+'${1}'-Ийг Олсонгүй.
 "
                 ;;
         "ms")
                 printf -- "%s" "\
 Gagal Mencari '${1}'.
-Tidak Dapat Sembung.
-Keluar Sekarang...
 "
                 ;;
         "nb")
                 printf -- "%s" "\
-Kunne ikke finne '${1}'.
-Kan ikke fortsette.
-Avbryter nå...
+Kunne Ikke Finne '${1}'.
 "
                 ;;
         "nl")
                 printf -- "%s" "\
-Kon '${1}' niet vinden.
-Kan niet doorgaan.
-Beëindigen...
+Kon '${1}' Niet Vinden.
 "
                 ;;
         "nn")
                 printf -- "%s" "\
-Kunne ikkje finne '${1}'.
-Kan ikkje halda fram.
-Avbryt no...
+Kunne Ikkje Finne '${1}'.
 "
                 ;;
         "ru")
                 printf -- "%s" "\
-Не удалось найти '${1}'.
-Невозможно продолжить.
-Выхожу...
+Не Удалось Найти '${1}'.
 "
                 ;;
         "sv")
                 printf -- "%s" "\
-Kunde inte hitta '${1}'.
-Kan inte fortsätta.
-Avbryter...
+Kunde Inte Hitta '${1}'.
 "
                 ;;
         "uk")
                 printf -- "%s" "\
-Не вдалося знайти '${1}'.
-Неможливо продовжити.
-Виходимо...
+Не Вдалося Знайти '${1}'.
 "
                 ;;
         "zh-Hans")
                 printf -- "%s" "\
 无法找到「${1}」。
-无法继续。
-正在退出。。。
 "
                 ;;
         "zh-Hant")
                 printf -- "%s" "\
 無法找到「${1}」。
-無法繼續。
-正在退出。。。
 "
                 ;;
         *)
                 # fallback to english
                 printf -- "%s" "\
-Failed to Locate '${1}'.
-Unable to Proceed.
-Bailing Out...
+Failed To Locate '${1}'.
 "
                 ;;
         esac

@@ -39,7 +39,11 @@ ${____path:-"???"}
 if [ "$PROJECT_PATH_ROOT" = "" ] ||
 [ "${____path##"${PROJECT_PATH_ROOT}/"}" = "$____path" ]; then
         interactors_print_error "\
-$(interactors_print_responses_errors_outside_project_path)
+$(\
+        interactors_print_responses_errors_outside_of \
+                "\$PROJECT_PATH_ROOT" \
+                "[RELATIVE_PATH]" \
+)
 "
         return 1
 fi
@@ -78,7 +82,7 @@ $(interactors_print_responses_errors_empty "[RELATIVE_PATH]")
 2)
         # target already exists
         interactors_print_error "\
-$(interactors_print_responses_errors_target_exists)
+$(interactors_print_responses_errors_exists "[RELATIVE_PATH]")
 "
         return 1
         ;;
@@ -92,7 +96,7 @@ $(interactors_print_responses_errors_empty "[KEY]")
 4)
         # error creating housing directory
         interactors_print_error "\
-$(interactors_print_responses_errors_create_housing_directory)
+$(interactors_print_responses_errors_creating "${____path%/*}")
 "
         return 1
         ;;

@@ -18,17 +18,28 @@
 
 
 # Parameters:
-# Returns:
+#       ____subject
+#               - the subject that could not be created.
+# Outputs:
 #       String
-#               - the brand's pitch content.
-#               - empty on error.
+#               - the translated content.
+# Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
-#               - error when internal file is missing.
-#               - error when internal file is unreadable.
-interactors_print_responses_errors_parse_directory_configs() {
+#               - error on empty '____subject'.
+#               - error on bad execution.
+interactors_print_responses_errors_creating() {
+        #____subject="$1"
+
+
+        # validate inputs
+        if [ "$1" = "" ]; then
+                return 1
+        fi
+
+
         # execute
-        entities_i18n_errors_parse_directory_configs
+        entities_i18n_errors_creating "$1"
         if [ $? -ne 0 ]; then
                 return 1
         fi

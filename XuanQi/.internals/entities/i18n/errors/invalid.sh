@@ -19,12 +19,14 @@
 
 # Parameters:
 #       ____subject
-#               - the subject that could not be located.
-# Returns:
+#               - the subject that is invalid.
+# Outputs:
 #       String
 #               - the translated content.
+# Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
+#               - error on empty '____subject'.
 #               - error on bad execution.
 entities_i18n_errors_invalid() {
         #____subject="$1"
@@ -41,114 +43,82 @@ entities_i18n_errors_invalid() {
         "de")
                 printf -- "%s" "\
 '${1}' Ist Ungültig.
-Kann Nicht Fortfahren.
-Beende Jetzt...
 "
                 ;;
         "es")
                 printf -- "%s" "\
 '${1}' Es Inválido.
-No Se Puede Proceder.
-Saliendo...
 "
                 ;;
         "fr")
                 printf -- "%s" "\
 '${1}' Est Invalide.
-Impossible De Continuer.
-Abandon...
 "
                 ;;
         "ja")
                 printf -- "%s" "\
-'${1}'は無効です。
-続行できません。
-終了します...
+「${1}」は無効です。
 "
                 ;;
         "ko")
                 printf -- "%s" "\
 '${1}'이(가) 유효하지 않습니다.
-진행할 수 없습니다.
-지금 종료합니다...
 "
                 ;;
         "mn-Cyrl")
                 printf -- "%s" "\
 '${1}' Буруу Байна.
-Үргэлжлүүлэх Боломжгүй.
-Гарах...
 "
                 ;;
         "ms")
                 printf -- "%s" "\
 Salah Nilai '${1}'.
-Tidak Dapat Sembung.
-Keluar Sekarang...
 "
                 ;;
         "nb")
                 printf -- "%s" "\
 '${1}' Er Ugyldig.
-Kan Ikke Fortsette.
-Avbryter Nå...
 "
                 ;;
         "nl")
                 printf -- "%s" "\
 '${1}' Is Ongeldig.
-Kan Niet Doorgaan.
-Beëindigen...
 "
                 ;;
         "nn")
                 printf -- "%s" "\
 '${1}' Er Ugyldig.
-Kan Ikkje Halda Fram.
-Avbryt No...
 "
                 ;;
         "ru")
                 printf -- "%s" "\
 '${1}' Недействителен.
-Невозможно Продолжить.
-Выхожу...
 "
                 ;;
         "sv")
                 printf -- "%s" "\
 '${1}' Är Ogiltig.
-Kan Inte Fortsätta.
-Avbryter...
 "
                 ;;
         "uk")
                 printf -- "%s" "\
 '${1}' Недійсний.
-Неможливо Продовжити.
-Виходимо...
 "
                 ;;
         "zh-Hans")
                 printf -- "%s" "\
 「${1}」价值错误。
-无法继续。
-正在退出。。。
 "
                 ;;
         "zh-Hant")
                 printf -- "%s" "\
 「${1}」價值錯誤。
-無法繼續。
-正在退出。。。
 "
                 ;;
         *)
                 # fallback to english
                 printf -- "%s" "\
 '${1}' Is Invalid.
-Unable to Proceed.
-Bailing Out...
 "
                 ;;
         esac

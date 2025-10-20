@@ -19,15 +19,26 @@
 
 # Parameters:
 #       ____subject
-#               - The subject for why cannot proceed.
+#               - The subject for reason cannot proceed.
 #               - **MUST** be pre-translated first.
-# Returns:
+# Outputs:
 #       String
 #               - the translated content.
+# Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
+#               - error on empty '____subject'.
 #               - error on bad execution.
 entities_i18n_errors_unable_to_proceed_stop() {
+        #____subject="$1"
+
+
+        # validate inputs
+        if [ "$1" = "" ]; then
+                return 1
+        fi
+
+
         # execute
         case "$XUANQI_LANGUAGE" in
         "de")

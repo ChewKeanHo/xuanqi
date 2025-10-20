@@ -18,17 +18,29 @@
 
 
 # Parameters:
+#       ____subject
+#               - the subject that is missing.
 # Outputs:
 #       String
-#               - the string content.
-#               - empty on error.
+#               - the translated content.
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
+#               - error on empty '____subject'.
 #               - error on bad execution.
-interactors_print_responses_errors_create_housing_directory() {
+interactors_print_responses_errors_missing() {
+        #____subject="$1"
+
+
+        # validate inputs
+        if [ "$1" = "" ]; then
+                return 1
+        fi
+
+
         # execute
-        entities_i18n_errors_create_housing_directory
+        entities_i18n_errors_unable_to_proceed_stop \
+                "$(entities_i18n_errors_missing "$1")"
         if [ $? -ne 0 ]; then
                 return 1
         fi

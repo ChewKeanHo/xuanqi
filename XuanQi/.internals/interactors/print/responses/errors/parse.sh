@@ -18,17 +18,29 @@
 
 
 # Parameters:
+#       ____subject
+#               - the subject that could not be parsed.
 # Outputs:
 #       String
-#               - the string content.
-#               - empty on error.
+#               - the translated content.
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
+#               - error on empty '____subject'.
 #               - error on bad execution.
-interactors_print_responses_errors_target_exists() {
+interactors_print_responses_errors_parse() {
+        #____subject="$1"
+
+
+        # validate input
+        if [ "$1" = "" ]; then
+                return 1
+        fi
+
+
         # execute
-        entities_i18n_errors_get_target_exists
+        entities_i18n_errors_unable_to_proceed_stop \
+                "$(entities_i18n_errors_parse "$1")"
         if [ $? -ne 0 ]; then
                 return 1
         fi

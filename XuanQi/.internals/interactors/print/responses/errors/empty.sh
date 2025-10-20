@@ -19,19 +19,28 @@
 
 # Parameters:
 #       ____subject
-#               - the subject that could not be located.
-# Returns:
+#               - the subject that is empty.
+# Outputs:
 #       String
 #               - the translated content.
+# Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
+#               - error on empty '____subject'.
 #               - error on bad execution.
 interactors_print_responses_errors_empty() {
         #____subject="$1"
 
 
+        # validate inputs
+        if [ "$1" = "" ]; then
+                return 1
+        fi
+
+
         # execute
-        entities_i18n_errors_empty "$1"
+        entities_i18n_errors_unable_to_proceed_stop \
+                "$(entities_i18n_errors_empty "$1")"
         if [ $? -ne 0 ]; then
                 return 1
         fi

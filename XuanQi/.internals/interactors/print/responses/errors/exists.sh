@@ -18,17 +18,29 @@
 
 
 # Parameters:
+#       ____subject
+#               - the subject that exists.
 # Outputs:
 #       String
-#               - the string content.
-#               - empty on error.
+#               - the translated content.
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
+#               - error on empty '____subject'.
 #               - error on bad execution.
-interactors_print_responses_errors_outside_project_path() {
+interactors_print_responses_errors_exists() {
+        #____subject="$1"
+
+
+        # validate inputs
+        if [ "$1" = "" ]; then
+                return 1
+        fi
+
+
         # execute
-        entities_i18n_errors_get_outside_project_path
+        entities_i18n_errors_unable_to_proceed_stop \
+                "$(entities_i18n_errors_exists "$1")"
         if [ $? -ne 0 ]; then
                 return 1
         fi

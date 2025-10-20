@@ -18,63 +18,108 @@
 
 
 # Parameters:
-# Returns:
+#       ____subject
+#               - the subject that exists.
+# Outputs:
 #       String
 #               - the translated content.
+# Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
+#               - error on empty '____subject'.
 #               - error on bad execution.
-entities_i18n_errors_get_bad_execution() {
+entities_i18n_errors_exists() {
+        #____subject="$1"
+
+
+        # validate inputs
+        if [ "$1" = "" ]; then
+                return 1
+        fi
+
+
         # execute
         case "$XUANQI_LANGUAGE" in
         "de")
-                printf -- "%s" "Ausführungsfehler!"
+                printf -- "%s" "\
+'${1}' Existiert Bereits.
+"
                 ;;
         "es")
-                printf -- "%s" "Error De Ejecución!"
+                printf -- "%s" "\
+'${1}' Ya Existe.
+"
                 ;;
         "fr")
-                printf -- "%s" "Erreur D'exécution!"
+                printf -- "%s" "\
+'${1}' Existe Déjà.
+"
                 ;;
         "ja")
-                printf -- "%s" "実行エラー！"
+                printf -- "%s" "\
+「${1}」は既に存在します。
+"
                 ;;
         "ko")
-                printf -- "%s" "실행 오류!"
+                printf -- "%s" "\
+'${1}'이(가) 이미 존재합니다.
+"
                 ;;
         "mn-Cyrl")
-                printf -- "%s" "Гүйцэтгэлийн Алдаа!"
+                printf -- "%s" "\
+'${1}' Аль Хэдийн Байна.
+"
                 ;;
         "ms")
-                printf -- "%s" "Masalah Dalam Pelaksanaan!"
+                printf -- "%s" "\
+'${1}'Sudah Wujud!
+"
                 ;;
         "nb")
-                printf -- "%s" "Kjøringsfeil!"
+                printf -- "%s" "\
+'${1}' Finnes Allerede.
+"
                 ;;
         "nl")
-                printf -- "%s" "Uitvoeringsfout!"
+                printf -- "%s" "\
+'${1}' Bestaat Al.
+"
                 ;;
         "nn")
-                printf -- "%s" "Køyringsfeil!"
+                printf -- "%s" "\
+'${1}' Finnest Allereie.
+"
                 ;;
         "ru")
-                printf -- "%s" "Ошибка Выполнения!"
+                printf -- "%s" "\
+'${1}' Уже Существует.
+"
                 ;;
         "sv")
-                printf -- "%s" "Körningsfel!"
+                printf -- "%s" "\
+'${1}' Finns Redan.
+"
                 ;;
         "uk")
-                printf -- "%s" "Помилка Виконання!"
+                printf -- "%s" "\
+'${1}' Вже Існує.
+"
                 ;;
         "zh-Hans")
-                printf -- "%s" "执行出错！"
+                printf -- "%s" "\
+「${1}」己经存在了。
+"
                 ;;
         "zh-Hant")
-                printf -- "%s" "執行出錯！"
+                printf -- "%s" "\
+「${1}」已經存在了。
+"
                 ;;
         *)
                 # fallback to english
-                printf -- "%s" "Bad Execution!"
+                printf -- "%s" "\
+'${1}' Already Exists.
+"
                 ;;
         esac
         if [ $? -ne 0 ]; then

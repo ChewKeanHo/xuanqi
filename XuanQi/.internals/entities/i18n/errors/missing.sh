@@ -18,66 +18,108 @@
 
 
 # Parameters:
-# Returns:
+#       ____subject
+#               - the subject that is missing.
+# Outputs:
 #       String
 #               - the translated content.
+# Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
+#               - error on empty '____subject'.
 #               - error on bad execution.
-entities_i18n_errors_create_housing_directory() {
+entities_i18n_errors_missing() {
+        #____subject="$1"
+
+
+        # validate inputs
+        if [ "$1" = "" ]; then
+                return 1
+        fi
+
+
         # execute
         case "$XUANQI_LANGUAGE" in
         "de")
-                printf -- "%s" \
-                        "Fehler beim Erstellen des Verzeichnisses für die Unterbringung!"
+                printf -- "%s" "\
+'${1}' Fehlt.
+"
                 ;;
         "es")
-                printf -- "%s" "¡Error al crear el directorio de alojamiento!"
+                printf -- "%s" "\
+'${1}' No Encontrado.
+"
                 ;;
         "fr")
-                printf -- "%s" \
-                        "Erreur lors de la création du répertoire de logement!"
+                printf -- "%s" "\
+'${1}' Manquant.
+"
                 ;;
         "ja")
-                printf -- "%s" \
-                        "ホウジングディレクトリの作成中にエラーが発生しました！"
+                printf -- "%s" "\
+「${1}」が見つかりません。
+"
                 ;;
         "ko")
-                printf -- "%s" "하우징 디렉토리 생성 오류!"
+                printf -- "%s" "\
+'${1}' 없음.
+"
                 ;;
         "mn-Cyrl")
-                printf -- "%s" "Хаусын директори үүсгэхэд алдаа гарлаа!"
+                printf -- "%s" "\
+'${1}' Алга Байна.
+"
                 ;;
         "ms")
-                printf -- "%s" "Ralat semasa mencipta direktori perumahan!"
+                printf -- "%s" "\
+'${1}' Hilang.
+"
                 ;;
         "nb")
-                printf -- "%s" "Feil ved oppretting av huskatalog!"
+                printf -- "%s" "\
+'${1}' Mangler.
+"
                 ;;
         "nl")
-                printf -- "%s" "Fout bij het aanmaken van de huisvestingsmap!"
+                printf -- "%s" "\
+'${1}' Ontbreekt.
+"
                 ;;
         "nn")
-                printf -- "%s" "Feil ved oppretting av huskatalog!"
+                printf -- "%s" "\
+'${1}' Manglar.
+"
                 ;;
         "ru")
-                printf -- "%s" "Ошибка при создании директории для размещения!"
+                printf -- "%s" "\
+'${1}' Отсутствует.
+"
                 ;;
         "sv")
-                printf -- "%s" "Fel vid skapande av husskatalog!"
+                printf -- "%s" "\
+'${1}' Saknas.
+"
                 ;;
         "uk")
-                printf -- "%s" "Помилка при створенні директорії для розміщення!"
+                printf -- "%s" "\
+'${1}' Відсутній.
+"
                 ;;
         "zh-Hans")
-                printf -- "%s" "创建储存储目录时出错！"
+                printf -- "%s" "\
+「${1}」不在。
+"
                 ;;
         "zh-Hant")
-                printf -- "%s" "創建儲存儲目錄時出錯！"
+                printf -- "%s" "\
+「${1}」不在。
+"
                 ;;
         *)
                 # fallback to english
-                printf -- "%s" "Error creating housing directory!"
+                printf -- "%s" "\
+'${1}' Is Missing.
+"
                 ;;
         esac
         if [ $? -ne 0 ]; then

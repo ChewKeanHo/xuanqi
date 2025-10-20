@@ -18,18 +18,22 @@
 
 
 # Parameters:
+#       ____context
+#               - the context for locating the ____subject.
 #       ____subject
-#               - the subject that could not be located.
+#               - the subject that located outside ____context.
 # Outputs:
 #       String
 #               - the translated content.
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
+#               - error on empty '____context'.
 #               - error on empty '____subject'.
 #               - error on bad execution.
-interactors_print_responses_errors_locate() {
-        #____subject="$1"
+interactors_print_responses_errors_outside_of() {
+        #____context="$1"
+        #____subject="$2"
 
 
         # validate inputs
@@ -37,10 +41,14 @@ interactors_print_responses_errors_locate() {
                 return 1
         fi
 
+        if [ "$2" = "" ]; then
+                return 2
+        fi
+
 
         # execute
         entities_i18n_errors_unable_to_proceed_stop \
-                "$(entities_i18n_errors_locate "$1")"
+                "$(entities_i18n_errors_outside_of "$1" "$2")"
         if [ $? -ne 0 ]; then
                 return 1
         fi
