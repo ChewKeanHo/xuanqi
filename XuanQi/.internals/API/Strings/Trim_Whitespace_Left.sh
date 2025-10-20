@@ -19,14 +19,14 @@
 
 # Specifications:
 #       - To trim a given string's whitespaces at most left until it meets
-#         with a non-whitespace characters. The Right side remains in tact.
+#         with a non-whitespace characters. The right side remains in tact.
 #       - Whitespace refers to space (' '), tab ('\t'), newline ('\n'),
 #         return carrier ('\r'), and vertical tab ('\v').
 #       - When given an empty string, this function does nothing.
 #       - This function generates output so you have to capture the
 #         output back rather than checking its return code. Example:
 #           1. ____my_fav_variable="$(\
-#           2.         XuanQi_Strings_Trim_Whitespace_Left "  Sample Text     " \
+#           2.      XuanQi_Strings_Trim_Whitespace_Left "  Sample Text     " \
 #           3. )"
 #           4. # yields -> ____my_fav_variable="Sample Text     "
 # Parameters:

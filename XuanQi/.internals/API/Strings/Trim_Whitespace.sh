@@ -25,10 +25,10 @@
 #       - When given an empty string, this function does nothing.
 #       - This function generates output so you have to capture the
 #         output back rather than checking its return code. Example:
-#         1. ____my_fav_variable="$(\
-#         2.         XuanQi_Strings_Trim_Whitespace "  Sample Text     " \
-#         3. )"
-#         4. # yields -> ____my_fav_variable="Sample Text"
+#           1. ____my_fav_variable="$(\
+#           2.         XuanQi_Strings_Trim_Whitespace "  Sample Text     " \
+#           3. )"
+#           4. # yields -> ____my_fav_variable="Sample Text"
 # Parameters:
 #       ____content
 #               - OPTIONAL
@@ -40,7 +40,7 @@
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
-#               - always 0.
+#               - Always 0.
 XuanQi_Strings_Trim_Whitespace() {
         #____content="$1"
 
