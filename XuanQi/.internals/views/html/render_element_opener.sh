@@ -93,14 +93,19 @@ $(views_html_get_indent "$2")<${1}
                                 continue
                         fi
 
-                        if [ "${____line%%": "*}" = "$____line" ]; then
-                                continue # not a 'key: value' entry
-                        fi
+                        if [ "${____line%%": "*}" = "$____line" ] ||
+                        [ "${____line##*": "}" = "" ]; then
+                                ____output="\
+${____output}
+$(views_html_get_indent $(( ${2:-0} + 1 )))${____line%%": "*}'
+"
 
-                        ____output="\
+                        else
+                                ____output="\
 ${____output}
 $(views_html_get_indent $(( ${2:-0} + 1 )))${____line%%": "*}='${____line#*": "}'
 "
+                        fi
                 done<<EOF
 ${3}
 EOF
