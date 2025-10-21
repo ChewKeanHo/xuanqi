@@ -2,6 +2,8 @@
 # Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
 #
 #
 # Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
@@ -22,12 +24,13 @@
 #       ____contents
 #               - OPTIONAL
 #               - the content to be rendered as comments.
-#               - Multi-line single entry is supported.
+#               - multi-line single entry is supported.
 #       ____indent
 #               - OPTIONAL
 #               - the indent level to apply before the comment.
-#               - 0, empty, or invalid (e.g. not a round number) will set
-#                 indent level as 0 (no indentation).
+#               - 0, empty, or invalid (e.g. not a round number) will
+#                 set indent level as 0 (no indentation).
+#               - unused since Markdown comment cannot use it at all.
 # Outputs:
 #       Write to $____path_dest File
 #               - the rendered output written into file.
@@ -38,7 +41,7 @@
 #               - error on invalid '$____path_dest' (e.g. 'empty').
 #               - error on invalid '$____indent' (e.g. not a number).
 #               - error on bad execution.
-views_shell_write_comment() {
+views_markdown_write_comment() {
         #____path_dest="$1"
         #____contents="$2"
         #____indent="$3"
@@ -60,21 +63,18 @@ views_shell_write_comment() {
                 fi
         fi
 
-        case "$3" in
-        "")
-                ;;
-        *[!0-9]*)
-                return 1
-                ;;
-        *)
-                ;;
-        esac
-
 
         # execute
         if [ "$2" = "" ]; then
                 printf -- ""
                 return 0
+        fi
+
+        printf -- "%s" "
+
+" >> "${1}.tmp"
+        if [ $? -ne 0 ]; then
+                return 1
         fi
 
         ____old_IFS="$IFS"
@@ -84,7 +84,7 @@ views_shell_write_comment() {
                 fi
 
                 printf -- "%s" "\
-$(views_shell_get_indent "${3:-0}")#${____line}
+[//]: #${____line}
 " >> "${1}.tmp"
                 if [ $? -ne 0 ]; then
                         IFS="$____old_IFS"
@@ -96,6 +96,13 @@ ${2}
 EOF
         IFS="$____old_IFS"
         unset ____line ____old_IFS
+
+        printf -- "%s" "
+
+" >> "${1}.tmp"
+        if [ $? -ne 0 ]; then
+                return 1
+        fi
 
 
         # report status
