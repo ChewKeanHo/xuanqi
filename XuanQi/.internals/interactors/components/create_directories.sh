@@ -63,7 +63,7 @@ CSS
 Data
 Pages
 Layouts
-Scripts
+Webscripts
 XuanQi
 EOF
         IFS="$____old_IFS"
