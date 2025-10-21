@@ -2,6 +2,8 @@
 # Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
 #
 #
 # Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
@@ -32,7 +34,7 @@
 #               - '0' means ok; error otherwise.
 #               - error on empty/invalid '$____path_dest'.
 #               - error on bad execution.
-views_shell_write_raw_content() {
+views_typescript_write_raw_content() {
         #____path_dest="$1"
         #____content="$2"
 
