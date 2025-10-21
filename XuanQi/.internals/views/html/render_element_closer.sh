@@ -37,7 +37,9 @@
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
-#               - error on empty/invalid '$____path_dest'.
+#               - error on '$___name' being a void element.
+#               - error on invalid '$___indent_level'
+#                 (e.g. not a number).
 #               - error on bad execution.
 views_html_render_element_closer() {
         #____name="$1"
@@ -79,7 +81,7 @@ views_html_render_element_closer() {
         track|\
         wbr)
                 printf -- "%s" ""
-                return 0
+                return 1
                 ;;
         *)
                 printf -- "%s" "\
