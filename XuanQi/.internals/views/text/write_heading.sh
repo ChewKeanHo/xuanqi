@@ -29,7 +29,7 @@
 #               - OPTIONAL
 #               - indentation level in round numerical number.
 #               - '0' or empty means no default indentation.
-#               - Unused since Markdown heading does not need any
+#               - Unused since text heading does not need any
 #                 indent.
 #       ____content
 #               - OPTIONAL
@@ -52,7 +52,7 @@
 #               - You are responsible for the key:value's data
 #                 validity as this function only renders the
 #                 inputs.
-#               - Unused since Markdown does not support element
+#               - Unused since text does not support element
 #                 properties.
 # Outputs:
 #       Write to $____path_dest File

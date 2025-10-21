@@ -59,7 +59,7 @@
 #               - '0' means ok; error otherwise.
 #               - error on empty/invalid '$____path_dest'.
 #               - error on empty/invalid housing directory.
-#               - error on empty/invalid header number.
+#               - error on empty/invalid heading number.
 #               - error on invalid '$____indent_level' (e.g. not a number).
 #               - error on bad execution.
 views_html_write_heading() {
