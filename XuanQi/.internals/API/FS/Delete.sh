@@ -17,20 +17,20 @@
 
 
 
+# Specifications:
+#       - To delete an object (e.g. file, directory, etc).
+#       - Sync housing directory upon removal for atomic
+#         expectation.
 # Parameters:
 #       ____path
 #               - REQUIRED
-#               - The source path to remove.
-#               - Sync housing directory upon remove for atomic
-#                 expectation.
+#               - The path to delete.
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
-#               - error on empty any value.
-#               - error on removing item outside of user home
-#                 directory or itself (e.g. '/' or '~').
-#               - error on missing target's housing directory.
-interactors_fs_delete() {
+#               - Error on empty value (code: 1).
+#               - Error on bad execution (code: 2).
+XuanQi_FS_Delete() {
         #____path="$1"
 
 
@@ -45,9 +45,9 @@ interactors_fs_delete() {
 
 
         # execute
-        entities_fs_delete "$1"
+        interactors_fs_delete "$1"
         if [ $? -ne 0 ]; then
-                return 1
+                return 2
         fi
 
 
