@@ -47,9 +47,28 @@ views_html_head_vendors_schema_org_write_ldjson_closer() {
                 return 1
         fi
 
-        if [ "$2" = "" ]; then
-                return 1
+        if [ ! "${1%/*}" = "$1" ]; then
+                if [ -d "${1%/*}" ]; then
+                        : # accepted
+                elif [ -L "${1%/*}" ] &&
+                [ -d "$(readlink --canonicalize "$1")" ]; then
+                        : # accepted
+                else
+                        return 1
+                fi
         fi
+
+        case "$2" in
+        "")
+                ;;
+        *[!0-9]*)
+                return 1
+                ;;
+        *)
+                if [ "$3" -lt 0 ]; then
+                        return 1
+                fi
+        esac
 
 
         # execute
