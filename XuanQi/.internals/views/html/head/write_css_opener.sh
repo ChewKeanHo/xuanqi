@@ -28,17 +28,13 @@
 #                 '<style>' css inlining (default).
 #               - when set, the opener will use the '<link>'
 #                 with this value and auto-close it.
-#       ____indent_level
-#               - OPTIONAL
-#               - indentation level in round numerical number.
-#               - '0' or empty means no default indentation.
 #       ____properties
 #               - OPTIONAL
 #               - the "key='value'" properties (e.g. id='...').
 #               - Multi-line values where each line is an entry.
 #               - Each entry **MUST** comply to the following
 #                 format:
-#                             '[KEY]: [VALUE]'
+#                               '[KEY]: [VALUE]'
 #                 where:
 #                       - ': ' is the separating delimiter.
 #                       - [KEY] is the name of the property
@@ -48,6 +44,10 @@
 #               - You are responsible for the key:value's data
 #                 validity as this function only renders the
 #                 inputs.
+#       ____indent_level
+#               - OPTIONAL
+#               - indentation level in round numerical number.
+#               - empty means default '1' indentation.
 # Outputs:
 #       Write to $____path_dest File
 #               - the rendered output written into file.
@@ -61,8 +61,8 @@
 views_html_head_write_css_opener() {
         #____path_dest="$1"
         #____source_url="$2"
-        #____indent_level="$3"
-        #____properties="$4"
+        #____properties="$3"
+        #____indent_level="$4"
 
 
         # validate inputs
@@ -81,14 +81,14 @@ views_html_head_write_css_opener() {
                 fi
         fi
 
-        case "$3" in
+        case "$4" in
         "")
                 ;;
         *[!0-9]*)
                 return 1
                 ;;
         *)
-                if [ "$3" -lt 0 ]; then
+                if [ "$4" -lt 0 ]; then
                         return 1
                 fi
         esac
@@ -96,27 +96,19 @@ views_html_head_write_css_opener() {
 
         # execute
         ## process url sourcing type if available
-        ____url=""
         if [ ! "$2" = "" ]; then
-                printf -- "%s" "\
-$(\
-        views_html_render_element_opener "link" "$3" "\
-rel: stylesheet
-href: ${2}
-${4}
-"
-)
-" >> "${1}.tmp"
+                views_html_head_write_relational_link \
+                        "$1" \
+                        "stylesheet" \
+                        "$2" \
+                        "$3" \
+                        "${4:-1}"
                 if [ $? -ne 0 ]; then
                         return 1
                 fi
         else
                 printf -- "%s" "\
-$(\
-        views_html_render_element_opener "style" "$3" "\
-${4}
-"
-)
+$(views_html_render_element_opener "style" "${4:-1}" "$3")
 " >> "${1}.tmp"
                 if [ $? -ne 0 ]; then
                         return 1
