@@ -35,7 +35,7 @@
 #               - Multi-line values where each line is an entry.
 #               - Each entry **MUST** comply to the following
 #                 format:
-#                             '[KEY]: [VALUE]'
+#                                 '[KEY]: [VALUE]'
 #                 where:
 #                       - ': ' is the separating delimiter.
 #                       - [KEY] is the name of the property
@@ -74,6 +74,17 @@ views_html_head_write_meta() {
                 return 1
         fi
 
+        if [ ! "${1%/*}" = "$1" ]; then
+                if [ -d "${1%/*}" ]; then
+                        : # accepted
+                elif [ -L "${1%/*}" ] &&
+                [ -d "$(readlink --canonicalize "$1")" ]; then
+                        : # accepted
+                else
+                        return 1
+                fi
+        fi
+
         if [ "$2" = "" ]; then
                 return 1
         fi
@@ -81,6 +92,18 @@ views_html_head_write_meta() {
         if [ "$3" = "" ]; then
                 return 1
         fi
+
+        case "$5" in
+        "")
+                ;;
+        *[!0-9]*)
+                return 1
+                ;;
+        *)
+                if [ "$5" -lt 0 ]; then
+                        return 1
+                fi
+        esac
 
 
         # execute
