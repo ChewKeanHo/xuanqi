@@ -36,7 +36,8 @@
 #       ____country
 #               - OPTIONAL
 #               - the app distribution geo-location outside US.
-#               - Comply to ISO_3166-1 Alpha 2 format (e.g. 'US').
+#               - comply to ISO_3166-1 Alpha 2 format (e.g. 'US').
+#               - leaving it empty means all the apps are in US only.
 #       ____url_iphone
 #               - OPTIONAL
 #               - the app custom URL scheme for iphone app.
@@ -78,6 +79,17 @@ views_html_head_vendors_x_write_thumbnail_app() {
         # validate input
         if [ "$1" = "" ]; then
                 return 1
+        fi
+
+        if [ ! "${1%/*}" = "$1" ]; then
+                if [ -d "${1%/*}" ]; then
+                        : # accepted
+                elif [ -L "${1%/*}" ] &&
+                [ -d "$(readlink --canonicalize "$1")" ]; then
+                        : # accepted
+                else
+                        return 1
+                fi
         fi
 
         if [ "$2" = "" ]; then

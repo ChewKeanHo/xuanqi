@@ -26,12 +26,12 @@
 #       ____url
 #               - COMPULSORY
 #               - the image file url for the thumbnail.
-#               - Recommended Sizes:
+#               - recommended Sizes:
 #                       * recommended  : 1200x600
 #                       * minimum      : 300x157
 #                       * maximum      : 4096x4096
 #                       * aspect ratio : 2x1
-#               - Recommended format:
+#               - recommended format:
 #                       * PNG, JPEG, WEBP, GIF
 #       ____description
 #               - COMPULSORY
@@ -65,6 +65,17 @@ views_html_head_vendors_x_write_thumbnail_image() {
         # validate input
         if [ "$1" = "" ]; then
                 return 1
+        fi
+
+        if [ ! "${1%/*}" = "$1" ]; then
+                if [ -d "${1%/*}" ]; then
+                        : # accepted
+                elif [ -L "${1%/*}" ] &&
+                [ -d "$(readlink --canonicalize "$1")" ]; then
+                        : # accepted
+                else
+                        return 1
+                fi
         fi
 
         if [ "$2" = "" ]; then

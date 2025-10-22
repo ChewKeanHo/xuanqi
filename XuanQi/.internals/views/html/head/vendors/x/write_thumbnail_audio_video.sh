@@ -32,8 +32,8 @@
 #       ____image_url
 #               - COMPULSORY
 #               - the image file url for the fallback thumbnail.
-#               - match the video exact frame size.
-#               - Recommended format:
+#               - image size **MUST** match the video exact frame size.
+#               - recommended format:
 #                       * PNG, JPEG, WEBP, GIF
 #       ____image_description
 #               - COMPULSORY
@@ -83,6 +83,17 @@ views_html_head_vendors_x_write_thumbnail_audio_video() {
         # validate input
         if [ "$1" = "" ]; then
                 return 1
+        fi
+
+        if [ ! "${1%/*}" = "$1" ]; then
+                if [ -d "${1%/*}" ]; then
+                        : # accepted
+                elif [ -L "${1%/*}" ] &&
+                [ -d "$(readlink --canonicalize "$1")" ]; then
+                        : # accepted
+                else
+                        return 1
+                fi
         fi
 
         if [ "$2" = "" ]; then
