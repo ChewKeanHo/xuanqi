@@ -17,6 +17,8 @@
 
 
 
+# Specifications:
+#       * https://ogp.me/
 # Parameters:
 #       ____path_dest
 #               - COMPULSORY
@@ -49,6 +51,7 @@
 #               - error on empty '$____description'.
 #               - error on empty '$____page_url'.
 #               - error on empty '$____base_url'.
+#               - error on invalid '$____indent_level' (e.g. not a number).
 #               - error on bad execution.
 views_html_head_vendors_open_graph_write_page_metadata() {
         #____path_dest="$1"

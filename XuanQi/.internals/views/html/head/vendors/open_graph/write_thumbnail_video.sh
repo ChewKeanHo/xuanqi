@@ -17,6 +17,8 @@
 
 
 
+# Specifications:
+#       * https://ogp.me/
 # Parameters:
 #       ____path_dest
 #               - COMPULSORY
@@ -72,6 +74,17 @@ views_html_head_vendors_open_graph_write_thumbnail_video() {
         # validate input
         if [ "$1" = "" ]; then
                 return 1
+        fi
+
+        if [ ! "${1%/*}" = "$1" ]; then
+                if [ -d "${1%/*}" ]; then
+                        : # accepted
+                elif [ -L "${1%/*}" ] &&
+                [ -d "$(readlink --canonicalize "$1")" ]; then
+                        : # accepted
+                else
+                        return 1
+                fi
         fi
 
         if [ "$2" = "" ]; then

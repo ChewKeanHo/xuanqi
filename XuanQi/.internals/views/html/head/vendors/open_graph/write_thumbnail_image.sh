@@ -17,6 +17,8 @@
 
 
 
+# Specifications:
+#       * https://ogp.me/
 # Parameters:
 #       ____path_dest
 #               - COMPULSORY
@@ -74,6 +76,17 @@ views_html_head_vendors_open_graph_write_thumbnail_image() {
                 return 1
         fi
 
+        if [ ! "${1%/*}" = "$1" ]; then
+                if [ -d "${1%/*}" ]; then
+                        : # accepted
+                elif [ -L "${1%/*}" ] &&
+                [ -d "$(readlink --canonicalize "$1")" ]; then
+                        : # accepted
+                else
+                        return 1
+                fi
+        fi
+
         if [ "$2" = "" ]; then
                 return 1
         fi
@@ -86,27 +99,27 @@ views_html_head_vendors_open_graph_write_thumbnail_image() {
                 return 1
         fi
 
-        case "$5" in
+        case "${5%"px"}" in
         "")
                 ;;
         *[!0-9]*)
                 return 1
                 ;;
         *)
-                if [ "$5" -lt 0 ]; then
+                if [ "${5%"px"}" -lt 0 ]; then
                         return 1
                 fi
                 ;;
         esac
 
-        case "$6" in
+        case "${6%"px"}" in
         "")
                 ;;
         *[!0-9]*)
                 return 1
                 ;;
         *)
-                if [ "$6" -lt 0 ]; then
+                if [ "${6%"px"}" -lt 0 ]; then
                         return 1
                 fi
                 ;;
@@ -131,8 +144,8 @@ views_html_head_vendors_open_graph_write_thumbnail_image() {
 $(views_html_get_indent "${7:-1}")<meta property='og:image' content='${2}' />
 $(views_html_get_indent "${7:-1}")<meta property='og:image:type' content='${3}' />
 $(views_html_get_indent "${7:-1}")<meta property='og:image:alt' content='${4}' />
-$(views_html_get_indent "${7:-1}")<meta property='og:image:width' content='${5}' />
-$(views_html_get_indent "${7:-1}")<meta property='og:image:height' content='${6}' />
+$(views_html_get_indent "${7:-1}")<meta property='og:image:width' content='${5%"px"}' />
+$(views_html_get_indent "${7:-1}")<meta property='og:image:height' content='${6%"px"}' />
 "
         if [ $? -ne 0 ]; then
                 return 1

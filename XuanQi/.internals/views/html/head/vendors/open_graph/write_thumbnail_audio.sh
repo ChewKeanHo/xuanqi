@@ -17,6 +17,8 @@
 
 
 
+# Specifications:
+#       * https://ogp.me/
 # Parameters:
 #       ____path_dest
 #               - COMPULSORY
