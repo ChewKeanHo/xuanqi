@@ -31,23 +31,26 @@
 #       ____properties
 #               - OPTIONAL
 #               - the "key='value'" properties (e.g. id='...').
-#               - Multi-line values where each line is an entry.
-#               - Each entry **MUST** comply to the following
-#                 format:
-#                               '[KEY]: [VALUE]'
+#               - multi-line values where each line is an entry.
+#               - the "rel='...'" and "href='...'" are already rendered
+#                 automatically when 'link' is used so please exclude
+#                 them accordingly.
+#               - each entry **MUST** comply to the following format:
+#                                   '[KEY]: [VALUE]'
 #                 where:
 #                       - ': ' is the separating delimiter.
 #                       - [KEY] is the name of the property
 #                               (e.g. 'id').
 #                       - [VALUE] is the value of the property
 #                               (e.g. 'my-target-1').
-#               - You are responsible for the key:value's data
+#               - you are responsible for the key:value's data
 #                 validity as this function only renders the
 #                 inputs.
 #       ____indent_level
 #               - OPTIONAL
 #               - indentation level in round numerical number.
-#               - empty means default '1' indentation.
+#               - empty means default '1' indentation for html tag
+#                 and '0' indentation for webscript content.
 # Outputs:
 #       Write to $____path_dest File
 #               - the rendered output written into file.

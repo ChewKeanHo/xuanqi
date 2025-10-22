@@ -24,7 +24,8 @@
 #       ____indent_level
 #               - OPTIONAL
 #               - indentation level in round numerical number.
-#               - empty means default '1' indentation.
+#               - empty means default '1' indentation for html tag
+#                 and '0' indentation for webscript content.
 # Outputs:
 #       Write to $____path_dest File
 #               - the rendered output written into file.
