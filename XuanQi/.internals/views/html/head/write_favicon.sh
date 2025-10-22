@@ -227,7 +227,7 @@ ${____properties}
 "
         fi
 
-        views_html_head_write_relational_link \
+        views_html_head_write_link \
                 "$1" \
                 "$2" \
                 "$3" \

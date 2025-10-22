@@ -97,7 +97,7 @@ views_html_head_write_css_opener() {
         # execute
         ## process url sourcing type if available
         if [ ! "$2" = "" ]; then
-                views_html_head_write_relational_link \
+                views_html_head_write_link \
                         "$1" \
                         "stylesheet" \
                         "$2" \

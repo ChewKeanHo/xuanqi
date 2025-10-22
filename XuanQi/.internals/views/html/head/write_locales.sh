@@ -230,7 +230,7 @@ $(views_html_get_indent "$(( "${5:-0}" ))"))};
                 fi
 
                 if [ "$____default" = "true" ]; then
-                        views_html_head_write_relational_link \
+                        views_html_head_write_link \
                                 "$1" \
                                 "alternate" \
                                 "${____line#*": "}" \
@@ -244,7 +244,7 @@ $(views_html_get_indent "$(( "${5:-0}" ))"))};
                 fi
                 unset ____default
 
-                views_html_head_write_relational_link \
+                views_html_head_write_link \
                         "$1" \
                         "alternate" \
                         "${____line#*": "}" \

@@ -31,6 +31,8 @@
 #               - OPTIONAL
 #               - the "key='value'" properties (e.g. id='...').
 #               - Multi-line values where each line is an entry.
+#               - "rel='...'" and "href='...'" are already
+#                 formulated automatically. Please exclude them.
 #               - Each entry **MUST** comply to the following
 #                 format:
 #                             '[KEY]: [VALUE]'
@@ -57,7 +59,7 @@
 #               - error on empty/invalid '$____path_dest'.
 #               - error on invalid '$____indent_level' (e.g. not a number).
 #               - error on bad execution.
-views_html_head_write_relational_link() {
+views_html_head_write_link() {
         #____path_dest="$1"
         #____relationship="$2"
         #____source_url="$3"
