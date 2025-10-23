@@ -1,0 +1,29 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_PATH_ROOT
+Diese Konfiguration dient dem Zugriff auf die interne Engine von
+XuanQi für Betriebsvorgänge.
+
+       >>>> **NICHT MODIFIZIEREN ODER ÜBERSCHREIBEN** <<<<
+            Dies ist eine interne Systemkonfiguration.
+
+Der Wert wird automatisch bei der App-Initialisierung bestimmt.
+Prioritätenfolge:
+	* ${PWD}/.internals (lokale Engine)
+	* /usr/local/lib/chewkeanho/xuanqi (System-Level-App)
