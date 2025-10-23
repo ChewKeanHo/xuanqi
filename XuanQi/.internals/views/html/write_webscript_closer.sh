@@ -71,7 +71,7 @@ views_html_write_webscript_closer() {
 
         # execute
         printf -- "%s" "\
-$(views_html_render_element_closer "script" "$2")
+$(views_html_get_element_closer "script" "$2")
 " >> "${1}.tmp"
         if [ $? -ne 0 ]; then
                 return 1

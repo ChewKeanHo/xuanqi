@@ -41,7 +41,7 @@
 #               - error on invalid '$___indent_level'
 #                 (e.g. not a number).
 #               - error on bad execution.
-views_html_render_element_closer() {
+views_html_get_element_closer() {
         #____name="$1"
         #____indent_level="$2"
 

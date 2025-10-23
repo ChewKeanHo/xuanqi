@@ -120,7 +120,7 @@ views_html_write_webscript_opener() {
         defer)
                 printf -- "%s" "\
 $(\
-        views_html_render_element_opener "script" "$4" "\
+        views_html_get_element_opener "script" "$4" "\
 defer
 ${____url}
 ${5}
@@ -134,7 +134,7 @@ ${5}
         async)
                 printf -- "%s" "\
 $(\
-        views_html_render_element_opener "script" "$4" "\
+        views_html_get_element_opener "script" "$4" "\
 async
 ${____url}
 ${5}
@@ -148,7 +148,7 @@ ${5}
         sync)
                 printf -- "%s" "\
 $(\
-        views_html_render_element_opener "script" "$4" "\
+        views_html_get_element_opener "script" "$4" "\
 ${____url}
 ${5}
 "
@@ -169,7 +169,7 @@ ${5}
         ## for default inline mode
         if [ ! "$____url" = "" ]; then
                 printf -- "%s" "\
-$(views_html_render_element_closer "script" "$4")
+$(views_html_get_element_closer "script" "$4")
 " >> "${1}.tmp"
                 if [ $? -ne 0 ]; then
                         return 1

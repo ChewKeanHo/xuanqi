@@ -94,7 +94,7 @@ views_html_write_paragraph() {
 
         # execute
         printf -- "%s" "\
-$(views_html_render_element_opener "p" "$2" "$4")
+$(views_html_get_element_opener "p" "$2" "$4")
 " >> "${1}.tmp"
         if [ $? -ne 0 ]; then
                 return 1
@@ -127,7 +127,7 @@ ${3}
 EOF
 
         printf -- "%s" "\
-$(views_html_render_element_closer "p" "$2")
+$(views_html_get_element_closer "p" "$2")
 " >> "${1}.tmp"
         if [ $? -ne 0 ]; then
                 return 1

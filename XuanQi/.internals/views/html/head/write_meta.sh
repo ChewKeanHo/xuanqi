@@ -109,7 +109,7 @@ views_html_head_write_meta() {
         # execute
         printf -- "%s" "\
 $(\
-        views_html_render_element_opener "meta" "${5:-1}" "\
+        views_html_get_element_opener "meta" "${5:-1}" "\
 name: ${2}
 content: ${3}
 ${4}

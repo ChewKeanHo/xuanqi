@@ -108,7 +108,7 @@ views_html_head_write_link() {
         # execute
         printf -- "%s" "\
 $(\
-        views_html_render_element_opener "link" "${5:-1}" "\
+        views_html_get_element_opener "link" "${5:-1}" "\
 rel: ${2}
 href: ${3}
 ${4}

@@ -56,7 +56,7 @@
 #               - error on invalid '$___indent_level'
 #                 (e.g. not a number).
 #               - error on bad execution.
-views_html_render_element_opener() {
+views_html_get_element_opener() {
         #____name="$1"
         #____indent_level="$2"
         #____properties="$3"

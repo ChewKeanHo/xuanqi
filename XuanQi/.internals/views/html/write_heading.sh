@@ -106,9 +106,9 @@ views_html_write_heading() {
 
         # execute
         printf -- "%s" "\
-$(views_html_render_element_opener "h${2:-1}" "$3" "$5")
+$(views_html_get_element_opener "h${2:-1}" "$3" "$5")
 $(views_html_get_indent $(( ${3:-0} + 1 )))${4}
-$(views_html_render_element_closer "h${2:-1}" "$3")
+$(views_html_get_element_closer "h${2:-1}" "$3")
 " >> "${1}.tmp"
         if [ $? -ne 0 ]; then
                 return 1

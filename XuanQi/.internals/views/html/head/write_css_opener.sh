@@ -111,7 +111,7 @@ views_html_head_write_css_opener() {
                 fi
         else
                 printf -- "%s" "\
-$(views_html_render_element_opener "style" "${4:-1}" "$3")
+$(views_html_get_element_opener "style" "${4:-1}" "$3")
 " >> "${1}.tmp"
                 if [ $? -ne 0 ]; then
                         return 1
