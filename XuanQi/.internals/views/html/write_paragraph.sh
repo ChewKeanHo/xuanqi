@@ -36,7 +36,7 @@
 #               - Multi-line values where each line is an entry.
 #               - Each entry **MUST** comply to the following
 #                 format:
-#                             '[KEY]: [VALUE]'
+#                                '[KEY]: [VALUE]'
 #                 where:
 #                       - ': ' is the separating delimiter.
 #                       - [KEY] is the name of the property

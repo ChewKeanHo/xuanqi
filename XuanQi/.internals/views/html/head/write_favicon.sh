@@ -90,7 +90,7 @@
 #               - the "rel='...'" and "href='...'" are already rendered
 #                 automatically. Please exclude them.
 #               - each entry **MUST** comply to the following format:
-#                                  '[KEY]: [VALUE]'
+#                                   '[KEY]: [VALUE]'
 #                 where:
 #                       - ': ' is the separating delimiter.
 #                       - [KEY] is the name of the property

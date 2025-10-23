@@ -46,9 +46,11 @@
 #               - OPTIONAL
 #               - the "key='value'" properties (e.g. id='...').
 #               - Multi-line values where each line is an entry.
+#               - "src='...',"async", and "defer" are all already
+#                 rendered automatically. Please exclude them.
 #               - Each entry **MUST** comply to the following
 #                 format:
-#                             '[KEY]: [VALUE]'
+#                               '[KEY]: [VALUE]'
 #                 where:
 #                       - ': ' is the separating delimiter.
 #                       - [KEY] is the name of the property
