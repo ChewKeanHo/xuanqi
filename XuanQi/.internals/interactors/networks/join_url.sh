@@ -18,9 +18,6 @@
 
 
 # Parameters:
-#       ____base_url
-#               - COMPULSORY
-#               - the site/base absolute url.
 #       ____current_url
 #               - COMPULSORY
 #               - the current page absolute url.
@@ -31,7 +28,7 @@
 #                       - absolute url
 #                               - return as it is.
 #                       - relative url with starting slash ('/')
-#                               - join pathing with '$____base_url'
+#                               - join pathing with '$XUANQI_URL_BASE'
 #                       - relative url without starting slash ('/')
 #                               - join pathing with '$____current_url'
 # Outputs:
@@ -41,19 +38,17 @@
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
-#               - empty/invalid '$____base_url'.
 #               - empty/invalid '$____current_url'.
 #               - empty/invalid '$____target_path'.
+#               - empty/invalid '$XUANQI_URL_BASE' (internal error).
 #               - error on bad execution.
-entities_networks_join_url() {
-        #____base_url="$1"
-        #____current_url="$2"
-        #____target_path="$3"
+interactors_networks_join_url() {
+        #____current_url="$1"
+        #____target_path="$2"
 
 
-        # validate inputs
+        # validate input
         if [ "$1" = "" ]; then
-                printf -- ""
                 return 1
         fi
 
@@ -62,41 +57,16 @@ entities_networks_join_url() {
                 return 1
         fi
 
-        if [ "$3" = "" ]; then
-                printf -- ""
-                return 1
-        fi
-
-        if [ "$(entities_networks_parse_url "$1")" = "" ]; then
-                printf -- ""
-                return 1
-        fi
-
-        if [ "$(entities_networks_parse_url "$2")" = "" ]; then
+        if [ "$XUANQI_URL_BASE" = "" ]; then
                 printf -- ""
                 return 1
         fi
 
 
         # execute
-        if [ ! "${3#*":"}" = "$3" ]; then
-                # absolute url - return as it is
-                printf -- "%s" "$3"
-                if [ $? -ne 0 ]; then
-                        return 1
-                fi
-        elif [ ! "${3#"/"}" = "$3" ]; then
-                # merge from base url
-                printf -- "%s" "${1%/}/${3#/}"
-                if [ $? -ne 0 ]; then
-                        return 1
-                fi
-        else
-                # merge from current url
-                printf -- "%s" "${2%/}/${3#/}"
-                if [ $? -ne 0 ]; then
-                        return 1
-                fi
+        entities_networks_join_url "$XUANQI_URL_BASE" "$1" "$2"
+        if [ $? -ne 0 ]; then
+                return 1
         fi
 
 
