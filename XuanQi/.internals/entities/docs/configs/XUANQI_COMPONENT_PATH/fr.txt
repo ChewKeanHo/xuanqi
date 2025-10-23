@@ -1,0 +1,34 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_COMPONENT_PATH
+Cette configuration permet d'accéder au répertoire spécifique
+du composant XuanQi dérivé de `$XUANQI_COMPONENT_NAME`.
+
+Quand elle est définie, cela signifie que le composant a déjà
+été trouvé dans `$XUANQI_DIRECTORY_COMPONENTS` où son chemin de
+répertoire est défini dans `$XUANQI_PATH_COMPONENTS`.
+
+        >>>> **NE PAS MODIFIER NI REMPLACER** <<<<
+      Il s'agit d'une configuration interne du système.
+
+La valeur est déterminée automatiquement lors de l'initialisation
+de l'application en fonction des fonctions (ex. `create component`
+ou `build`).
+
+Elle contient le chemin absolu vers le composant spécifique.

@@ -1,0 +1,33 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_COMPONENT_PATH
+Энэ тохиргоо нь `$XUANQI_COMPONENT_NAME`-аас гаралтай XuanQi-ийн
+тодорхой бүрэлдэхүүн хэсгийн санг хангахад зориулагдсан.
+
+Тохируулсан үед энэ нь бүрэлдэхүүн хэсэг нь `$XUANQI_PATH_COMPONENTS`-д
+тодорхойлогдсон замын сангийн дотор `$XUANQI_DIRECTORY_COMPONENTS`
+дотор аль хэдийн олдсон гэсэн үг.
+
+         >>>> **ӨӨРЧЛӨХ ЭСВЭЛ ДАВХААРХАГ БОЛОМЖГҮЙ** <<<<
+               Энэ бол дотоод системийн тохиргоо юм.
+
+Утга нь апп эхлүүлэх үед функцүүд (жишээ нь `create component` эсвэл
+`build`) дээр үндэслэн автоматаар тодорхойлогдоно.
+
+Энэ нь тодорхой бүрэлдэхүүн хэсэг рүү чиглэсэн абсолют замыг агуулна.

@@ -1,0 +1,33 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_COMPONENT_PATH
+이 구성은 `$XUANQI_COMPONENT_NAME`에서 파생된 XuanQi의 특정 컴
+포넌트 디렉토리에 액세스하기 위한 것입니다.
+
+설정된 경우, 컴포넌트가 이미 `$XUANQI_PATH_COMPONENTS`에 정의
+된 디렉토리 경로 내인`$XUANQI_DIRECTORY_COMPONENTS` 내에서 발
+견되었음을 의미합니다.
+
+        >>>> **수정 또는 재정의하지 마십시오** <<<<
+                이는 내부 시스템 구성입니다.
+
+값은 앱 초기화 시 기능(예: `create component` 또는 `build`)
+에 따라 자동으로 결정됩니다.
+
+특정 컴포넌트의 절대 경로를 포함합니다.

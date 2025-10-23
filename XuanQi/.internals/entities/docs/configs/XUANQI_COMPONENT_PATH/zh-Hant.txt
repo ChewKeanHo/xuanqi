@@ -1,0 +1,31 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_COMPONENT_PATH
+此配置用於存取源自`$XUANQI_COMPONENT_NAME`的玄器特定元件目錄。
+
+當它被設定時，這表示那元件已在`$XUANQI_DIRECTORY_COMPONENTS`裡
+尋到了。其資料夾路徑就在`$XUANQI_PATH_COMPONENTS`定義裡。
+
+               >>>> **請勿修改或覆寫** <<<<
+                     此為內部系統配置。
+
+該值會在應用程式初始化時根據功能（例如`create component`或`build`）
+自動確定。
+
+它包含特定元件的絕對路徑。

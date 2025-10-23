@@ -1,0 +1,33 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_COMPONENT_PATH
+Denna konfiguration är för åtkomst till XuanQis specifika
+komponentkatalog härledd från `$XUANQI_COMPONENT_NAME`.
+
+När den är satt betyder det att komponenten redan har hittats inom
+`$XUANQI_DIRECTORY_COMPONENTS` där dess katalogväg är definierad
+i `$XUANQI_PATH_COMPONENTS`.
+
+          >>>> **ÄNDRA INTE ELLER ÅSIDOSÄTT** <<<<
+           Detta är en intern systemkonfiguration.
+
+Värdet bestäms automatiskt vid appinitialisering
+beroende på funktioner (t.ex. `create component` eller `build`).
+
+Den innehåller den absoluta sökvägen till den specifika komponenten.

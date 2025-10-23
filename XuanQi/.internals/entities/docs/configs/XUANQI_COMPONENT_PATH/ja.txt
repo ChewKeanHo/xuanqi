@@ -1,0 +1,33 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_COMPONENT_PATH
+この設定は、`$XUANQI_COMPONENT_NAME`から派生した玄器の
+特定コンポーネントディレクトリへのアクセスに使用されます。
+
+設定されている場合、コンポーネントは`$XUANQI_PATH_COMPONENTS`
+で定義されたディレクトリパス内の`$XUANQI_DIRECTORY_COMPONENTS`
+内ですでに発見されていることを意味します。
+
+      >>>> **変更または上書きしないでください** <<<<
+                これは内部システム設定です。
+
+値はアプリ初期化時に（例：`create component`や`build`などの）
+機能に応じて自動的に決定されます。
+
+特定のコンポーネントへの絶対パスが含まれています。
