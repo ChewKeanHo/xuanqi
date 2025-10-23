@@ -1,0 +1,54 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_LANGUAGE
+This configuration is set XuanQi's main operational
+and fallback language. This can be configured from
+CLI or from a configuration file inside
+`$XUANQI_DIRECTORY_CONFIGS` directory.
+
+The value is a BCP 47 locale code complying to the
+following format:
+
+        `[LANG]{-[SCRIPT]}{-[COUNTRY]}`
+where:
+        * `[LANG]`       - ISO639 language code.
+        * `{-[SCRIPT]}`  - optional ISO15924 language script
+                           with a dash `-` prefix separator and
+                           without the `{ }` braces.
+        * `{-[COUNTRY]}` - optional ISO3166 country code
+                           with a dash `-` prefix separator and
+                           without the `{ }` braces.
+Examples:
+        * `en`           - International English
+        * `zh-Hans`      - International Simplified Chinese
+        * `zh-Hant`      - International Traditional Chinese
+        * `zh-Hans-US`   - United States Simplified Chinese
+        * `zh-Hant-US`   - United States Traditional Chinese
+        * `zh-Hans-MY`   - Malaysia's Simplified Chinese
+        * `zh-Hant-MY`   - Malaysia's Traditional Chinese
+
+The priority is as follows with the latter overwriting the
+former:
+
+1. Parse environment language variables (e.g. `$LANG`). Set to
+   `en` as default when failed.
+2. Parse `$XUANQI_DIRECTORY_CONFIGS`. Fallback to `en` if fails.
+3. command line overrides (e.g.
+   `XUANQI_LANGUAGE=zh-hans [XUANQI] help`). Fallback to `en`
+   if fails.

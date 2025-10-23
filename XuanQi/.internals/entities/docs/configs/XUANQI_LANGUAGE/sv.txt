@@ -1,0 +1,53 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_LANGUAGE
+Denna konfiguration sätter XuanQis huvudsakliga operativa
+och reserv-språk. Den kan konfigureras från kommandorad eller
+från en konfigurationsfil i `$XUANQI_DIRECTORY_CONFIGS`-katalogen.
+
+Värdet är en BCP 47 locale-kod som följer följande format:
+
+              `[SPRÅK]{-[SKRIPT]}{-[LAND]}`
+där:
+        * `[SPRÅK]`     - ISO639 språkkod.
+        * `{-[SKRIPT]}` - valfri ISO15924 språkskript
+                          med bindestreck `-` prefixavskiljare
+                          utan `{ }`-parenteserna.
+        * `{-[LAND]}`   - valfri ISO3166 landskod
+                          med bindestreck `-` prefixavskiljare
+                          utan `{ }`-parenteserna.
+
+Exempel:
+        * `en`           - Internationell engelska
+        * `zh-Hans`      - Internationell förenklad kinesiska
+        * `zh-Hant`      - Internationell traditionell kinesiska
+        * `zh-Hans-US`   - Amerikansk förenklad kinesiska
+        * `zh-Hant-US`   - Amerikansk traditionell kinesiska
+        * `zh-Hans-MY`   - Malaysisk förenklad kinesiska
+        * `zh-Hant-MY`   - Malaysisk traditionell kinesiska
+
+Prioriteringen är som följer där det senare skriver över
+det föregående:
+
+1. Tolka miljöspråkvariabler (t.ex. `$LANG`). Sätt till `en` som
+   standard vid fel.
+2. Tolka `$XUANQI_DIRECTORY_CONFIGS`. Fallback till `en` vid fel.
+3. Kommandoradsöverskridande (t.ex.
+   `XUANQI_LANGUAGE=zh-hans [XUANQI] help`). Fallback till `en`
+   vid fel.

@@ -1,0 +1,52 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_LANGUAGE
+Ця конфігурація встановлює основний робочий та резервний
+язык XuanQi. Її можна налаштувати через CLI або через файл
+конфігурації в каталозі `$XUANQI_DIRECTORY_CONFIGS`.
+
+Значення є код локалі BCP 47, що відповідає наступному формату:
+
+               `[МОВА]{-[ПИСЬМО]}{-[КРАЇНА]}`
+де:
+        * `[МОВА]`        - код мови ISO639.
+        * `{-[ПИСЬМО]}`   - опціональний шрифт мови ISO15924
+                            з роздільником тире `-` без фігурних
+                            дужок `{ }`.
+        * `{-[КРАЇНА]}`   - опціональний код країни ISO3166
+                            з роздільником тире `-` без
+                            фігурних дужок `{ }`.
+
+Приклади:
+        * `en`           - Міжнародна англійська
+        * `zh-Hans`      - Міжнародна спрощена китайська
+        * `zh-Hant`      - Міжнародна традиційна китайська
+        * `zh-Hans-US`   - Американська спрощена китайська
+        * `zh-Hant-US`   - Американська традиційна китайська
+        * `zh-Hans-MY`   - Малайзійська спрощена китайська
+        * `zh-Hant-MY`   - Малайзійська традиційна китайська
+
+Пріоритет наступний, де останній перевизначає попередній:
+
+1. Проаналізувати змінні середовища мови (напр. `$LANG`). Встановити
+   `en` за замовчуванням при збої.
+2. Розбір `$XUANQI_DIRECTORY_CONFIGS`. Відкат до `en` при збої.
+3. Перевизначення командного рядка (напр.
+   `XUANQI_LANGUAGE=zh-hans [XUANQI] help`). Відкат до `en` при
+   збої.

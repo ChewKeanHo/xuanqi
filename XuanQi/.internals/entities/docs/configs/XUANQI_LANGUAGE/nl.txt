@@ -1,0 +1,56 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_LANGUAGE
+Deze configuratie stelt XuanQi's hoofd operationele en
+fallback-taal in. Dit kan worden geconfigureerd vanaf de
+opdrachtregel of vanuit een configuratiebestand in de
+`$XUANQI_DIRECTORY_CONFIGS` directory.
+
+De waarde is een BCP 47 locale-code die voldoet aan
+het volgende formaat:
+
+                `[TAAL]{-[SCRIPT]}{-[LAND]}`
+waarbij:
+        * `[TAAL]`       - ISO639 taalcode.
+        * `{-[SCRIPT]}`  - optioneel ISO15924 taalscript
+                           met een streepje `-`
+                           prefix-scheidingsteken zonder de
+                           `{ }` accolades.
+        * `{-[LAND]}`    - optionele ISO3166 landcode
+                           met een streepje `-`
+                           prefix-scheidingsteken zonder de
+                           `{ }` accolades.
+
+Voorbeelden:
+        * `en`           - Internationaal Engels
+        * `zh-Hans`      - Internationaal Vereenvoudigd Chinees
+        * `zh-Hant`      - Internationaal Traditioneel Chinees
+        * `zh-Hans-US`   - Amerikaans Vereenvoudigd Chinees
+        * `zh-Hant-US`   - Amerikaans Traditioneel Chinees
+        * `zh-Hans-MY`   - Maleisisch Vereenvoudigd Chinees
+        * `zh-Hant-MY`   - Maleisisch Traditioneel Chinees
+
+De prioriteit is als volgt waarbij de laatste de eerste overschrijft:
+
+1. Omgevingstaalvariabelen parseren (bijv. `$LANG`). Bij mislukking
+   instellen op `en` als standaard.
+2. Parse `$XUANQI_DIRECTORY_CONFIGS`. Terugval op `en` bij mislukking
+3. Opdrachtregel overschrijvingen (bijv.
+   `XUANQI_LANGUAGE=zh-hans [XUANQI] help`). Terugval op `en`
+   bij mislukking.

@@ -1,0 +1,52 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_LANGUAGE
+Denne konfigurasjonen setter XuanQis hoveddrifts-og reserve-språk.
+Den kan konfigureres fra kommandolinje eller fra en konfigurasjonsfil
+i `$XUANQI_DIRECTORY_CONFIGS`-katalogen.
+
+Verdien er en BCP 47 lokal-kode som følger følgende format:
+
+                `[SPRÅK]{-[SKRIPT]}{-[LAND]}`
+hvor:
+        * `[SPRÅK]`     - ISO639 språkkode.
+        * `{-[SKRIPT]}` - valgfri ISO15924 språkskript
+                          med bindestrek `-` prefiksskilletegn
+                          uten `{ }`-parentesene.
+        * `{-[LAND]}`   - valgfri ISO3166 landkode
+                          med bindestrek `-` prefiksskilletegn
+                          uten `{ }`-parentesene.
+
+Eksempler:
+        * `en`           - Internasjonal engelsk
+        * `zh-Hans`      - Internasjonal forenklet kinesisk
+        * `zh-Hant`      - Internasjonal tradisjonell kinesisk
+        * `zh-Hans-US`   - Amerikansk forenklet kinesisk
+        * `zh-Hant-US`   - Amerikansk tradisjonell kinesisk
+        * `zh-Hans-MY`   - Malaysisk forenklet kinesisk
+        * `zh-Hant-MY`   - Malaysisk tradisjonell kinesisk
+
+Prioriteten er som følger, hvor sistnevnte overskriver
+førstnevnte:
+
+1. Analyser miljøspråkvariabler (f.eks. `$LANG`). Sett til `en` som
+   standard ved feil.
+2. Analyser `$XUANQI_DIRECTORY_CONFIGS`. Fallback til `en` ved feil.
+3. Kommandolinje-overstyringer (f.eks.
+   `XUANQI_LANGUAGE=zh-hans [XUANQI] help`). Fallback til `en` ved feil.

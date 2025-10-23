@@ -1,0 +1,49 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_LANGUAGE
+此配置设置玄器的主要操作和回退语言。可从CLI或
+`$XUANQI_DIRECTORY_CONFIGS`目录中的配置文件进行配置。
+
+该值为符合以下格式的BCP 47区域设置代码：
+
+          `[语言]{-[脚本]}{-[国家]}`
+其中：
+        * `[语言]`       - ISO639语言代码。
+        * `{-[脚本]}`    - 可选的ISO15924语言脚本
+                           带短横线`-`前缀分隔符
+                           不带`{ }`大括号。
+        * `{-[国家]}`    - 可选的ISO3166国家代码
+                           带短横线`-`前缀分隔符
+                           不带`{ }`大括号。
+
+示例：
+        * `en`           - 国际英语
+        * `zh-Hans`      - 国际简体中文
+        * `zh-Hant`      - 国际繁体中文
+        * `zh-Hans-US`   - 美国简体中文
+        * `zh-Hant-US`   - 美国繁体中文
+        * `zh-Hans-MY`   - 马来西亚简体中文
+        * `zh-Hant-MY`   - 马来西亚繁体中文
+
+优先级如下，后者覆盖前者：
+
+1. 解析环境语言变量（例如：`$LANG`）。如果失败则默认设置为`en`。
+2. 解析`$XUANQI_DIRECTORY_CONFIGS`。如果失败则回退到`en`。
+3. 命令行覆盖（例如：
+   `XUANQI_LANGUAGE=zh-hans [XUANQI] help`）。如果失败则回退到`en`。

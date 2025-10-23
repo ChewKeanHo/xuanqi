@@ -1,0 +1,53 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_LANGUAGE
+この設定は玄器のメイン動作言語とフォールバック言語を設定します。
+CLIまたは`$XUANQI_DIRECTORY_CONFIGS`ディレクトリ内の設定ファイルから
+設定できます。
+
+値はBCP 47ロケールコードで、以下の形式に従います：
+
+            `[言語]{-[スクリプト]}{-[国]}`
+ここで：
+        * `[言語]`          - ISO639言語コード。
+        * `{-[スクリプト]}` - オプションのISO15924言語スクリプト
+                              ダッシュ「`-`」接頭辞区切り文字付き、
+                              「`{ }`」括弧なし。
+        * `{-[国]}`         - オプションのISO3166国コード
+                              ダッシュ「`-`」接頭辞区切り文字付き、
+                             「`{ }`」括弧なし。
+
+例：
+        * `en`           - 国際英語
+        * `zh-Hans`      - 国際簡体字中国語
+        * `zh-Hant`      - 国際繁体字中国語
+        * `zh-Hans-US`   - アメリカ合衆国簡体字中国語
+        * `zh-Hant-US`   - アメリカ合衆国繁体字中国語
+        * `zh-Hans-MY`   - マレーシア簡体字中国語
+        * `zh-Hant-MY`   - マレーシア繁体字中国語
+
+優先度は以下の通りで、後者が前者を上書きします：
+
+1. 環境言語変数を解析（例：`$LANG`）。失敗時にデフォルトで`en`に設
+   定。
+2. `$XUANQI_DIRECTORY_CONFIGS`を解析。失敗した場合は`en`にフォー
+   ルバック。
+3. コマンドラインオーバーライド（例：
+   `XUANQI_LANGUAGE=zh-hans [XUANQI] help`）。失敗した場合は`en`
+   にフォールバック。

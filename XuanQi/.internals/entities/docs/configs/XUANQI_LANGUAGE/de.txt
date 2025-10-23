@@ -1,0 +1,53 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_LANGUAGE
+Diese Konfiguration legt die Hauptbetriebs- und Fallback-Sprache
+von XuanQi fest. Sie kann über die Befehlszeile oder eine
+Konfigurationsdatei im Verzeichnis `$XUANQI_DIRECTORY_CONFIGS`
+konfiguriert werden.
+
+Der Wert ist ein BCP-47-Sprachcode, der folgendem Format entspricht:
+
+        `[SPRACHE]{-[SCRIPT]}{-[LAND]}`
+wobei:
+        * `[SPRACHE]`    - ISO639-Sprachcode
+        * `{-[SCRIPT]}`  - optionales ISO15924-Skript
+                           mit Bindestrich `-` als Präfix-Trennzeichen
+                           und ohne die `{ }`-Klammern
+        * `{-[LAND]}`    - optionaler ISO3166-Ländercode
+                           mit Bindestrich `-` als Präfix-Trennzeichen
+                           und ohne die `{ }`-Klammern
+
+Beispiele:
+        * `en`           - Internationales Englisch
+        * `zh-Hans`      - Internationales Vereinfachtes Chinesisch
+        * `zh-Hant`      - Internationales Traditionelles Chinesisch
+        * `zh-Hans-US`   - Vereinfachtes Chinesisch (USA)
+        * `zh-Hant-US`   - Traditionelles Chinesisch (USA)
+        * `zh-Hans-MY`   - Malaysisches Vereinfachtes Chinesisch
+        * `zh-Hant-MY`   - Malaysisches Traditionelles Chinesisch
+
+Die Priorität ist wie folgt, wobei Letzteres Erstere überschreibt:
+
+1. Umgebungs-Sprachvariablen analysieren (z.B. `$LANG`). Bei Fehlschlag
+   auf `en` als Standard setzen.
+2. Parse `$XUANQI_DIRECTORY_CONFIGS`. Fallback auf `en` bei Fehlschlag
+3. Befehlszeilen-Überschreibungen (z.B.
+   `XUANQI_LANGUAGE=zh-hans [XUANQI] help`). Fallback auf `en`
+   bei Fehlschlag.

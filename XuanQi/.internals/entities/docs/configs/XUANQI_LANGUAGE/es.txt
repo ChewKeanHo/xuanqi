@@ -1,0 +1,53 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_LANGUAGE
+Esta configuración establece el idioma principal de operación
+y respaldo de XuanQi. Se puede configurar desde la línea de
+comandos o desde un archivo de configuración dentro del
+directorio `$XUANQI_DIRECTORY_CONFIGS`.
+
+El valor es un código de configuración regional BCP 47 que cumple
+con el siguiente formato:
+
+        `[IDIOMA]{-[SCRIPT]}{-[PAÍS]}`
+donde:
+        * `[IDIOMA]`     - código de idioma ISO639.
+        * `{-[SCRIPT]}`  - script de idioma ISO15924 opcional
+                           con un separador prefijo guión `-`
+                           y sin las llaves `{ }`.
+        * `{-[PAÍS]}`    - código de país ISO3166 opcional
+                           con un separador prefijo guión `-`
+                           y sin las llaves `{ }`.
+
+Ejemplos:
+        * `en`           - Inglés internacional
+        * `zh-Hans`      - Chino simplificado internacional
+        * `zh-Hant`      - Chino tradicional internacional
+        * `zh-Hans-US`   - Chino simplificado de Estados Unidos
+        * `zh-Hant-US`   - Chino tradicional de Estados Unidos
+        * `zh-Hans-MY`   - Chino simplificado de Malasia
+        * `zh-Hant-MY`   - Chino tradicional de Malasia
+
+La prioridad es la siguiente, donde lo último sobrescribe lo anterior:
+
+1. Analizar variables de idioma del entorno (ej. `$LANG`). Establecer
+   en `en` como predeterminado cuando falle.
+2. Analizar `$XUANQI_DIRECTORY_CONFIGS`. Retroceso a `en` si falla
+3. Overrides de línea de comandos (ej.
+   `XUANQI_LANGUAGE=zh-hans [XUANQI] help`). Retroceso a `en` si falla

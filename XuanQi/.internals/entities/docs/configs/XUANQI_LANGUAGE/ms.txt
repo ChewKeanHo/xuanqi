@@ -1,0 +1,55 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_LANGUAGE
+Konfigurasi ini menetapkan bahasa operasi utama
+dan sandaran XuanQi. Ia boleh dikonfigurasi dari
+CLI atau dari fail konfigurasi dalam direktori
+`$XUANQI_DIRECTORY_CONFIGS`.
+
+Nilai adalah kod lokal BCP 47 yang mematuhi format berikut:
+
+             `[BAHASA]{-[SKRIP]}{-[NEGARA]}`
+di mana:
+        * `[BAHASA]`     - kod bahasa ISO639.
+        * `{-[SKRIP]}`   - skrip bahasa ISO15924 pilihan
+                           dengan pemisah awalan dash `-`
+                           tanpa pendakap `{ }`.
+        * `{-[NEGARA]}`  - kod negara ISO3166 pilihan
+                           dengan pemisah awalan dash `-`
+                           tanpa pendakap `{ }`.
+
+Contoh:
+        * `en`           - Bahasa Inggeris Antarabangsa
+        * `zh-Hans`      - Bahasa Cina Ringkas Antarabangsa
+        * `zh-Hant`      - Bahasa Cina Tradisional Antarabangsa
+        * `zh-Hans-US`   - Bahasa Cina Ringkas Amerika Syarikat
+        * `zh-Hant-US`   - Bahasa Cina Tradisional Amerika Syarikat
+        * `zh-Hans-MY`   - Bahasa Cina Ringkas Malaysia
+        * `zh-Hant-MY`   - Bahasa Cina Tradisional Malaysia
+
+Keutamaan adalah seperti berikut dengan yang kemudian
+mengatasi yang sebelumnya:
+
+1. Huraikan pembolehubah bahasa persekitaran (cth. `$LANG`).
+   Sandaran kepada `en` jika gagal.
+2. Huraikan `$XUANQI_DIRECTORY_CONFIGS`. Sandaran kepada `en`
+   jika gagal.
+3. Penggantian baris perintah (cth.
+   `XUANQI_LANGUAGE=zh-hans [XUANQI] help`). Sandaran kepada
+   `en` jika gagal.

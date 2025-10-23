@@ -1,0 +1,54 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_LANGUAGE
+Энэ тохиргоо нь XuanQi-ийн үндсэн ажиллагааны болон нөөц хэлийг
+тохируулдаг. Үүнийг CLI эсвэл `$XUANQI_DIRECTORY_CONFIGS` хавтас
+доторх тохиргооны файлаас тохируулж болно.
+
+Утга нь дараах форматыг дагах BCP 47 хэлний код юм:
+
+              `[ХЭЛ]{-[СКРИПТ]}{-[УЛС]}`
+энд:
+        * `[ХЭЛ]`        - ISO639 хэлний код.
+        * `{-[СКРИПТ]}`  - нэмэлт ISO15924 хэлний бичлэг
+                           зураас `-` угтварын тусгаарлагчтай,
+                           `{ }` хаалтгүй.
+        * `{-[УЛС]}`     - нэмэлт ISO3166 улсын код
+                           зураас `-` угтварын тусгаарлагчтай,
+                           `{ }` хаалтгүй.
+
+Жишээ:
+        * `en`           - Олон улсын Англи хэл
+        * `zh-Hans`      - Олон улсын Хялбарбичсэн Хятад хэл
+        * `zh-Hant`      - Олон улсын Уламжлалт Хятад хэл
+        * `zh-Hans-US`   - Америк Нэгдсэн Улсын Хялбарбичсэн Хятад хэл
+        * `zh-Hant-US`   - Америк Нэгдсэн Улсын Уламжлалт Хятад хэл
+        * `zh-Hans-MY`   - Малайзын Хялбарбичсэн Хятад хэл
+        * `zh-Hant-MY`   - Малайзын Уламжлалт Хятад хэл
+
+Урьдчилсан дараалал нь дараах байдалтай бөгөөд сүүлийнх нь
+өмнөхүүдийг дарна:
+
+1. Орчны хэлний хувьсагчдыг задлан шинжлэх (ж.нь: `$LANG`).
+   Амжилтгүй бол анхны утгаар `en` тохируулах.
+2. `$XUANQI_DIRECTORY_CONFIGS`-ийг задлан шинжлэх. Алдаа гарвал
+   `en` руу буцах.
+3. Команд мөрийн давуу тохиргоо (жишээ нь:
+   `XUANQI_LANGUAGE=zh-hans [XUANQI] help`). Алдаа гарвал `en`
+   руу буцах.
