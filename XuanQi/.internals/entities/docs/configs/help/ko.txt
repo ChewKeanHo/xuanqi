@@ -1,0 +1,30 @@
+#!/bin/sh
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XuanQi 구성 도움말 섹션에 오신 것을 환영합니다.
+
+이들은 XuanQi 내부 및 외부 운영에서 사용되는 구성 변
+수입니다. 다음 명령을 실행하여 각 변수에 대해 자세히 알
+아볼 수 있습니다:
+
+```
+[XUANQI] help config [NAME]
+```
+
+지원되는 변수는 다음과 같습니다:
