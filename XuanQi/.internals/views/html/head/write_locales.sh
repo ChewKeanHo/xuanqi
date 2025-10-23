@@ -52,12 +52,21 @@
 #                       * ': '          - is the separating delimiter.
 #                       * '[LOCALE]'    - the BCP 47 locale tag.
 #                       * '[URL]'       - the URL to redirect.
+#       ____webscript_permission_tag
+#               - COMPULSORY
+#               - the webscript permission tag to check user's locale.
+#               - the permission is stored in browser's LocalStorage system.
+#               - recommended using no space an dash ('-') separator.
+#               - values are aligned with browser's permission status:
+#                 'granted', 'denied', 'prompt' or empty ''. Default is
+#                 'prompt'.
+#               - example: 'site-locale'
 #       ____properties
 #               - OPTIONAL
 #               - the "key='value'" properties (e.g. id='...').
 #               - multi-line values where each line is an entry.
 #               - each entry **MUST** comply to the following format:
-#                                  '[KEY]: [VALUE]'
+#                                   '[KEY]: [VALUE]'
 #                 where:
 #                       - ': ' is the separating delimiter.
 #                       - [KEY] is the name of the property
@@ -80,17 +89,18 @@
 #       Return Code
 #               - '0' means ok; error otherwise.
 #               - error on empty/invalid '$____path_dest'.
-#               - error on empty/invalid '$____locale'.
-#               - error on empty/invalid '$____locales_url'.
-#               - error on invalid '$____indent_level' (e.g. not a
-#                 number).
+#               - error on empty '$____locale'.
+#               - error on empty '$____locales_url'.
+#               - error on empty '$____webscript_permission_tag'.
+#               - error on invalid '$____indent_level' (e.g. not a number).
 #               - error on bad execution.
 views_html_head_write_locales() {
         #____path_dest="$1"
         #____locale="$2"
         #____locales_url="$3"
-        #____properties="$4"
-        #____indent_level="$5"
+        #____webscript_permission_tag="$4"
+        #____properties="$5"
+        #____indent_level="$6"
 
 
         # validate input
@@ -114,42 +124,40 @@ views_html_head_write_locales() {
         fi
 
         if [ "$3" = "" ]; then
-                return 0
+                return 1
         fi
 
-        case "$5" in
+        if [ "$4" = "" ]; then
+                return 1
+        fi
+
+        case "$6" in
         "")
                 ;;
         *[!0-9]*)
                 return 1
                 ;;
         *)
-                if [ "$5" -lt 0 ]; then
+                if [ "$6" -lt 0 ]; then
                         return 1
                 fi
         esac
 
 
-
         # execute
-        # write the webscript block
-        ____locale_tag="sites-user-language"
-
         ## write script opener
-        views_html_write_webscript_opener "$1" "sync" "" "${5:-1}" "$4"
+        views_html_write_webscript_opener "$1" "sync" "" "${6:-1}" "$5"
         if [ $? -ne 0 ]; then
-                unset ____locale_tag
                 return 1
         fi
 
         ## write load event listener and get into switch casing
         views_html_write_raw_content "$1" "\
-$(views_html_get_indent "$(( "${5:-0}" ))")window.addEventListener('load', function() {
-$(views_html_get_indent "$(( "${5:-0}" + 1 ))")let previous = localStorage.getItem('${____locale_tag}');
-$(views_html_get_indent "$(( "${5:-0}" + 1 ))")switch (previous) {
+$(views_html_get_indent "$(( "${6:-0}" ))")window.addEventListener('load', function() {
+$(views_html_get_indent "$(( "${6:-0}" + 1 ))")let previous = localStorage.getItem('${4}');
+$(views_html_get_indent "$(( "${6:-0}" + 1 ))")switch (previous) {
 "
         if [ $? -ne 0 ]; then
-                unset ____locale_tag
                 return 1
         fi
 
@@ -164,7 +172,7 @@ $(views_html_get_indent "$(( "${5:-0}" + 1 ))")switch (previous) {
                 if [ "${____line#*": "}" = "$____line" ]; then
                         # error - invalid entry
                         IFS="$____old_IFS"
-                        unset ____default ____line ____old_IFS ____locale_tag
+                        unset ____default ____line ____old_IFS
                         return 1
                 fi
 
@@ -173,35 +181,32 @@ $(views_html_get_indent "$(( "${5:-0}" + 1 ))")switch (previous) {
                 fi
 
                 views_html_write_raw_content "$1" "\
-$(views_html_get_indent "$(( "${5:-0}" + 1 ))")case '${____line%%": "*}':
+$(views_html_get_indent "$(( "${6:-0}" + 1 ))")case '${____line%%": "*}':
 "
                 if [ $? -ne 0 ]; then
                         IFS="$____old_IFS"
-                        unset ____default ____line ____old_IFS ____locale_tag
+                        unset ____default ____line ____old_IFS
                         return 1
                 fi
 
                 if [ ! "${____line%%": "*}" = "$2" ]; then
                         views_html_write_raw_content "$1" "\
-$(views_html_get_indent "$(( "${5:-0}" + 2 ))")localStorage.setItem('${____locale_tag}', '${____line%%": "*}';
-$(views_html_get_indent "$(( "${5:-0}" + 2 ))")window.location.href = '${____line#*": "}';
+$(views_html_get_indent "$(( "${6:-0}" + 2 ))")localStorage.setItem('${4}', '${____line%%": "*}';
+$(views_html_get_indent "$(( "${6:-0}" + 2 ))")window.location.href = '${____line#*": "}';
 "
                         if [ $? -ne 0 ]; then
                                 IFS="$____old_IFS"
-                                unset ____default \
-                                        ____line \
-                                        ____old_IFS \
-                                        ____locale_tag
+                                unset ____default ____line ____old_IFS
                                 return 1
                         fi
                 fi
 
                 views_html_write_raw_content "$1" "\
-$(views_html_get_indent "$(( "${5:-0}" + 2 ))")break;
+$(views_html_get_indent "$(( "${6:-0}" + 2 ))")break;
 "
                 if [ $? -ne 0 ]; then
                         IFS="$____old_IFS"
-                        unset ____default ____line ____old_IFS ____locale_tag
+                        unset ____default ____line ____old_IFS
                         return 1
                 fi
         done <<EOF
@@ -212,33 +217,33 @@ EOF
 
         ## process the default fallback entry
         views_html_write_raw_content "$1" "\
-$(views_html_get_indent "$(( "${5:-0}" + 1 ))")default:
+$(views_html_get_indent "$(( "${6:-0}" + 1 ))")default:
 "
 
         if [ ! "${____default%%": "*}" = "$2" ]; then
                 views_html_write_raw_content "$1" "\
-$(views_html_get_indent "$(( "${5:-0}" + 2 ))")localStorage.setItem('${____locale_tag}', '${____line%%": "*}';
-$(views_html_get_indent "$(( "${5:-0}" + 2 ))")window.location.href = '${____line#*": "}';
+$(views_html_get_indent "$(( "${6:-0}" + 2 ))")localStorage.setItem('${4}', '${____line%%": "*}';
+$(views_html_get_indent "$(( "${6:-0}" + 2 ))")window.location.href = '${____line#*": "}';
 "
                 if [ $? -ne 0 ]; then
-                        unset ____default ____locale_tag
+                        unset ____default
                         return 1
                 fi
         fi
 
         views_html_write_raw_content "$1" "\
-$(views_html_get_indent "$(( "${5:-0}" + 2 ))")break;
-$(views_html_get_indent "$(( "${5:-0}" + 1 ))")}
-$(views_html_get_indent "$(( "${5:-0}" ))"))};
+$(views_html_get_indent "$(( "${6:-0}" + 2 ))")break;
+$(views_html_get_indent "$(( "${6:-0}" + 1 ))")}
+$(views_html_get_indent "$(( "${6:-0}" ))"))};
 "
         if [ $? -ne 0 ]; then
-                unset ____default ____locale_tag
+                unset ____default
                 return 1
         fi
-        unset ____default ____locale_tag
+        unset ____default
 
         ## write script closer
-        views_html_write_webscript_closer "$1" "${5:-1}"
+        views_html_write_webscript_closer "$1" "${6:-1}"
         if [ $? -ne 0 ]; then
                 return 1
         fi
@@ -258,7 +263,7 @@ $(views_html_get_indent "$(( "${5:-0}" ))"))};
                                 "alternate" \
                                 "${____line#*": "}" \
                                 "hreflang: x-default"
-                                "${5:-1}"
+                                "${6:-1}"
                         if [ $? -ne 0 ]; then
                                 IFS="$____old_IFS"
                                 unset ____line ____old_IFS ____default
@@ -272,7 +277,7 @@ $(views_html_get_indent "$(( "${5:-0}" ))"))};
                         "alternate" \
                         "${____line#*": "}" \
                         "hreflang: ${____line%%": "*}"
-                        "${5:-1}"
+                        "${6:-1}"
                 if [ $? -ne 0 ]; then
                         IFS="$____old_IFS"
                         unset ____line ____old_IFS ____default
