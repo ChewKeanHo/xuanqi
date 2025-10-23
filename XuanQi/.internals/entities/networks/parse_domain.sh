@@ -32,7 +32,7 @@
 #               - '0' means ok; error otherwise.
 #               - error on empty/invalid '$____domain_string'.
 #               - error on bad execution.
-entities_domain_parse() {
+entities_networks_parse_domain() {
         #____domain_string="$1"
 
 
