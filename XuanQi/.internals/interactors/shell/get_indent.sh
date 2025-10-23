@@ -2,6 +2,8 @@
 # Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
 #
 #
 # Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
@@ -31,33 +33,15 @@
 #               - '0' means ok; error otherwise.
 #               - error on invalid input (not a round number or <0).
 #               - error on bad execution.
-views_shell_get_indent() {
+interactors_shell_get_indent() {
         #____count="$1"
 
 
         # execute
-        case "$1" in
-        ""|*[!0-9]*)
-                printf -- "%s" ""
+        views_shell_get_indent "$1"
+        if [ $? -ne 0 ]; then
                 return 1
-                ;;
-        *)
-                ____indent=""
-                ____count="$1"
-                while [ $____count -gt 0 ]; do
-                        ____indent="${____indent}        "
-                        ____count=$(( $____count - 1 ))
-                done
-                unset ____count
-
-                printf -- "%s" "$____indent"
-                if [ $? -ne 0 ]; then
-                        unset ____indent
-                        return 1
-                fi
-                unset ____indent
-                ;;
-        esac
+        fi
 
 
         # report status
