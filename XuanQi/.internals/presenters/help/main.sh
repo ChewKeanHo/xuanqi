@@ -28,6 +28,9 @@ interactors_print_info "$(interactors_print_ui_horizontal_line 3)"
 
 # run through each specific section
 case "$2" in
+config)
+        interactors_print_info "$(interactors_print_help_config_index "$3")"
+        ;;
 create)
         case "$3" in
         config)
