@@ -2,6 +2,8 @@
 # Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
 #
 #
 # Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
@@ -38,7 +40,7 @@
 #               - error on invalid '$____path_dest' (e.g. 'empty').
 #               - error on invalid '$____indent' (e.g. not a number).
 #               - error on bad execution.
-views_shell_write_comment() {
+interactors_shell_write_comment() {
         #____path_dest="$1"
         #____contents="$2"
         #____indent="$3"
@@ -72,30 +74,10 @@ views_shell_write_comment() {
 
 
         # execute
-        if [ "$2" = "" ]; then
-                printf -- ""
-                return 0
+        views_shell_write_comment "$1" "$2" "$3"
+        if [ $? -ne 0 ]; then
+                return 1
         fi
-
-        ____old_IFS="$IFS"
-        while IFS="" read -r ____line || [ -n "$____line" ]; do
-                if [ ! "$____line" = "" ]; then
-                        ____line=" ${____line}"
-                fi
-
-                printf -- "%s" "\
-$(views_shell_get_indent "${3:-0}")#${____line}
-" >> "${1}.tmp"
-                if [ $? -ne 0 ]; then
-                        IFS="$____old_IFS"
-                        unset ____line ____old_IFS
-                        return 1
-                fi
-        done<<EOF
-${2}
-EOF
-        IFS="$____old_IFS"
-        unset ____line ____old_IFS
 
 
         # report status
