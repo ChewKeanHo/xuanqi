@@ -1,0 +1,38 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_COMPONENT_NAME
+Энэ тохиргоо нь XuanQi-ийн тодорхой бүрэлдэхүүн хэсгийн
+нэрийг ашиглахад зориулагдсан. Нэр нь бүрэлдэхүүн хэсгийн
+үндсэн хавтасны зам руу чиглэсэн `$XUANQI_COMPONENT_PATH`-ийг
+бүрдүүлэхэд ашиглагддаг харьцангуй зам юм.
+
+Тохируулсан үед энэ нь бүрэлдэхүүн хэсэг нь
+`$XUANQI_DIRECTORY_COMPONENTS` дотор аль хэдийн олдсон бөгөөд
+түүний хавтасны зам нь `$XUANQI_PATH_COMPONENTS`-д тодорхойлогдсон
+гэсэн үг юм.
+
+      >>>> **ӨӨРЧЛӨХ ЭСВЭЛ ДАВХАЦРАХГҮЙ БАЙНА УУ** <<<<
+            Энэ бол дотоод системийн тохиргоо юм.
+
+Утга нь програмыг эхлүүлэх үед функцууд (жишээ нь
+`create component` эсвэл `build`) -ээс хамааран автоматаар
+тодорхойлогдоно.
+
+Энэ нь `$XUANQI_PATH_COMPONENTS` руу чиглэсэн харьцангуй замыг
+агуулна.

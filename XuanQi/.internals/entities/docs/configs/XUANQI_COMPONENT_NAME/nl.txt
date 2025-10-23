@@ -1,0 +1,35 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_COMPONENT_NAME
+Deze configuratie is voor toegang tot de specifieke
+componentnaam van XuanQi. De naam is een relatief pad dat
+wordt gebruikt voor het vormen van het `$XUANQI_COMPONENT_PATH`
+dat wijst naar het hoofdmap-pad van de component.
+
+Wanneer ingesteld, betekent dit dat de component al is gevonden
+in `$XUANQI_DIRECTORY_COMPONENTS` waar het mappad is gedefinieerd
+in `$XUANQI_PATH_COMPONENTS`.
+
+       >>>> **NIET AANPASSEN OF OVERSCHRIJVEN** <<<<
+          Dit is een interne systeemconfiguratie.
+
+De waarde wordt automatisch bepaald bij app-initialisatie,
+afhankelijk van functies (bijv. `create component` of `build`).
+
+Het bevat het relatieve pad naar `$XUANQI_PATH_COMPONENTS`.

@@ -1,0 +1,36 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_COMPONENT_NAME
+Ця конфігурація призначена для доступу до специфічної
+назви компонента XuanQi. Назва є відносним шляхом, який
+використовується для формування `$XUANQI_COMPONENT_PATH`,
+що вказує на шлях кореневої директорії компонента.
+
+Коли встановлено, це означає, що компонент вже знайдено
+всередині `$XUANQI_DIRECTORY_COMPONENTS`, де його шлях до
+директорії визначено в `$XUANQI_PATH_COMPONENTS`.
+
+   >>>> **НЕ ЗМІНЮЙТЕ ТА НЕ ПЕРЕВИЗНАЧАЙТЕ** <<<<
+         Це внутрішня системна конфігурація.
+
+Значення визначається автоматично під час ініціалізації
+програми залежно від функцій (наприклад,
+`create component` або `build`).
+
+Воно містить відносний шлях до `$XUANQI_PATH_COMPONENTS`.

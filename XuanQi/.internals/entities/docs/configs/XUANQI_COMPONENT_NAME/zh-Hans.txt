@@ -1,0 +1,32 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_COMPONENT_NAME
+此配置用于访问玄器的特定组件名称。该名称是一个相对路径用来构成
+指向`$XUANQI_COMPONENT_PATH`组件根文件夹路径。
+
+当设置时，这意味着该组件已在`$XUANQI_DIRECTORY_COMPONENTS`中找
+到了。其文件夹路径定义就储存在`$XUANQI_PATH_COMPONENTS`里。
+
+         >>>> **请勿修改或覆盖** <<<<
+               此为内部系统配置。
+
+该值会在应用初始化时根据功能（例如`create component`或`build`）
+自动确定。
+
+它包含指向`$XUANQI_PATH_COMPONENTS`的相对路径。

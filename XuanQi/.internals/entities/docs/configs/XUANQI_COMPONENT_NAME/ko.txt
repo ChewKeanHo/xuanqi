@@ -1,0 +1,35 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_COMPONENT_NAME
+이 구성은 XuanQi의 특정 구성 요소 이름에 액세스하
+기 위한 것입니다. 이 이름은 구성 요소의 루트 디렉
+터리 경로를 가리키는`$XUANQI_COMPONENT_PATH`를 형
+성하는 데 사용되는 상대 경로입니다.
+
+설정된 경우, 구성 요소가`$XUANQI_DIRECTORY_COMPONENTS`
+내에서 이미발견되었음을 의미하며, 해당 디렉터리 경로는
+`$XUANQI_PATH_COMPONENTS`에정의되어 있습니다.
+
+   >>>> **수정 또는 재정의하지 마십시오** <<<<
+           이는 내부 시스템 구성입니다.
+
+이 값은 기능(예: `create component` 또는 `build`)에 따
+라 앱 초기화 시자동으로 결정됩니다.
+
+`$XUANQI_PATH_COMPONENTS`에 대한 상대 경로를 포함합니다.

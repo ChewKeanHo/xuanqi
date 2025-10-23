@@ -1,0 +1,35 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_COMPONENT_NAME
+This configuration is for accessing XuanQi's specific component
+name. The name is a relative path used to for forming the
+`$XUANQI_COMPONENT_PATH` which points to the component's root
+directory path.
+
+When set, it means the component is already been found inside
+`$XUANQI_DIRECTORY_COMPONENTS` where its directory path is defined
+in `$XUANQI_PATH_COMPONENTS`.
+
+         >>>> **DO NOT MODIFY OR OVERRIDE** <<<<
+         This is an internal system configuration.
+
+The value is determined automatically on app initialization
+depending on functions (e.g. `create component` or `build`).
+
+It contains the relative path to the $XUANQI_PATH_COMPONENTS`.

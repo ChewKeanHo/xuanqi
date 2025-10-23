@@ -1,0 +1,36 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_COMPONENT_NAME
+Konfigurasi ini adalah untuk mengakses nama komponen XuanQi.
+Nama tersebut ialah laluan relatif yang digunakan untuk
+membentuk `$XUANQI_COMPONENT_PATH` yang menunjuk ke laluan
+direktori akar komponen.
+
+Apabila ditetapkan, ia bermakna komponen itu telah dijumpai
+dalam `$XUANQI_DIRECTORY_COMPONENTS` di mana laluan direktorinya
+ditakrifkan dalam `$XUANQI_PATH_COMPONENTS`.
+
+         >>>> **JANGAN UBAH ATAU GANTI** <<<<
+        Ini adalah konfigurasi sistem dalaman.
+
+Nilai ditentukan secara automatik pada permulaan aplikasi
+bergantung pada fungsi (contohnya `create component` atau
+`build`).
+
+Ia mengandungi laluan relatif ke `$XUANQI_PATH_COMPONENTS`.
