@@ -2,6 +2,8 @@
 # Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
 #
 #
 # Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
@@ -28,29 +30,12 @@
 #               - '0' means ok; error otherwise.
 #               - error on invalid '$____path_dest' (e.g. 'empty').
 #               - error on bad execution.
-views_shell_write_page_break() {
+interactors_shell_write_page_break() {
         #____path_dest="$1"
 
 
-        # validate inputs
-        if [ "$1" = "" ]; then
-                return 1
-        fi
-
-        if [ ! "${1%/*}" = "$1" ]; then
-                if [ -d "${1%/*}" ]; then
-                        : # accepted
-                elif [ -L "${1%/*}" ] &&
-                [ -d "$(readlink --canonicalize "$1")" ]; then
-                        : # accepted
-                else
-                        return 1
-                fi
-        fi
-
-
         # execute
-        printf -- "\n\n\n\n" >> "${1}.tmp"
+        views_shell_write_page_break "$1"
         if [ $? -ne 0 ]; then
                 return 1
         fi
