@@ -65,7 +65,7 @@ ${XUANQI_DIRECTORY_COMPONENTS:-"???"}
 PROJECT_PATH_COMPONENTS
 ${XUANQI_PATH_COMPONENTS:-"???"}
 
-$(interactors_print_responses_given_path)
+XUANQI_COMPONENT_NAME
 ${4:-"???"}
 
 $(interactors_print_responses_target)
@@ -109,12 +109,14 @@ fi
 
 
 # execute
+XUANQI_COMPONENT_NAME="$4"
 interactors_print_info "\
 
 
 $(interactors_print_responses_creating "$____path")
 "
-interactors_components_create "$____path" "$3"
+
+interactors_components_create "$____path" "$XUANQI_COMPONENT_NAME"
 case $? in
 0)
         # ok
