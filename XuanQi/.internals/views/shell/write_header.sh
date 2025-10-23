@@ -18,19 +18,19 @@
 # Parameters:
 #       ____path_dest
 #               - COMPULSORY
-#               - The destination file to write into.
+#               - the destination file to write into.
 #       ____source_license
 #               - COMPULSORY
-#               - License copyright entries.
-#               - Multiline values where each line is an entry.
-#               - No need to prefix '#' comment syntax.
-#               - Recommended entry format:
+#               - license copyright entries.
+#               - multiline values where each line is an entry.
+#               - no need to prefix '#' comment syntax.
+#               - recommended entry format:
 #                       'Copyright [YEAR] [AUTHOR] [CONTACT (email/url)]'
 #       ____path_source_notice
 #               - OPTIONAL
-#               - License copyright notice filepath.
-#               - No need to prefix '#' comment syntax.
-#               - When not supplied, a '# [LICENSE_NOTICE_HERE]' will be
+#               - license notice/body filepath.
+#               - no need to prefix '#' comment syntax.
+#               - when not supplied, a '# [LICENSE_NOTICE_HERE]' will be
 #                 rendered instead.
 # Outputs:
 #       Write to $____path_dest File
