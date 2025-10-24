@@ -26,12 +26,16 @@
 #               - no need to prefix '#' comment syntax.
 #               - recommended entry format:
 #                       'Copyright [YEAR] [AUTHOR] [CONTACT (email/url)]'
-#       ____path_source_notice
+#       ____source_notice
 #               - OPTIONAL
-#               - license notice/body filepath.
-#               - no need to prefix '#' comment syntax.
-#               - when not supplied, a '# [LICENSE_NOTICE_HERE]' will be
-#                 rendered instead.
+#               - license notice/body string content or filepath.
+#               - no need to prefix '#' comment syntax when using string
+#                 content.
+#               - when empty, a '# [LICENSE_NOTICE_HERE]' will be rendered
+#                 instead.
+#               - if it is detected as file (filepath), then it will be
+#                 parsed from that file instead of treating it as string
+#                 body.
 # Outputs:
 #       Write to '$____path_dest' File
 #               - the rendered output written into file.
@@ -41,12 +45,11 @@
 #               - '0' means ok; error otherwise.
 #               - error on empty/invalid '$____path_dest'.
 #               - error on empty '$____license_holders' (e.g. 'empty').
-#               - error on invalid '$____path_source_notice' (e.g. 'not a file').
 #               - error on bad execution.
 views_shell_write_header() {
         #____path_dest="$1"
         #____license_holders="$2"
-        #____path_source_notice="$3"
+        #____source_notice="$3"
 
 
         # validate inputs
@@ -66,10 +69,6 @@ views_shell_write_header() {
         fi
 
         if [ "$2" = "" ]; then
-                return 1
-        fi
-
-        if [ ! "$3" = "" ] && [ ! -f "$3" ]; then
                 return 1
         fi
 
@@ -116,24 +115,48 @@ EOF
 
         ## write notice
         if [ ! "$3" = "" ]; then
-                ____old_IFS="$IFS"
-                while IFS="" read -r ____line || [ -n "$____line" ]; do
-                        if [ ! "$____line" = "" ]; then
-                                ____line="${____line#"#"}"
-                                ____line=" ${____line#" "}"
-                        fi
+                if [ -f "$3" ] ||
+                ([ -L "$3" ] && [ -f "$(readlink --canonicalize "$3")" ]); then
+                        ____old_IFS="$IFS"
+                        while IFS="" read -r ____line || [ -n "$____line" ]; do
+                                if [ ! "$____line" = "" ]; then
+                                        ____line="${____line#"#"}"
+                                        ____line=" ${____line#" "}"
+                                fi
 
-                        views_shell_write_raw_content "$1" "\
+                                views_shell_write_raw_content "$1" "\
 #${____line}
 "
-                        if [ $? -ne 0 ]; then
-                                IFS="$____old_IFS"
-                                unset ____line ____old_IFS
-                                return 1
-                        fi
-                done < "$3"
-                IFS="$____old_IFS"
-                unset ____line ____old_IFS
+                                if [ $? -ne 0 ]; then
+                                        IFS="$____old_IFS"
+                                        unset ____line ____old_IFS
+                                        return 1
+                                fi
+                        done < "$3"
+                        IFS="$____old_IFS"
+                        unset ____line ____old_IFS
+                else
+                        ____old_IFS="$IFS"
+                        while IFS="" read -r ____line || [ -n "$____line" ]; do
+                                if [ ! "$____line" = "" ]; then
+                                        ____line="${____line#"#"}"
+                                        ____line=" ${____line#" "}"
+                                fi
+
+                                views_shell_write_raw_content "$1" "\
+#${____line}
+"
+                                if [ $? -ne 0 ]; then
+                                        IFS="$____old_IFS"
+                                        unset ____line ____old_IFS
+                                        return 1
+                                fi
+                        done <<EOF
+${3}
+EOF
+                        IFS="$____old_IFS"
+                        unset ____line ____old_IFS
+                fi
         else
                 views_shell_write_raw_content "$1" "\
 # [LICENSE_NOTICE_HERE]
