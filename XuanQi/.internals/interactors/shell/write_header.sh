@@ -63,7 +63,7 @@ interactors_shell_write_header() {
         # execute
         views_shell_write_header \
                 "$1" \
-                "${2:-"$(interactors_print_responses_sample_copyright_holder)"}" \
+                "${2:-"$(interactors_print_license_sample_copyright_holder)"}" \
                 "$(interactors_print_license_notice)"
         if [ $? -ne 0 ]; then
                 return 1

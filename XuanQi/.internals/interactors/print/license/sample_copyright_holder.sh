@@ -26,7 +26,7 @@
 #       Return Code
 #               - '0' means ok; error otherwise.
 #               - error on bad execution.
-interactors_print_responses_sample_copyright_holder() {
+interactors_print_license_sample_copyright_holder() {
         # execute
         entities_i18n_sample_copyright_holder
         if [ $? -ne 0 ]; then
