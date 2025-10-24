@@ -28,7 +28,7 @@
 #       ____value
 #               - OPTIONAL
 #               - The value of the key:value entry.
-#               - Can be empty.
+#               - When empty, a sample value is added.
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
@@ -70,7 +70,7 @@ interactors_data_create() {
         interactors_data_write_file \
                 "$1" \
                 "$2" \
-                "$3" \
+                "${3:-"$(interactors_print_responses_sample_value)"}" \
                 "$(interactors_print_license_notice)" \
                 "$(interactors_print_configs_default)"
         if [ $? -ne 0 ]; then
