@@ -2,6 +2,8 @@
 # Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
 #
 #
 # Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
@@ -31,7 +33,7 @@
 #               - '0' means ok; error otherwise.
 #               - error on invalid '$____path_dest' (e.g. 'empty').
 #               - error on bad execution.
-views_shell_write_enums_start() {
+interactors_shell_write_enums_start() {
         #____path_dest="$1"
         #____list_name="$2"
 
@@ -58,9 +60,7 @@ views_shell_write_enums_start() {
 
 
         # execute
-        printf -- "%s" "\
-# ${2}
-" >> "${1}.tmp"
+        views_shell_write_enums_start "$1" "$2"
         if [ $? -ne 0 ]; then
                 return 1
         fi
