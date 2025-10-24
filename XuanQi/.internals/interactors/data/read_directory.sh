@@ -64,6 +64,10 @@ interactors_data_read_directory() {
                         continue
                 fi
 
+                if [ ${____item%"_test.conf"} = "$____item" ]; then
+                        continue
+                fi
+
                 if [ ! ${____item#"."} = "$____item" ]; then
                         continue # do not import hidden file
                 fi
