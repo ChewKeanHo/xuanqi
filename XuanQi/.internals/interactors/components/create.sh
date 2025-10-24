@@ -142,7 +142,7 @@ done<<EOF
 
                 ## add current data directory into importer script
                 interactors_shell_write_raw_content "$____dest_shell_import" "\
-\"\${XUANQI_COMPONENT_PATH}/Data\"
+\${XUANQI_COMPONENT_PATH}/Data
 "
                 if [ $? -ne 0 ]; then
                         interactors_fs_delete "$1"
