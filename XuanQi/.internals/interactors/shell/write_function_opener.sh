@@ -2,6 +2,8 @@
 # Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
 #
 #
 # Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
@@ -52,7 +54,7 @@
 #               - error on empty '$____name'.
 #               - error on empty '$____params'.
 #               - error on bad execution.
-views_shell_write_function_opener() {
+interactors_shell_write_function_opener() {
         #____path_dest="$1"
         #____name="$2"
         #____params="$3"
@@ -86,82 +88,10 @@ views_shell_write_function_opener() {
 
 
         # execute
-        # generate exposure
-        ## IMPORTANT NOTICE
-        ## Shell does not have any public/private categorization.
-        ## Hence, it's better to leave the name as it is.
-
-
-        # generate actual function parameters
-        ____params=""
-        if [ ! "$3" = "" ]; then
-                ____index=1
-                ____old_IFS="$IFS"
-                while IFS="" read -r ____line || [ -n "$____line" ]; do
-                        if [ "$____line" = "" ]; then
-                                continue
-                        fi
-
-                        ____params="${____params}\
-        ${____line#"$"}=\"\$${____index}\"
-"
-                        ____index=$(( $____index + 1 ))
-                done<<EOF
-${3}
-EOF
-                IFS="$____old_IFS"
-                unset ____index ____line ____old_IFS
-        fi
-
-
-        # generate return lists
-        ____returns=""
-        if [ ! "$4" = "" ]; then
-                ____returns="\
-# Outputs:
-"
-                ____old_IFS="$IFS"
-                while IFS="" read -r ____line || [ -n "$____line" ]; do
-                        if [ "$____line" = "" ]; then
-                                continue
-                        fi
-
-                        if [ "${____line%%"${____line#?}"}" = "#" ]; then
-                                ____line="${____line#"#"}"
-                                ____line="${____line#"       "}"
-                        fi
-
-                        if [ ! "$____line" = "" ]; then
-                                ____line="       ${____line}"
-                        fi
-
-                        ____returns="${____returns}\
-#${____line}
-"
-                done<<EOF
-${4}
-EOF
-                IFS="$____old_IFS"
-                unset ____index ____line ____old_IFS
-        fi
-        ____returns="${____returns}\
-# Returns:
-#       Return Code
-#               - '0' means ok; error otherwise.
-"
-
-
-        # all good - write now
-        printf -- "%s" "\
-${____returns}\
-${2}() {
-${____params}\
-" >> "${1}.tmp"
+        views_shell_write_function_opener "$1" "$2" "$3" "$4" "$5"
         if [ $? -ne 0 ]; then
-                unset ____returns ____params
                 return 1
         fi
-        unset ____returns ____params
 
 
         # report status
