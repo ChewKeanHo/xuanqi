@@ -2,6 +2,8 @@
 # Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
 #
 #
 # Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
@@ -33,7 +35,7 @@
 #               - error on empty/invalid '$____path_dest'.
 #               - error on invalid '$____indent' (e.g. not a number).
 #               - error on bad execution.
-views_shell_write_switch_closer() {
+interactors_shell_write_switch_closer() {
         #____path_dest="$1"
         #____indent_level="$2"
 
@@ -66,10 +68,7 @@ views_shell_write_switch_closer() {
 
 
         # execute
-        printf -- "%s" "\
-$(views_shell_get_indent "$(( ${2:-0} + 1 ))");;
-$(views_shell_get_indent "${2:-0}")esac
-" >> "${1}.tmp"
+        views_shell_write_switch_closer "$1" "$2"
         if [ $? -ne 0 ]; then
                 return 1
         fi
