@@ -2,6 +2,8 @@
 # Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
 #
 #
 # Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
@@ -17,9 +19,8 @@
 
 # Parameters:
 #       ____path_dest
-#               - OPTIONAL
+#               - COMPULSORY
 #               - the destination file to write into.
-#               - optional since the function is unused.
 #       ____symbol
 #               - OPTIONAL
 #               - the name of the package library.
@@ -30,14 +31,39 @@
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
-#               - always 0 since the function is unused.
-views_shell_write_import_guard_closer() {
+#               - error on empty/invalid '$____path_dest'.
+#               - error on bad execution.
+interactors_shell_write_import_guard_closer() {
         #____path_dest="$1"
         #____symbol="$2"
 
 
+        # validate inputs
+        if [ "$1" = "" ]; then
+                return 1
+        fi
+
+        if [ ! "${1%/*}" = "$1" ]; then
+                if [ -d "${1%/*}" ]; then
+                        : # accepted
+                elif [ -L "${1%/*}" ] &&
+                [ -d "$(readlink --canonicalize "$1")" ]; then
+                        : # accepted
+                else
+                        return 1
+                fi
+        fi
+
+        if [ "$2" = "" ]; then
+                return 0
+        fi
+
+
         # execute
-        ## Shell does not need any import guard
+        views_shell_write_import_guard_closer "$1" "$2"
+        if [ $? -ne 0 ]; then
+                return 1
+        fi
 
 
         # report status
