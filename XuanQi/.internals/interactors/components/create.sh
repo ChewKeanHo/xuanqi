@@ -157,6 +157,16 @@ done<<EOF
                         interactors_fs_delete "$1"
                         return 5
                 fi
+
+                ## create an example i18n library script as page title
+                interactors_fs_create_directory "${1}/Data/i18n"
+                interactors_fs_copy \
+                        "${1}/Data/i18n/title.sh" \
+                        "${XUANQI_PATH_ROOT}/entities/docs/components/i18n_title.sh"
+                if [ $? -ne 0 ]; then
+                        interactors_fs_delete "$1"
+                        return 5
+                fi
         fi
 
 
