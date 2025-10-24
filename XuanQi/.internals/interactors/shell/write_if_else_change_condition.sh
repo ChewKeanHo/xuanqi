@@ -2,6 +2,8 @@
 # Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
 #
 #
 # Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
@@ -59,7 +61,7 @@
 #               - error on invalid '$____indent' (e.g. not a number).
 #               - error on '$____entry_index'='0' and '$____condition'='*'.
 #               - error on bad execution.
-views_shell_write_if_else_change_condition() {
+interactors_shell_write_if_else_change_condition() {
         #____path_dest="$1"
         #____condition="$2"
         #____indent="$3"
@@ -82,10 +84,6 @@ views_shell_write_if_else_change_condition() {
                 fi
         fi
 
-        if [ "$2" = "*" ] && [ "$4" = "0" ]; then
-                return 1
-        fi
-
         case "$3" in
         "")
                 ;;
@@ -96,36 +94,16 @@ views_shell_write_if_else_change_condition() {
                 ;;
         esac
 
-
-        # execute
-        case "$2" in
-        "*")
-                if [ "$4" = "0" ]; then
-                        return 1
-                fi
-
-                ____condition="else"
-                ;;
-        *)
-                case "$4" in
-                0)
-                        ____condition="if ${2}; then"
-                        ;;
-                *)
-                        ____condition="elif ${2}; then"
-                        ;;
-                esac
-                ;;
-        esac
-
-        printf -- "%s" "\
-$(views_shell_get_indent "${3:-0}")${____condition}
-" >> "${1}.tmp"
-        if [ $? -ne 0 ]; then
-                unset ____condition
+        if [ "$2" = "*" ] && [ "$4" = "0" ]; then
                 return 1
         fi
-        unset ____condition
+
+
+        # execute
+        views_shell_write_if_else_change_condition "$1" "$2" "$3" "$4"
+        if [ $? -ne 0 ]; then
+                return 1
+        fi
 
 
         # report status
