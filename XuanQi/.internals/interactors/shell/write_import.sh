@@ -2,6 +2,8 @@
 # Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
 #
 #
 # Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
@@ -36,7 +38,7 @@
 #               - error on empty/invalid '$____path_dest'.
 #               - error on invalid '$____indent' (e.g. not a number).
 #               - error on bad execution.
-views_shell_write_import() {
+interactors_shell_write_import() {
         #____path_dest="$1"
         #____lists="$2"
 
@@ -63,56 +65,7 @@ views_shell_write_import() {
 
 
         # execute
-        ## write opener
-        printf -- "%s" "\
-____old_IFS=\"\$IFS\"
-while IFS= read -r ____library || [ -n \"\$____library\" ]; do
-        . \"\$____library\"
-        if [ \$? -ne 0 ]; then
-                IFS=\"\$____old_IFS\"
-                unset ____library ____old_IFS
-                1>&2 printf -- \"%s\" \"\\
-E: From '${1##*/}': Failed to Import '\${____library}'.
-E: Unable to Proceed.
-E: Contact Developer or Maintainer.
-E: Bailing Out...
-
-\"
-                return 1
-        fi
-done <<EOF
-"  >> "${1}.tmp"
-        if [ $? -ne 0 ]; then
-                return 1
-        fi
-
-        ## write list
-        ____old_IFS="$IFS"
-        while IFS= read -r ____library || [ -n "$____library" ]; do
-                if [ "$____library" = "" ]; then
-                        continue
-                fi
-
-                printf -- "%s" "\
-${____library}
-"  >> "${1}.tmp"
-                if [ $? -ne 0 ]; then
-                        IFS="$____old_IFS"
-                        unset ____library ____old_IFS
-                        return 1
-                fi
-        done<<EOF
-${2}
-EOF
-        IFS="$____old_IFS"
-        unset ____library ____old_IFS
-
-        ## write closer
-        printf -- "%s" "\
-EOF
-IFS=\"\$____old_IFS\"
-unset ____library ____old_IFS
-"  >> "${1}.tmp"
+        views_shell_write_import "$1" "$2"
         if [ $? -ne 0 ]; then
                 return 1
         fi
