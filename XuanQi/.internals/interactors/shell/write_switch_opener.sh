@@ -2,6 +2,8 @@
 # Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
 #
 #
 # Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
@@ -40,7 +42,7 @@
 #               - error on empty '$____condition'.
 #               - error on invalid '$____indent' (e.g. not a number).
 #               - error on bad execution.
-views_shell_write_switch_opener() {
+interactors_shell_write_switch_opener() {
         #____path_dest="$1"
         #____condition="$2"
         #____indent="$3"
@@ -78,9 +80,7 @@ views_shell_write_switch_opener() {
 
 
         # execute
-        printf -- "%s" "\
-$(views_shell_get_indent "${3:-0}")case \"${2}\" in
-" >> "${1}.tmp"
+        views_shell_write_switch_opener "$1" "$2" "$3"
         if [ $? -ne 0 ]; then
                 return 1
         fi
