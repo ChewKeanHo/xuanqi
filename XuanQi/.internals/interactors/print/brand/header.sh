@@ -35,10 +35,10 @@ $(interactors_print_ui_horizontal_line 3)
 SKU
 $(interactors_print_sku)
 
-$(entities_i18n_get_version)
+$(entities_i18n_version)
 $(interactors_print_version)
 
-$(entities_i18n_get_license)
+$(entities_i18n_license)
 $(interactors_print_license_name)
 $(interactors_print_license_url)
 "

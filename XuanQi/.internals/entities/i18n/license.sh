@@ -18,13 +18,14 @@
 
 
 # Parameters:
-# Returns:
+# Outputs:
 #       String
 #               - the translated content.
+# Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
 #               - error on bad execution.
-entities_i18n_get_license() {
+entities_i18n_license() {
         # execute
         case "$XUANQI_LANGUAGE" in
         "de")
