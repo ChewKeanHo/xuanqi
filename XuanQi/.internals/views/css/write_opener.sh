@@ -20,6 +20,9 @@
 # Specifications:
 #       - https://www.w3.org/Style/CSS/specs.en.html
 # Parameters:
+#       ____path_dest
+#               - COMPULSORY
+#               - the destination file to write into.
 #       ____selectors
 #               - COMPULSORY
 #               - list of selectors.
@@ -41,12 +44,14 @@
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
+#               - error on empty/invalid '$____path_dest'.
 #               - error on empty '$____selectors'.
 #               - error on invalid '$____indent' (e.g. not a number).
 #               - error on bad execution.
-views_css_get_element_opener() {
-        #____selectors="$1"
-        #____indent_level="$2"
+views_css_write_opener() {
+        #____path_dest="$1"
+        #____selectors="$2"
+        #____indent_level="$3"
 
 
         # validate inputs
@@ -54,14 +59,29 @@ views_css_get_element_opener() {
                 return 1
         fi
 
-        case "$2" in
+        if [ ! "${1%/*}" = "$1" ]; then
+                if [ -d "${1%/*}" ]; then
+                        : # accepted
+                elif [ -L "${1%/*}" ] &&
+                [ -d "$(readlink --canonicalize "$1")" ]; then
+                        : # accepted
+                else
+                        return 1
+                fi
+        fi
+
+        if [ "$2" = "" ]; then
+                return 1
+        fi
+
+        case "$3" in
         "")
                 ;;
         *[!0-9]*)
                 return 1
                 ;;
         *)
-                if [ $2 -lt 0 ]; then
+                if [ $3 -lt 0 ]; then
                         return 1
                 fi
                 ;;
@@ -69,36 +89,12 @@ views_css_get_element_opener() {
 
 
         # execute
-        ____output=""
-        ____old_IFS="$IFS"
-        while IFS="" read -r ____line || [ -n "$____line" ]; do
-                ____line="${____line%,}"
-                if [ "$____line" = "" ]; then
-                        continue
-                fi
-
-                if [ ! "$____output" = "" ]; then
-                        ____output="${____output},
-"
-                fi
-
-                ____output="${____output}$(views_css_get_indent "${2:-0}")${____line}"
-        done<<EOF
-${1}
-EOF
-        IFS="$____old_IFS"
-        unset ____line ____old_IFS
-        ____output="${____output} {
-"
-
-
-        # all good - write now
-        printf -- "%s" "$____output"
+        printf -- "%s" "\
+$(views_css_get_element_opener "$2" "$3")
+" >> "${1}.tmp"
         if [ $? -ne 0 ]; then
-                unset ____output
                 return 1
         fi
-        unset ____output
 
 
         # report status
