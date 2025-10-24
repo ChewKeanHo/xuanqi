@@ -2,6 +2,8 @@
 # Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
 #
 #
 # Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
@@ -35,7 +37,7 @@
 #               - '0' means ok; error otherwise.
 #               - error on empty '____data_type'.
 #               - error on bad execution.
-views_shell_to_data_type() {
+interactors_shell_to_data_type() {
         #____data_type="$1"
         #____data_value="$2"
 
@@ -48,16 +50,9 @@ views_shell_to_data_type() {
 
 
         # execute
-        if [ ! "$2" = "" ]; then
-                printf -- "%s # %s" "$2" "$1"
-                if [ $? -ne 0 ]; then
-                        return 1
-                fi
-        else
-                printf -- "# %s" "$1"
-                if [ $? -ne 0 ]; then
-                        return 1
-                fi
+        views_shell_to_data_type "$1" "$2"
+        if [ $? -ne 0 ]; then
+                return 1
         fi
 
 
