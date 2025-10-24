@@ -49,7 +49,7 @@
 #               - anything else including being empty will render the
 #                 condition as 'elif' and 'else'.
 # Outputs:
-#       Write to $____path_dest File
+#       Write to '$____path_dest' File
 #               - the rendered output written into file.
 #               - no action on error.
 # Returns:
@@ -104,28 +104,34 @@ views_shell_write_if_else_change_condition() {
                         return 1
                 fi
 
-                ____condition="else"
+                printf -- "%s" "\
+$(views_shell_get_indent "${3:-0}")else
+" >> "${1}.tmp"
+                if [ $? -ne 0 ]; then
+                        return 1
+                fi
                 ;;
         *)
                 case "$4" in
                 0)
-                        ____condition="if ${2}; then"
+                        printf -- "%s" "\
+$(views_shell_get_indent "${3:-0}")if ${2}; then
+" >> "${1}.tmp"
+                        if [ $? -ne 0 ]; then
+                                return 1
+                        fi
                         ;;
                 *)
-                        ____condition="elif ${2}; then"
+                        printf -- "%s" "\
+$(views_shell_get_indent "${3:-0}")elif ${2}; then
+" >> "${1}.tmp"
+                        if [ $? -ne 0 ]; then
+                                return 1
+                        fi
                         ;;
                 esac
                 ;;
         esac
-
-        printf -- "%s" "\
-$(views_shell_get_indent "${3:-0}")${____condition}
-" >> "${1}.tmp"
-        if [ $? -ne 0 ]; then
-                unset ____condition
-                return 1
-        fi
-        unset ____condition
 
 
         # report status

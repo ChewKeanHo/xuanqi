@@ -23,7 +23,7 @@
 #               - e.g. '# number'.
 #       ____data_value
 #               - OPTIONAL
-#               - the value.
+#               - the data value.
 #               - will be rendered as value then append with type comment.
 #               - e.g. '5 # number'.
 # Outputs:

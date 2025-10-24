@@ -33,13 +33,13 @@
 #               - when not supplied, a '# [LICENSE_NOTICE_HERE]' will be
 #                 rendered instead.
 # Outputs:
-#       Write to $____path_dest File
+#       Write to '$____path_dest' File
 #               - the rendered output written into file.
 #               - no action on error.
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
-#               - error on invalid '$____path_dest' (e.g. 'empty').
+#               - error on empty/invalid '$____path_dest'.
 #               - error on empty '$____source_license' (e.g. 'empty').
 #               - error on invalid '$____path_source_notice' (e.g. 'not a file').
 #               - error on bad execution.

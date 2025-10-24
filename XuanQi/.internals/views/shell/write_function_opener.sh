@@ -42,7 +42,7 @@
 #               - the function's public or private exposure.
 #               - unused since Shell is always public.
 # Outputs:
-#       Write to $____path_dest File
+#       Write to '$____path_dest' File
 #               - the rendered output written into file.
 #               - no action on error.
 # Returns:
