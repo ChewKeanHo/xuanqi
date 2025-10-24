@@ -41,20 +41,20 @@ fi
 
 
 ## formulate target path
-____path=""
+XUANQI_COMPONENT_PATH=""
 if [ -d "$XUANQI_PATH_COMPONENTS" ]; then
-        ____path="${4##"${PROJECT_PATH_ROOT}"}"
-        ____path="${____path#/}"
-        ____path="${____path##"${XUANQI_DIRECTORY_COMPONENTS}"}"
-        ____path="${____path#/}"
-        ____path="${XUANQI_PATH_COMPONENTS}/${____path}"
+        XUANQI_COMPONENT_PATH="${4##"${PROJECT_PATH_ROOT}"}"
+        XUANQI_COMPONENT_PATH="${XUANQI_COMPONENT_PATH#/}"
+        XUANQI_COMPONENT_PATH="${XUANQI_COMPONENT_PATH##"${XUANQI_DIRECTORY_COMPONENTS}"}"
+        XUANQI_COMPONENT_PATH="${XUANQI_COMPONENT_PATH#/}"
+        XUANQI_COMPONENT_PATH="${XUANQI_PATH_COMPONENTS}/${XUANQI_COMPONENT_PATH}"
 fi
 
 
 ## report request to dashboard
 interactors_print_info "\
 $(interactors_print_responses_type)
-${2:-"???"}
+${2:-"???"} -> ${3:-"???"}
 
 PROJECT_PATH_ROOT
 ${PROJECT_PATH_ROOT:-"???"}
@@ -68,8 +68,8 @@ ${XUANQI_PATH_COMPONENTS:-"???"}
 XUANQI_COMPONENT_NAME
 ${4:-"???"}
 
-$(interactors_print_responses_target)
-${____path:-"???"}
+XUANQI_COMPONENT_PATH
+${XUANQI_COMPONENT_PATH:-"???"}
 "
 
 
@@ -79,8 +79,8 @@ if [ "$PROJECT_PATH_ROOT" = "" ]; then
 $(interactors_print_responses_errors_locate "\$PROJECT_PATH_ROOT")
 "
         return 1
-elif [ ! "$____path" = "" ] &&
-[ "${____path##"${PROJECT_PATH_ROOT}/"}" = "$____path" ]; then
+elif [ ! "$XUANQI_COMPONENT_PATH" = "" ] &&
+[ "${XUANQI_COMPONENT_PATH##"${PROJECT_PATH_ROOT}/"}" = "$XUANQI_COMPONENT_PATH" ]; then
         interactors_print_error "\
 $(\
         interactors_print_responses_errors_outside_of \
@@ -113,10 +113,10 @@ XUANQI_COMPONENT_NAME="$4"
 interactors_print_info "\
 
 
-$(interactors_print_responses_creating "$____path")
+$(interactors_print_responses_creating "$XUANQI_COMPONENT_PATH")
 "
 
-interactors_components_create "$____path" "$XUANQI_COMPONENT_NAME"
+interactors_components_create "$XUANQI_COMPONENT_PATH" "$3"
 case $? in
 0)
         # ok
