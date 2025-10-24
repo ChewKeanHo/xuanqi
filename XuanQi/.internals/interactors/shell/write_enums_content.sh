@@ -2,6 +2,8 @@
 # Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
 #
 #
 # Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
@@ -60,7 +62,7 @@
 #               - '0' means ok; error otherwise.
 #               - error on empty/invalid '$____path_dest'.
 #               - error on bad execution.
-views_shell_write_enums_content() {
+interactors_shell_write_enums_content() {
         #____path_dest="$1"
         #____data_line="$2"
         #____data_key="$3"
@@ -87,42 +89,10 @@ views_shell_write_enums_content() {
 
 
         # execute
-        ____output=""
-        if [ "$2" = "" ]; then
-                # it's an empty line
-                printf -- "\n" >> "${1}.tmp"
-                if [ $? -ne 0 ]; then
-                        return 1
-                fi
-
-                return 0
-        elif [ "${2%%#*}" = "" ]; then
-                # it's a comment line
-                printf -- "%s\n" "# ${2#"# "}" >> "${1}.tmp"
-                if [ $? -ne 0 ]; then
-                        return 1
-                fi
-
-                return 0
-        fi
-
-        ## it's an actual content with optional tailing comment setup line
-        ____output="\
-${6}_$(printf -- "%s" "$3" | tr '[:lower:]' '[:upper:]')=${4}\
-"
-
-        ## setup comment
-        if [ ! "${2#*"# "}" = "$2" ]; then
-                ____output="${____output} # ${2#*"# "}"
-        fi
-
-        ## all right - write now
-        printf -- "%s\n" "$____output" >> "${1}.tmp"
+        views_shell_write_enums_content "$1" "$2" "$3" "$4" "$5" "$6"
         if [ $? -ne 0 ]; then
-                unset ____output
                 return 1
         fi
-        unset ____output
 
 
         # report status
