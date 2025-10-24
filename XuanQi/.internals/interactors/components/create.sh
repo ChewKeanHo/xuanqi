@@ -148,6 +148,15 @@ done<<EOF
                         interactors_fs_delete "$1"
                         return 5
                 fi
+
+                ## create an example configuration file
+                interactors_data_create \
+                        "${1}/Data/sample.conf" \
+                        "EXAMPLE_VARIABLE"
+                if [ $? -ne 0 ]; then
+                        interactors_fs_delete "$1"
+                        return 5
+                fi
         fi
 
 
