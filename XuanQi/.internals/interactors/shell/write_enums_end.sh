@@ -2,6 +2,8 @@
 # Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
 # Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
 #
 #
 # Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
@@ -17,20 +19,39 @@
 
 # Parameters:
 #       ____path_dest
-#               - OPTIONAL
+#               - COMPULSORY
 #               - the destination file to write into.
-#               - optional since this function is unused.
 # Outputs:
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
 #               - always ok since function is unused.
-views_shell_write_enums_end() {
+interactors_shell_write_enums_end() {
         #____path_dest="$1"
 
 
+        # validate input
+        if [ "$1" = "" ]; then
+                return 1
+        fi
+
+        if [ ! "${1%/*}" = "$1" ]; then
+                if [ -d "${1%/*}" ]; then
+                        : # accepted
+                elif [ -L "${1%/*}" ] &&
+                [ -d "$(readlink --canonicalize "$1")" ]; then
+                        : # accepted
+                else
+                        return 1
+                fi
+        fi
+
+
         # execute
-        ## shell does not need any enum const list ending
+        views_shell_write_enums_end "$1"
+        if [ $? -ne 0 ]; then
+                return 1
+        fi
 
 
         # report status
