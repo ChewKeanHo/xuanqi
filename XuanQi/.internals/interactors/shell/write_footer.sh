@@ -22,13 +22,13 @@
 #               - COMPULSORY
 #               - the destination file to write into.
 # Outputs:
-#       Write to $____path_dest File
+#       Write to '$____path_dest' File
 #               - the rendered output written into file.
 #               - no action on error.
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
-#               - error on invalid '$____path_dest' (e.g. 'empty').
+#               - error on empty/invalid '$____path_dest'.
 #               - error on bad execution.
 interactors_shell_write_footer() {
         #____path_dest="$1"

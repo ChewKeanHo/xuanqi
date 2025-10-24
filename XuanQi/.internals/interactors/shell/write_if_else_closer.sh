@@ -26,7 +26,7 @@
 #               - the base indent level in round number.
 #               - when empty, the indent level will set to '0' (no indent).
 # Outputs:
-#       Write to $____path_dest File
+#       Write to '$____path_dest' File
 #               - the rendered output written into file.
 #               - no action on error.
 # Returns:

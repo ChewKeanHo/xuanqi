@@ -31,7 +31,7 @@
 #               - 0, empty, or invalid (e.g. not a round number) will set
 #                 indent level as 0 (no indentation).
 # Outputs:
-#       Write to $____path_dest File
+#       Write to '$____path_dest' File
 #               - the rendered output written into file.
 #               - no action on error.
 # Returns:

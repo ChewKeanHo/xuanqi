@@ -26,7 +26,7 @@
 #               - the raw content to be written as it is.
 #               - empty content does nothing and return early.
 # Outputs:
-#       Write to $____path_dest File
+#       Write to '$____path_dest' File
 #               - the rendered output written into file.
 #               - no action on error.
 # Returns:

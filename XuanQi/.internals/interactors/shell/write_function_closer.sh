@@ -22,7 +22,7 @@
 #               - COMPULSORY
 #               - the destination file to write into.
 # Outputs:
-#       Write to $____path_dest File
+#       Write to '$____path_dest' File
 #               - the rendered output written into file.
 #               - no action on error.
 # Returns:

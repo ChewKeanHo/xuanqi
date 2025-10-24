@@ -25,6 +25,7 @@
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
+#               - error on empty/invalid '$____path_dest'.
 #               - always ok since function is unused.
 interactors_shell_write_enums_end() {
         #____path_dest="$1"

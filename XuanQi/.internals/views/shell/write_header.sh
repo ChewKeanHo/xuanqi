@@ -19,7 +19,7 @@
 #       ____path_dest
 #               - COMPULSORY
 #               - the destination file to write into.
-#       ____source_license
+#       ____license_holders
 #               - COMPULSORY
 #               - license copyright entries.
 #               - multiline values where each line is an entry.
@@ -40,12 +40,12 @@
 #       Return Code
 #               - '0' means ok; error otherwise.
 #               - error on empty/invalid '$____path_dest'.
-#               - error on empty '$____source_license' (e.g. 'empty').
+#               - error on empty '$____license_holders' (e.g. 'empty').
 #               - error on invalid '$____path_source_notice' (e.g. 'not a file').
 #               - error on bad execution.
 views_shell_write_header() {
         #____path_dest="$1"
-        #____source_license="$2"
+        #____license_holders="$2"
         #____path_source_notice="$3"
 
 

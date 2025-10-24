@@ -54,7 +54,7 @@
 #                 where:
 #                       1. Both are connected with an underscore.
 # Outputs:
-#       Write to $____path_dest File
+#       Write to '$____path_dest' File
 #               - the rendered output written into file.
 #               - no action on error.
 # Returns:
