@@ -27,15 +27,15 @@
 #               - '0' means ok; error otherwise.
 #               - error when internal file is missing.
 #               - error when internal file is unreadable.
-interactors_print_components_init_data() {
+interactors_print_components_init_css() {
         # validate inputs
         ____path="\
-${XUANQI_PATH_ROOT}/entities/docs/components/init_data/${XUANQI_LANGUAGE}.txt\
+${XUANQI_PATH_ROOT}/entities/docs/components/init_css/${XUANQI_LANGUAGE}.txt\
 "
         if [ ! -f "$____path" ]; then
                 # fallback to english
                 ____path="\
-${XUANQI_PATH_ROOT}/entities/docs/components/init_data/en.txt\
+${XUANQI_PATH_ROOT}/entities/docs/components/init_css/en.txt\
 "
         fi
 
