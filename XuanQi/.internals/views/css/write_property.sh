@@ -20,6 +20,9 @@
 # Specifications:
 #       - https://www.w3.org/Style/CSS/specs.en.html
 # Parameters:
+#       ____path_dest
+#               - COMPULSORY
+#               - the destination file to write into.
 #       ____name
 #               - COMPULSORY
 #               - property name (e.g. 'margin').
@@ -31,18 +34,22 @@
 #               - indentation level in round numerical number.
 #               - '1' or empty means no default indentation.
 # Outputs:
-#       String
-#               - the rendered output string. Example: "margin: 1rem;".
+#       Write to '$____path_dest' File
+#               - the rendered output written into file.
+#               - no action on error.
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
+#               - error on empty/invalid '$____path_dest'.
 #               - error on empty '$____name'.
 #               - error on empty '$____value'.
 #               - error on invalid '$____indent' (e.g. not a number).
 #               - error on bad execution.
-views_css_get_element_property() {
-        #____selectors="$1"
-        #____indent_level="$2"
+views_css_write_property() {
+        #____path_dest="$1"
+        #____name="$2"
+        #____value="$3"
+        #____indent_level="$4"
 
 
         # validate inputs
@@ -50,18 +57,33 @@ views_css_get_element_property() {
                 return 1
         fi
 
+        if [ ! "${1%/*}" = "$1" ]; then
+                if [ -d "${1%/*}" ]; then
+                        : # accepted
+                elif [ -L "${1%/*}" ] &&
+                [ -d "$(readlink --canonicalize "$1")" ]; then
+                        : # accepted
+                else
+                        return 1
+                fi
+        fi
+
         if [ "$2" = "" ]; then
                 return 1
         fi
 
-        case "$3" in
+        if [ "$3" = "" ]; then
+                return 1
+        fi
+
+        case "$4" in
         "")
                 ;;
         *[!0-9]*)
                 return 1
                 ;;
         *)
-                if [ $3 -lt 0 ]; then
+                if [ $4 -lt 0 ]; then
                         return 1
                 fi
                 ;;
@@ -70,8 +92,11 @@ views_css_get_element_property() {
 
         # execute
         printf -- "%s" "\
-$(views_css_get_indent "${3:-1}")${1}: ${2};
-"
+$(views_css_get_element_property "$2" "$3" "${4:-1}")
+" >> "${1}.tmp"
+        if [ $? -ne 0 ]; then
+                return 1
+        fi
 
 
         # report status
