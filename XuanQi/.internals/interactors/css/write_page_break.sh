@@ -30,29 +30,12 @@
 #               - '0' means ok; error otherwise.
 #               - error on empty/invalid '$____path_dest'.
 #               - error on bad execution.
-views_css_write_page_break() {
+interactors_css_write_page_break() {
         #____path_dest="$1"
 
 
-        # validate inputs
-        if [ "$1" = "" ]; then
-                return 1
-        fi
-
-        if [ ! "${1%/*}" = "$1" ]; then
-                if [ -d "${1%/*}" ]; then
-                        : # accepted
-                elif [ -L "${1%/*}" ] &&
-                [ -d "$(readlink --canonicalize "$1")" ]; then
-                        : # accepted
-                else
-                        return 1
-                fi
-        fi
-
-
         # execute
-        printf -- "\n\n\n\n" >> "${1}.tmp"
+        views_css_write_page_break "$1"
         if [ $? -ne 0 ]; then
                 return 1
         fi
