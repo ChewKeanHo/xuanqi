@@ -86,7 +86,7 @@ views_shell_write_if_else_opener() {
 
         # execute
         printf -- "%s" "\
-$(views_shell_get_indent "${3:-0}")if ${2}; then
+$(views_shell_get_indent "${3:-0}")if ${2%[$(printf -- " \r\n\t\v")]}; then
 " >> "${1}.tmp"
         if [ $? -ne 0 ]; then
                 return 1
