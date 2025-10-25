@@ -18,8 +18,8 @@
 
 
 # Specifications:
-#       - To import all configuration files and library scripts
-#         recursively from a given directory path.
+#       - To import one/all configuration files and library scripts
+#         recursively from a given file/directory path.
 #       - Configuration and libraries has overriding consequences.
 #         Ensure all configurations and libraries **DO NOT** have
 #         conflicting names.
@@ -29,10 +29,13 @@
 #       - Files start with '.' or '~' will be ignored.
 #       - Files ends with '_test' (as in '_test.conf' and '_test.sh')
 #         will be ignored.
+#       - For shell script, it is also acting as execute function.
 # Parameters:
 #       ____path
 #               - REQUIRED
 #               - The source path to import.
+#               - For directory, import all recursively.
+#               - For single file, only that file is imported.
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
@@ -53,16 +56,40 @@ XuanQi_Components_Import() {
                 return 2
         fi
 
-        if [ -d "$1" ]; then
+        if [ -d "$1" ] || [ -f "$1" ]; then
                 : # accepted
-        elif [ -L "$1" ] && [ -d "$(readlink --canonicalize "$1")" ]; then
-                : # accepted
+        elif [ -L "$1" ]; then
+                if [ -d "$(readlink --canonicalize "$1")" ]; then
+                        : # accepted
+                elif [ -f "$(readlink --canonicalize "$1")" ]; then
+                        : # accepted
+                else
+                        return 3
+                fi
         else
                 return 3
         fi
 
 
         # execute
+        if [ -f "$1" ] ||
+        ([ -L "$1" ] && [ -f "$(readlink --canonicalize "$1")" ]); then
+                # single file
+                if [ ! "${1%.conf}" = "$1" ]; then
+                        interactors_data_read_file "$1"
+                        if [ $? -eq 0 ]; then
+                                return 0
+                        fi
+                elif [ ! "${1%.sh}" = "$1" ]; then
+                        interactors_libraries_read_file "$1"
+                        if [ $? -eq 0 ]; then
+                                return 0
+                        fi
+                fi
+
+                return 4
+        fi
+
         interactors_data_read_directory "$1"
         if [ $? -ne 0 ]; then
                 return 4
