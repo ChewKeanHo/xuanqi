@@ -34,7 +34,7 @@
 #               - '0' means ok; error otherwise.
 #               - error on empty/invalid '$____path_dest'.
 #               - error on bad execution.
-views_css_write_raw_content() {
+interactors_css_write_raw_content() {
         #____path_dest="$1"
         #____content="$2"
 
@@ -55,9 +55,13 @@ views_css_write_raw_content() {
                 fi
         fi
 
+        if [ "$2" = "" ]; then
+                return 0
+        fi
+
 
         # execute
-        printf -- "%s" "$2" >> "${1}.tmp"
+        views_css_write_raw_content "$1" "$2"
         if [ $? -ne 0 ]; then
                 return 1
         fi
