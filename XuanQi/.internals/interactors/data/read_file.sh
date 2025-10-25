@@ -18,11 +18,11 @@
 
 
 # Parameters:
-#       ____filepath
+#       ____path
 #               - COMPULSORY
-#               - The text file to read from.
-#               - Capable of reading multi-line value.
-#               - Capable of reading multi key:value entries
+#               - the text file to read from.
+#               - capable of reading multi-line value.
+#               - capable of reading multi key:value entries
 #                 when '____variable_name' is not set.
 #       ____variable_name
 #               - OPTIONAL
@@ -38,15 +38,29 @@
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
-#               - error on empty '____filepath'.
+#               - error on empty '$____filepath'.
 #               - error on bad execution.
 interactors_data_read_file() {
         #____filepath="$1"
         #____variable_name="$2"
 
 
+        # validate inputs
+        if [ "$1" = "" ]; then
+                return 1
+        fi
+
+        if [ -f "$1" ]; then
+                : # accepted
+        elif [ -L "$1" ] && [ -f "$(readlink --canonicalize "$1")" ]; then
+                : # accepted
+        else
+                return 1
+        fi
+
+
         # execute
-        entities_data_read "$1"
+        entities_data_read "$1" "$2"
         if [ $? -ne 0 ]; then
                 return 1
         fi

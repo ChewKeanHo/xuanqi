@@ -18,31 +18,31 @@
 
 
 # Parameters:
-#       ____filepath
+#       ____path
 #               - COMPULSORY
-#               - The text file to read from.
-#               - Capable of reading multi-line value.
-#               - Capable of reading multi key:value entries
+#               - the text file to read from.
+#               - capable of reading multi-line value.
+#               - capable of reading multi key:value entries
 #                 when '____variable_name' is not set.
-#               - Resolve symlink.
+#               - resolve symlink.
 #       ____variable_name
 #               - OPTIONAL
-#               - The key of the value.
-#               - When unavailable, the key specified in the
+#               - the key of the value.
+#               - when unavailable, the key specified in the
 #                 configuration file will be used instead.
-#               - Also for specifically read this key:value
+#               - also for specifically read this key:value
 #                 pair in a multi key-value pairs configuration
 #                 file.
 # Outputs:
 #       Environment Variable
-#               - Set against the key of the value.
+#               - set against the key of the value.
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
-#               - error on empty '____filepath'.
+#               - error on empty '$____path'.
 #               - error on bad execution.
 entities_data_read() {
-        #____filepath="$1"
+        #____path="$1"
         #____variable_name="$2"
 
 
@@ -51,16 +51,9 @@ entities_data_read() {
                 return 1
         fi
 
-        if [ ! -f "$1" ]; then
-                return 1
-        fi
-
         if [ -f "$1" ]; then
                 : # accepted
-        elif [ -L "$1" ]; then
-                if [ ! -f "$(readlink --canonicalize "$1")" ]; then
-                        return 1
-                fi
+        elif [ -L "$1" ] && [ -f "$(readlink --canonicalize "$1")" ]; then
                 : # accepted
         else
                 return 1
