@@ -64,6 +64,67 @@ fi
 
 
 # Parameters:
+#       ____path
+#               - COMPULSORY
+#               - The shell script to import from.
+# Outputs:
+#       Shell Script Imported and Executed
+# Returns:
+#       Return Code
+#               - '0' means ok; error otherwise.
+#               - error on empty '$____path' (code: 1).
+#               - error on invalid '$____path' (code: 1).
+#               - error on '$____path' not an acceptable shell script (code: 2).
+#               - error on bad execution (code: 1).
+interactors_libraries_read_file() {
+        #____path="$1"
+
+
+        # validate input
+        if [ "$1" = "" ]; then
+                return 1
+        fi
+
+        if [ -f "$1" ]; then
+                : # accepted
+        elif [ -L "$1" ] && [ -f "$(readlink --canonicalize "$1")" ]; then
+                : # accepted
+        else
+                return 1
+        fi
+
+        if [ "${1%".sh"}" = "$1" ]; then
+                return 2 # not a shell script
+        fi
+
+        if [ ! "${1%"_test.sh"}" = "$1" ]; then
+                return 2 # do not import test script
+        fi
+
+        if [ ! "${1#"."}" = "$1" ]; then
+                return 2 # do not import hidden file
+        fi
+
+        if [ ! "${1#"~"}" = "$1" ]; then
+                return 2 # do not import temporary file
+        fi
+
+
+        # execute
+        . "$1"
+        if [ $? -ne 0 ]; then
+                return 1
+        fi
+
+
+        # report status
+        return 0
+}
+
+
+
+
+# Parameters:
 #       ____path_source
 #               - input directory path.
 # Returns:
@@ -102,27 +163,15 @@ interactors_libraries_read_directory() {
                         continue
                 fi
 
-                if [ "${____item%".sh"}" = "$____item" ]; then
-                        continue # not a shell script
-                fi
-
-                if [ ! "${____item%"_test.sh"}" = "$____item" ]; then
-                        continue # do not import test script
-                fi
-
-                if [ ! "${____item#"."}" = "$____item" ]; then
-                        continue # do not import hidden file
-                fi
-
-                if [ ! "${____item#"~"}" = "$____item" ]; then
-                        continue # do not import temporary file
-                fi
-
-                . "$____item"
-                if [ $? -ne 0 ]; then
+                interactors_libraries_read_file "$____item"
+                case $? in
+                0|2)
+                        ;;
+                *)
                         unset ____item
                         return 1
-                fi
+                        ;;
+                esac
         done
         unset ____item
 
