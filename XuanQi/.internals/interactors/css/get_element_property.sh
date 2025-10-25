@@ -40,7 +40,7 @@
 #               - error on empty '$____value'.
 #               - error on invalid '$____indent' (e.g. not a number).
 #               - error on bad execution.
-views_css_get_element_property() {
+interactors_css_get_element_property() {
         #____name="$1"
         #____value="$2"
         #____indent_level="$3"
@@ -70,9 +70,10 @@ views_css_get_element_property() {
 
 
         # execute
-        printf -- "%s" "\
-$(views_css_get_indent "${3:-1}")${1}: ${2};
-"
+        views_css_get_element_property "$1" "$2" "$3"
+        if [ $? -ne 0 ]; then
+                return 1
+        fi
 
 
         # report status
