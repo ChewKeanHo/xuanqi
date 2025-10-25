@@ -73,6 +73,9 @@ views_css_get_element_property() {
         printf -- "%s" "\
 $(views_css_get_indent "${3:-1}")${1}: ${2};
 "
+        if [ $? -ne 0 ]; then
+                return 1
+        fi
 
 
         # report status
