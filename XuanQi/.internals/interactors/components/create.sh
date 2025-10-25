@@ -83,6 +83,12 @@ interactors_components_create() {
                 return 5
         fi
 
+        # handle css
+        interactors_components_create_css "$1" "$2" "$____dest_shell_import"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                return 5
+        fi
 
         # all good - closing importer script
         interactors_shell_write_footer "$____dest_shell_import"
