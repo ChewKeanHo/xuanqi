@@ -20,8 +20,10 @@
 # Parameters:
 #       ____input
 #               - OPTIONAL
-#               - Number type.
+#               - number type.
 #               - 0 returns empty indent.
+#               - empty means 0 indent.
+#               - invalid (e.g. not a number) means 0 indent.
 # Outputs:
 #       String
 #               - the rendered total indent count in string.

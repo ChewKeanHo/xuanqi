@@ -33,7 +33,7 @@
 #               - '0' means ok; error otherwise.
 #               - error on invalid input (not a round number or <0).
 #               - error on bad execution.
-interactors_shell_get_indent() {
+interactors_css_get_indent() {
         #____count="$1"
 
 
@@ -49,7 +49,7 @@ interactors_shell_get_indent() {
 
 
         # execute
-        views_shell_get_indent "$1"
+        views_css_get_indent "$1"
         if [ $? -ne 0 ]; then
                 return 1
         fi
