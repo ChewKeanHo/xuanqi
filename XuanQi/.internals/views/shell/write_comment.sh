@@ -23,6 +23,7 @@
 #               - OPTIONAL
 #               - the content to be rendered as comments.
 #               - multi-line single entry is supported.
+#               - does nothing when left empty.
 #       ____indent
 #               - OPTIONAL
 #               - the indent level to apply before the comment.
@@ -70,13 +71,12 @@ views_shell_write_comment() {
                 ;;
         esac
 
-
-        # execute
         if [ "$2" = "" ]; then
-                printf -- ""
                 return 0
         fi
 
+
+        # execute
         ____old_IFS="$IFS"
         while IFS="" read -r ____line || [ -n "$____line" ]; do
                 if [ ! "$____line" = "" ]; then

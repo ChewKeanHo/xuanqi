@@ -41,7 +41,7 @@
 #               - error on invalid '$____path_dest' (e.g. 'empty').
 #               - error on invalid '$____indent' (e.g. not a number).
 #               - error on bad execution.
-interactors_shell_write_comment() {
+interactors_css_write_comment() {
         #____path_dest="$1"
         #____contents="$2"
         #____indent="$3"
@@ -73,9 +73,13 @@ interactors_shell_write_comment() {
                 ;;
         esac
 
+        if [ "$2" = "" ]; then
+                return 1
+        fi
+
 
         # execute
-        views_shell_write_comment "$1" "$2" "$3"
+        views_css_write_comment "$1" "$2" "$3"
         if [ $? -ne 0 ]; then
                 return 1
         fi

@@ -25,13 +25,14 @@
 #               - OPTIONAL
 #               - the content to be rendered as comments.
 #               - multi-line single entry is supported.
+#               - does nothing when left empty.
 #       ____indent
 #               - OPTIONAL
 #               - the indent level to apply before the comment.
-#               - 0, empty, or invalid (e.g. not a round number) will
-#                 set indent level as 0 (no indentation).
+#               - 0, empty, or invalid (e.g. not a round number) will set
+#                 indent level as 0 (no indentation).
 # Outputs:
-#       Write to $____path_dest File
+#       Write to '$____path_dest' File
 #               - the rendered output written into file.
 #               - no action on error.
 # Returns:
@@ -72,13 +73,12 @@ views_css_write_comment() {
                 ;;
         esac
 
-
-        # execute
         if [ "$2" = "" ]; then
-                printf -- ""
                 return 0
         fi
 
+
+        # execute
         printf -- "%s" "\
 $(views_css_get_indent "${3:-0}")/*
 " >> "${1}.tmp"
