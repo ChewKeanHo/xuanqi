@@ -55,7 +55,14 @@ entities_fs_read_text_file() {
                         if [ "$____line" = "" ]; then
                                 ____state=1
                                 continue
-                        elif [ "${____line%%#*}" = "" ]; then
+                        elif [ "${____line%%"[//]: #"*}" = "" ]; then
+                                # markdown comment
+                                continue
+                        elif [ "${____line%%"#"*}" = "" ]; then
+                                # hash comment
+                                continue
+                        elif [ "${____line%%"//"*}" = "" ]; then
+                                # c comment
                                 continue
                         fi
 
