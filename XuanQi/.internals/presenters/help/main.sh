@@ -33,6 +33,10 @@ config)
         ;;
 create)
         case "$3" in
+        component)
+                interactors_print_info \
+                        "$(interactors_print_help_create_component_index "$4")"
+                ;;
         config)
                 interactors_print_info \
                         "$(interactors_print_help_create_config_index)"
