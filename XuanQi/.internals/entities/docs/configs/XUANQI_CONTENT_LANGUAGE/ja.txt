@@ -1,0 +1,47 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_LANGUAGE
+この設定は出力ファイルの言語を設定するものです。ルーターファ
+イルによって設定され、コンポーネントのレンダリングインポータ
+ーシェルスクリプトに渡されます。
+
+一貫性のため、値は以下の形式に準拠したBCP 47ロケールコードを
+使用することが推奨されます：
+
+               `[言語]{-[スクリプト]}{-[国]}`
+ここで：
+        * `[言語]`       - ISO639言語コード。
+        * `{-[スクリプト]}` - オプションのISO15924言語スクリプト。
+                           ダッシュ`-`を前置区切り文字とし、
+                           `{ }`括弧は含めない。
+        * `{-[国]}`      - オプションのISO3166国コード。
+                           ダッシュ`-`を前置区切り文字とし、
+                           `{ }`括弧は含めない。
+例：
+        * `en`           - 国際英語
+        * `zh-Hans`      - 国際簡体字中国語
+        * `zh-Hant`      - 国際繁体字中国語
+        * `zh-Hans-US`   - アメリカ合衆国簡体字中国語
+        * `zh-Hant-US`   - アメリカ合衆国繁体字中国語
+        * `zh-Hans-MY`   - マレーシア簡体字中国語
+        * `zh-Hant-MY`   - マレーシア繁体字中国語
+
+値の可用性はルーターファイルのみに依存します。
+設定されていれば利用可能です。値は強制されません。
+コンポーネント側で値を確認し、適切に対応する完全な責任があります。

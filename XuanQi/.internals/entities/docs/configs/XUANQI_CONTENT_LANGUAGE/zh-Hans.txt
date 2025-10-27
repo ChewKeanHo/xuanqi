@@ -1,0 +1,45 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_LANGUAGE
+此配置用于设置输出文件的语言。它通过router文件配置，
+并传递到组件的渲染shell代码导入器。
+
+为保持一致，建议该值为符合以下格式的BCP47区域设置代码：
+
+           `[语言]{-[指令码]}{-[国家]}`
+其中：
+        * `[语言]`      - ISO639 语言代码。
+        * `{-[指令码]}` - 可选的 ISO15924 语言指令码，
+                          带破折号 `-` 前缀分隔符，
+                          不含 `{ }` 大括号。
+        * `{-[国家]}`   - 可选的 ISO3166 国家代码，
+                          带破折号 `-` 前缀分隔符，
+                          不含 `{ }` 大括号。
+示例：
+        * `en`           - 国际英语
+        * `zh-Hans`      - 国际简体中文
+        * `zh-Hant`      - 国际繁体中文
+        * `zh-Hans-US`   - 美国简体中文
+        * `zh-Hant-US`   - 美国繁体中文
+        * `zh-Hans-MY`   - 马来西亚简体中文
+        * `zh-Hant-MY`   - 马来西亚繁体中文
+
+该值的可用性仅取决于路由文件。如果已设置，则可用。
+该值不是被强制性。组件是全体负责检查并根据任何值
+做出相应反应。

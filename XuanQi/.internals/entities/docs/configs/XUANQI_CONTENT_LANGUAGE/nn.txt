@@ -1,0 +1,48 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_LANGUAGE
+Denne konfigurasjonen set språket til utdatafila. Ho vert
+konfigurert av ruterfila og levert til eit
+komponent-renderingsimporteringsskallscript.
+
+For konsistens er det tilrådd at verdien er ein BCP 47
+lokalitetskode som følgjer følgjande format:
+
+              `[SPRÅK]{-[SKRIFT]}{-[LAND]}`
+Der:
+        * `[SPRÅK]`     - ISO639-språkkode.
+        * `{-[SKRIFT]}` - Valfri ISO15924-språkskrift
+                          med bindestrek `-` som prefiksskiljeteikn
+                          og utan `{ }`-parentesane.
+        * `{-[LAND]}`   - Valfri ISO3166-landkode med
+                          bindestrek `-` som prefiksskiljeteikn
+                          og utan `{ }`-parentesane.
+Døme:
+        * `en`           - Internasjonal Engelsk
+        * `zh-Hans`      - Internasjonal Forenkla Kinesisk
+        * `zh-Hant`      - Internasjonal Tradisjonell Kinesisk
+        * `zh-Hans-US`   - Amerikansk Forenkla Kinesisk
+        * `zh-Hant-US`   - Amerikansk Tradisjonell Kinesisk
+        * `zh-Hans-MY`   - Malaysisk Forenkla Kinesisk
+        * `zh-Hant-MY`   - Malaysisk Tradisjonell Kinesisk
+
+Tilgjengelegheita til verdien avheng berre av ruterfila. Viss ho
+er sett, er ho tilgjengeleg. Verdien er ikkje handheva. Det er
+komponentens fulle ansvar å sjekke og reagere på kva verdi som
+helst i samsvar med det.

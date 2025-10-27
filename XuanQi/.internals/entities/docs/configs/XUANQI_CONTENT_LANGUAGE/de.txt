@@ -1,0 +1,48 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_LANGUAGE
+Diese Konfiguration legt die Sprache der Ausgabedatei fest.
+Sie wird über die Router-Datei konfiguriert und an ein
+Komponenten-Rendering-Importer-Shellskript übergeben.
+
+Der Wert sollte aus Konsistenzgründen einem BCP 47
+Sprachcode entsprechen, der folgendem Format folgt:
+
+              `[SPRACHE]{-[SCRIPT]}{-[LAND]}`
+Dabei gilt:
+        * `[SPRACHE]`    - ISO639-Sprachcode.
+        * `{-[SCRIPT]}`  - optionales ISO15924-Skript
+                           mit Bindestrich `-` als Präfixtrennzeichen
+                           und ohne die `{ }` Klammern.
+        * `{-[LAND]}`    - optionaler ISO3166-Ländercode mit
+                           einem Bindestrich `-` als Präfixtrennzeichen
+                           und ohne die `{ }` Klammern.
+Beispiele:
+        * `en`           - Internationales Englisch
+        * `zh-Hans`      - Internationales Vereinfachtes Chinesisch
+        * `zh-Hant`      - Internationales Traditionelles Chinesisch
+        * `zh-Hans-US`   - Vereinfachtes Chinesisch (USA)
+        * `zh-Hant-US`   - Traditionelles Chinesisch (USA)
+        * `zh-Hans-MY`   - Malaysisches Vereinfachtes Chinesisch
+        * `zh-Hant-MY`   - Malaysisches Traditionelles Chinesisch
+
+Die Verfügbarkeit des Werts hängt ausschließlich von der Router-Datei ab.
+Wenn er gesetzt ist, ist er verfügbar. Der Wert wird nicht erzwungen.
+Es liegt in der alleinigen Verantwortung der Komponente, den Wert
+zu prüfen und entsprechend zu reagieren.

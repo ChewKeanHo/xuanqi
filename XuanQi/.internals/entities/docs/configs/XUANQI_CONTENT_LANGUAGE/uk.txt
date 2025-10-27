@@ -1,0 +1,48 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_LANGUAGE
+Ця конфігурація встановлює мову вихідного файлу. Вона
+налаштовується файлом маршрутизації та передається у скрипт
+імпортера рендерингу компонента.
+
+Для узгодженості рекомендується, щоб значення було
+кодом локалі BCP 47, який відповідає наступному формату:
+
+              `[МОВА]{-[ПИСЬМО]}{-[КРАЇНА]}`
+Де:
+        * `[МОВА]`       - Код мови ISO639.
+        * `{-[ПИСЬМО]}`  - Опціональний код письма ISO15924
+                            з дефісом `-` як роздільником префікса
+                            та без фігурних дужок `{ }`.
+        * `{-[КРАЇНА]}`  - Опціональний код країни ISO3166
+                            з дефісом `-` як роздільником префікса
+                            та без фігурних дужок `{ }`.
+Приклади:
+        * `en`           - Міжнародна англійська
+        * `zh-Hans`      - Міжнародна спрощена китайська
+        * `zh-Hant`      - Міжнародна традиційна китайська
+        * `zh-Hans-US`   - Американська спрощена китайська
+        * `zh-Hant-US`   - Американська традиційна китайська
+        * `zh-Hans-MY`   - Малайзійська спрощена китайська
+        * `zh-Hant-MY`   - Малайзійська традиційна китайська
+
+Доступність значення залежить виключно від файлу маршрутизації.
+Якщо воно встановлене, то воно доступне. Значення не є обов'язковим.
+Повна відповідальність за перевірку та реагування
+на будь-яке значення лежить на компоненті.

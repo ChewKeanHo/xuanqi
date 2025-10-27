@@ -1,0 +1,48 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_LANGUAGE
+This configuration is to set the output file's language.
+This is configured by the router file and delivering into
+a component's rendering importer shell script.
+
+For consistency, the value is recommended to be a BCP 47
+locale code complying to the following format:
+
+              `[LANG]{-[SCRIPT]}{-[COUNTRY]}`
+where:
+        * `[LANG]`       - ISO639 language code.
+        * `{-[SCRIPT]}`  - optional ISO15924 language script
+                           with a dash `-` prefix separator and
+                           without the `{ }` braces.
+        * `{-[COUNTRY]}` - optional ISO3166 country code with a
+                           dash `-` prefix separator and without
+                           the `{ }` braces.
+Examples:
+        * `en`           - International English
+        * `zh-Hans`      - International Simplified Chinese
+        * `zh-Hant`      - International Traditional Chinese
+        * `zh-Hans-US`   - United States Simplified Chinese
+        * `zh-Hant-US`   - United States Traditional Chinese
+        * `zh-Hans-MY`   - Malaysia's Simplified Chinese
+        * `zh-Hant-MY`   - Malaysia's Traditional Chinese
+
+The value's availability depends on the router file alone.
+If it is set, then it is available. The value is not enforced.
+It is the component's full responsibility to check and to react
+any value accordingly.

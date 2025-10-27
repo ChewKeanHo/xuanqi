@@ -1,0 +1,48 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_LANGUAGE
+Cette configuration permet de définir la langue du fichier de sortie.
+Elle est configurée par le fichier de routage et délivrée à
+un script shell d'importation de rendu de composant.
+
+Pour la cohérence, il est recommandé que la valeur soit un code
+de langue BCP 47 conforme au format suivant :
+
+              `[LANGUE]{-[SCRIPT]}{-[PAYS]}`
+Où :
+        * `[LANGUE]`     - Code de langue ISO639.
+        * `{-[SCRIPT]}`  - Script de langue ISO15924 optionnel
+                           avec un séparateur de préfixe tiret `-`
+                           et sans les accolades `{ }`.
+        * `{-[PAYS]}`    - Code de pays ISO3166 optionnel avec
+                           un séparateur de préfixe tiret `-`
+                           et sans les accolades `{ }`.
+Exemples :
+        * `en`           - Anglais International
+        * `zh-Hans`      - Chinois Simplifié International
+        * `zh-Hant`      - Chinois Traditionnel International
+        * `zh-Hans-US`   - Chinois Simplifié des États-Unis
+        * `zh-Hant-US`   - Chinois Traditionnel des États-Unis
+        * `zh-Hans-MY`   - Chinois Simplifié de Malaisie
+        * `zh-Hant-MY`   - Chinois Traditionnel de Malaisie
+
+La disponibilité de la valeur dépend uniquement du fichier de routage.
+Si elle est définie, elle est disponible. La valeur n'est pas imposée.
+Il est de la pleine responsabilité du composant de vérifier et de
+réagir en conséquence à toute valeur.

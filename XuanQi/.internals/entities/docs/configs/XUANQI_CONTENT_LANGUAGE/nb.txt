@@ -1,0 +1,48 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_LANGUAGE
+Denne konfigurasjonen angir språket til utdatafilen. Den konfigureres
+av router-filen og leveres til et
+komponent-renderingsimporteringsskallscript.
+
+For konsistens anbefales det at verdien er en BCP 47 lokalitetskode
+som følger følgende format:
+
+               `[SPRÅK]{-[SKRIFT]}{-[LAND]}`
+Der:
+        * `[SPRÅK]`     - ISO639-språkkode.
+        * `{-[SKRIFT]}` - Valgfri ISO15924-språkskrift
+                          med bindestrek `-` som prefiksskilletegn
+                          og uten `{ }`-parentesene.
+        * `{-[LAND]}`   - Valgfri ISO3166-landkode med
+                          bindestrek `-` som prefiksskilletegn
+                          og uten `{ }`-parentesene.
+Eksempler:
+        * `en`           - Internasjonal Engelsk
+        * `zh-Hans`      - Internasjonal Forenklet Kinesisk
+        * `zh-Hant`      - Internasjonal Tradisjonell Kinesisk
+        * `zh-Hans-US`   - Amerikansk Forenklet Kinesisk
+        * `zh-Hant-US`   - Amerikansk Tradisjonell Kinesisk
+        * `zh-Hans-MY`   - Malaysisk Forenklet Kinesisk
+        * `zh-Hant-MY`   - Malaysisk Tradisjonell Kinesisk
+
+Verdiens tilgjengelighet avhenger utelukkende av router-filen.
+Hvis den er satt, er den tilgjengelig. Verdien er ikke håndhevet.
+Det er komponentens fulle ansvar å sjekke og
+reagere på enhver verdi deretter.

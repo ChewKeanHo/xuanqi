@@ -1,0 +1,49 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_LANGUAGE
+Deze configuratie stelt de taal van het uitvoerbestand in.
+Dit wordt geconfigureerd door het routerbestand en geleverd aan
+een importer-shellscript voor componentweergave.
+
+Voor consistentie wordt aanbevolen dat de waarde een BCP 47
+localecode is die voldoet aan het volgende formaat:
+
+              `[TAAL]{-[SCRIPT]}{-[LAND]}`
+Waarbij:
+        * `[TAAL]`       - ISO639-taalcode.
+        * `{-[SCRIPT]}` - Optionele ISO15924-taalscript
+                          met een koppelteken `-` als scheidingsteken
+                          en zonder de `{ }` haakjes.
+        * `{-[LAND]}`   - Optionele ISO3166-landcode met
+                          een koppelteken `-` als scheidingsteken
+                          en zonder de `{ }` haakjes.
+Voorbeelden:
+        * `en`           - Internationaal Engels
+        * `zh-Hans`      - Internationaal Vereenvoudigd Chinees
+        * `zh-Hant`      - Internationaal Traditioneel Chinees
+        * `zh-Hans-US`   - Amerikaans Vereenvoudigd Chinees
+        * `zh-Hant-US`   - Amerikaans Traditioneel Chinees
+        * `zh-Hans-MY`   - Maleisisch Vereenvoudigd Chinees
+        * `zh-Hant-MY`   - Maleisisch Traditioneel Chinees
+
+De beschikbaarheid van de waarde hangt uitsluitend af van het
+routerbestand. Als deze is ingesteld, is deze beschikbaar. De
+waarde wordt niet afgedwongen. Het is de volledige
+verantwoordelijkheid van de component om de waarde te controleren
+en dienovereenkomstig te reageren.

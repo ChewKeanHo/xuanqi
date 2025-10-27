@@ -1,0 +1,47 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_LANGUAGE
+이 구성은 출력 파일의 언어를 설정합니다. 라우터 파일에 의
+해 구성되며 컴포넌트의렌더링 임포터 셸 스크립트로 전달됩니
+다.
+
+일관성을 위해 값은 다음 형식을 준수하는BCP 47 로캘 코드
+를 사용하는 것이 좋습니다:
+
+              `[언어]{-[스크립트]}{-[국가]}`
+여기서:
+        * `[언어]`       - ISO639 언어 코드.
+        * `{-[스크립트]}` - 선택적 ISO15924 언어 스크립트.
+                           대시 `-` 접두사 구분자를 포함하고
+                           `{ }` 괄호는 포함하지 않음.
+        * `{-[국가]}`    - 선택적 ISO3166 국가 코드.
+                           대시 `-` 접두사 구분자를 포함하고
+                           `{ }` 괄호는 포함하지 않음.
+예시:
+        * `en`           - 국제 영어
+        * `zh-Hans`      - 국제 간체 중국어
+        * `zh-Hant`      - 국제 번체 중국어
+        * `zh-Hans-US`   - 미국 간체 중국어
+        * `zh-Hant-US`   - 미국 번체 중국어
+        * `zh-Hans-MY`   - 말레이시아 간체 중국어
+        * `zh-Hant-MY`   - 말레이시아 번체 중국어
+
+값의 가용성은 라우터 파일에만 의존합니다.
+설정된 경우 사용 가능합니다. 값은 강제되지 않습니다.
+컴포넌트는 값을 확인하고 그에 따라 반응할 완전한 책임이 있습니다.

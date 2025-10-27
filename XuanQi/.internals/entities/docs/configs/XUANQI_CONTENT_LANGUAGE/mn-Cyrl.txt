@@ -1,0 +1,48 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_LANGUAGE
+Энэ тохиргоо нь гарах файлын хэлийг тохируулах зорилготой. Энэ нь
+router файлаар тохируулагдаж, component-ийн render importer shell
+script-руу дамжуулдаг.
+
+Тогтвортой байх үүднээс утга нь дараах форматыг дагах
+BCP 47 locale code байхыг зөвлөж байна:
+
+                 `[ХЭЛ]{-[СКРИПТ]}{-[УЛС]}`
+Энд:
+        * `[ХЭЛ]`        - ISO639 хэлний код.
+        * `{-[СКРИПТ]}`  - ISO15924 хэлний бичлэгийн скрипт
+                           (заавал биш). зураас `-` ялгагч
+                           угтагдаж, `{ }` бүслүүр орохгүй.
+        * `{-[УЛС]}`     - ISO3166 улсын код (заавал биш).
+                           зураас `-` ялгагч угтагдаж,
+                           `{ }` бүслүүр орохгүй.
+Жишээ:
+        * `en`           - Олон Улсын Англи Хэл
+        * `zh-Hans`      - Олон Улсын Хялбарбичсэн Хятад Хэл
+        * `zh-Hant`      - Олон Улсын Уламжлалт Хятад Хэл
+        * `zh-Hans-US`   - Америк Нэгдсэн Улсын Хялбарбичсэн Хятад Хэл
+        * `zh-Hant-US`   - Америк Нэгдсэн Улсын Уламжлалт Хятад Хэл
+        * `zh-Hans-MY`   - Малайзын Хялбарбичсэн Хятад Хэл
+        * `zh-Hant-MY`   - Малайзын Уламжлалт Хятад Хэл
+
+Утгын бэлэн байдал нь зөвхөн router файлаас хамаарна.
+Хэрэв тохируулагдсан бол бэлэн байна. Утга нь албадах биш.
+Component нь ямар ч утгыг шалгаж, үүний дагуу
+ажиллах бүрэн үүрэг хүлээх ёстой.

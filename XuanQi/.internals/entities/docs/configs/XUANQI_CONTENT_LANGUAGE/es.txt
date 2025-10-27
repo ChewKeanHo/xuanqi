@@ -1,0 +1,49 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_LANGUAGE
+Esta configuración establece el idioma del archivo de salida.
+Se configura mediante el archivo de enrutamiento y se entrega
+a un script shell de importación de renderizado de componentes.
+
+Para mantener la consistencia, se recomienda que el valor sea un
+código de configuración regional BCP 47 que cumpla con el siguiente
+formato:
+
+              `[IDIOMA]{-[SCRIPT]}{-[PAÍS]}`
+Donde:
+        * `[IDIOMA]`     - Código de idioma ISO639.
+        * `{-[SCRIPT]}`  - Script de idioma ISO15924 opcional
+                           con un separador de prefijo guión `-`
+                           y sin los corchetes `{ }`.
+        * `{-[PAÍS]}`    - Código de país ISO3166 opcional con
+                           un separador de prefijo guión `-`
+                           y sin los corchetes `{ }`.
+Ejemplos:
+        * `en`           - Inglés Internacional
+        * `zh-Hans`      - Chino Simplificado Internacional
+        * `zh-Hant`      - Chino Tradicional Internacional
+        * `zh-Hans-US`   - Chino Simplificado de Estados Unidos
+        * `zh-Hant-US`   - Chino Tradicional de Estados Unidos
+        * `zh-Hans-MY`   - Chino Simplificado de Malasia
+        * `zh-Hant-MY`   - Chino Tradicional de Malasia
+
+La disponibilidad del valor depende únicamente del archivo de
+enrutamiento. Si está establecido, está disponible. El valor no
+se aplica. Es responsabilidad total del componente verificar y
+reaccionar ante cualquier valor en consecuencia.

@@ -1,0 +1,48 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_LANGUAGE
+Konfigurasi ini adalah untuk menetapkan bahasa fail output. Ia
+dikonfigurasikan oleh fail `router` dan disampaikan ke skrip shell
+pengimport rendering komponen.
+
+Untuk konsistensi, kod locale BCP47 yang mematuhi format berikut
+adalah disyorkan menjadi nilainya:
+
+               `[BAHASA]{-[SKRIP]}{-[NEGARA]}`
+Di mana:
+        * `[BAHASA]`     - Kod bahasa ISO639.
+        * `{-[SKRIP]}`   - Skrip bahasa ISO15924 pilihan
+                           dengan pemisah awalan sempang `-`
+                           dan tanpa pendakap `{ }`.
+        * `{-[NEGARA]}`  - Kod negara ISO3166 pilihan dengan
+                           pemisah awalan sempang `-`
+                           dan tanpa pendakap `{ }`.
+Contoh:
+        * `en`           - Bahasa Inggeris Antarabangsa
+        * `zh-Hans`      - Bahasa Cina Ringkas Antarabangsa
+        * `zh-Hant`      - Bahasa Cina Tradisional Antarabangsa
+        * `zh-Hans-US`   - Bahasa Cina Ringkas Amerika Syarikat
+        * `zh-Hant-US`   - Bahasa Cina Tradisional Amerika Syarikat
+        * `zh-Hans-MY`   - Bahasa Cina Ringkas Malaysia
+        * `zh-Hant-MY`   - Bahasa Cina Tradisional Malaysia
+
+Ketersediaan nilai bergantung semata-mata dengan fail `router` yang
+perintah. Jika ia ditetapkan, maka ia sudah tersedia. Nilai tidak
+akan dikuatkuasakan. Komponen bertanggungjawab sepenuhnya bagi
+memeriksa sebarang nilai dan bertindak balas dengan sewajarnya.

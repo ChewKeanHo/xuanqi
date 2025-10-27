@@ -1,0 +1,49 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_LANGUAGE
+Эта конфигурация предназначена для установки языка выходного файла.
+Она задается файлом маршрутизации и передается в скрипт импорта
+рендеринга компонента.
+
+Для обеспечения единообразия рекомендуется, чтобы значение представляло
+собой код локали BCP 47, соответствующий следующему формату:
+
+              `[ЯЗЫК]{-[ПИСЬМЕННОСТЬ]}{-[СТРАНА]}`
+Где:
+        * `[ЯЗЫК]`            - Код языка по ISO639.
+        * `{-[ПИСЬМЕННОСТЬ]}` - Необязательный код письменности
+                                по ISO15924 с разделителем в виде
+                                дефиса `-` и без фигурных скобок
+                                `{ }`.
+        * `{-[СТРАНА]}`       - Необязательный код страны по
+                                ISO3166 с разделителем в виде дефиса
+                                `-` и без фигурных скобок `{ }`.
+Примеры:
+        * `en`           - Международный английский
+        * `zh-Hans`      - Международный упрощенный китайский
+        * `zh-Hant`      - Международный традиционный китайский
+        * `zh-Hans-US`   - Упрощенный китайский (США)
+        * `zh-Hant-US`   - Традиционный китайский (США)
+        * `zh-Hans-MY`   - Малайзийский упрощенный китайский
+        * `zh-Hant-MY`   - Малайзийский традиционный китайский
+
+Доступность значения зависит исключительно от файла маршрутизации.
+Если оно установлено, то оно доступно. Значение не принудительное.
+Компонент несет полную ответственность за проверку и реагирование
+на любое значение соответствующим образом.

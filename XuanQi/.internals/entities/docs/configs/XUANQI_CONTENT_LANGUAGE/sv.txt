@@ -1,0 +1,48 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_LANGUAGE
+Denna konfiguration sätter utdatafilens språk. Den konfigureras
+av routerfilen och levereras till ett
+komponentrenderingsimporterskalskript.
+
+För konsekvens rekommenderas att värdet är en BCP 47 locale-kod
+som följer följande format:
+
+               `[SPRÅK]{-[SKRIFT]}{-[LAND]}`
+Där:
+        * `[SPRÅK]`     - ISO639-språkkod.
+        * `{-[SKRIFT]}` - Valfritt ISO15924-språkskript
+                          med bindestreck `-` som prefixavskiljare
+                          och utan `{ }`-parenteserna.
+        * `{-[LAND]}`   - Valfri ISO3166-landskod med
+                          bindestreck `-` som prefixavskiljare
+                          och utan `{ }`-parenteserna.
+Exempel:
+        * `en`           - Internationell Engelska
+        * `zh-Hans`      - Internationell Förenklad Kinesiska
+        * `zh-Hant`      - Internationell Traditionell Kinesiska
+        * `zh-Hans-US`   - Amerikansk Förenklad Kinesiska
+        * `zh-Hant-US`   - Amerikansk Traditionell Kinesiska
+        * `zh-Hans-MY`   - Malaysisk Förenklad Kinesiska
+        * `zh-Hant-MY`   - Malaysisk Traditionell Kinesiska
+
+Värdets tillgänglighet beror enbart på routerfilen.
+Om den är satt är den tillgänglig. Värdet är inte pådyvlat.
+Det är komponentens fulla ansvar att kontrollera och
+reagera på alla värden därefter.
