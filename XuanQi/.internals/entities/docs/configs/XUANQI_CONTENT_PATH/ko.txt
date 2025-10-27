@@ -1,0 +1,28 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_PATH
+이 구성은 절대 파일 경로로 정확한 위치를 가진 출력 대상 파일을
+생성하기 위한 것입니다.
+
+          >>>> **수정 또는 재정의하지 마십시오** <<<<
+                  이는 내부 시스템 구성입니다.
+
+값은 `router` 초기화 시 자동으로 결정됩니다.
+파일 시스템 쓰기를 위해 설계되었습니다. URL로 운영하려는 경우
+대신 $XUANQI_CONTENT_URL을 사용하십시오.
