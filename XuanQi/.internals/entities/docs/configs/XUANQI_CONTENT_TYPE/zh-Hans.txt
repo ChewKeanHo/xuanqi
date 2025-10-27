@@ -1,0 +1,35 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_TYPE
+此配置用于设置输出文件的MIME类型。该配置通routers过路由
+文件设置并传递至组件渲染shell代码导入器。值例子：
+
+* 'font/woff', 'font/tff', 'font/otf'        - 字体
+* 'image/png', 'image/svg+xml', 'image/avif' - 图像
+* 'text/plain'                               - 文本
+* 'video/mp4', 'video/webm'                  - 视频
+* 'application/octet-stream'                 - 二进制文件
+
+值的可用性仅取决于router路由文件。若已设置，则可用。
+该值不会被强制实施。如此，组件有全权负责检查并根据任何值
+作出相应反应。
+
+参考：
+
+1. https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Guides/MIME_types

@@ -1,0 +1,37 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_TYPE
+Esta configuración define el tipo MIME del archivo de salida.
+Se configura mediante el archivo de enrutamiento y se entrega al
+script shell de importación de renderizado de componentes. Ejemplos:
+
+* 'font/woff', 'font/tff', 'font/otf'        - fuentes
+* 'image/png', 'image/svg+xml', 'image/avif' - imágenes
+* 'text/plain'                               - texto
+* 'video/mp4', 'video/webm'                  - video
+* 'application/octet-stream'                 - archivo binario
+
+La disponibilidad del valor depende únicamente del archivo de
+enrutamiento. Si está configurado, está disponible. El valor no se
+aplica forzosamente. Es responsabilidad total del componente
+verificar y reaccionar a cualquier valor en consecuencia.
+
+Referencia:
+
+1. https://developer.mozilla.org/es/docs/Web/HTTP/Guides/MIME_types

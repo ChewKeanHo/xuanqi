@@ -1,0 +1,37 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_TYPE
+Энэ тохиргоо нь гарах файлын MIME төрлийг тохируулах юм.
+Үүнийг router файлаар тохируулан, компонентийн
+дүрслэл импортлогч shell скрипт рүү дамжуулдаг. Жишээ:
+
+* 'font/woff', 'font/tff', 'font/otf'        - фонтууд
+* 'image/png', 'image/svg+xml', 'image/avif' - зурагнууд
+* 'text/plain'                               - текст
+* 'video/mp4', 'video/webm'                  - видео
+* 'application/octet-stream'                 - binary файл
+
+Утгын бэлэн байдал нь зөвхөн router файлаас хамаарна.
+Тохируулсан бол бэлэн байна. Утгыг шаардлагагүй.
+Компонент нь аливаа утгыг шалгаж, үйлдэл хийх
+бүрэн үүрэг хүлээх ёстой.
+
+Лавлагаа:
+
+1. https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/MIME_types

@@ -1,0 +1,37 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_TYPE
+Эта конфигурация задает MIME-тип выходного файла.
+Настраивается файлом маршрутизатора и передается в
+скрипт импорта рендеринга компонента. Примеры:
+
+* 'font/woff', 'font/tff', 'font/otf'        - шрифты
+* 'image/png', 'image/svg+xml', 'image/avif' - изображения
+* 'text/plain'                               - текст
+* 'video/mp4', 'video/webm'                  - видео
+* 'application/octet-stream'                 - бинарный файл
+
+Доступность значения зависит исключительно от файла маршрутизатора.
+Если оно установлено, то доступно. Значение не принудительно.
+Компонент полностью отвечает за проверку и реакцию
+на любое значение соответственно.
+
+Ссылка:
+
+1. https://developer.mozilla.org/ru/docs/Web/HTTP/Guides/MIME_types

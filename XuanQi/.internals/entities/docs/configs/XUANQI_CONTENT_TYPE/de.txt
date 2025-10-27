@@ -1,0 +1,37 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_TYPE
+Diese Konfiguration legt den MIME-Typ der Ausgabedatei fest.
+Sie wird über die Router-Datei konfiguriert und an das
+Import-Shellskript zur Komponentenrendering übergeben. Beispiele:
+
+* 'font/woff', 'font/tff', 'font/otf'        - Schriftarten
+* 'image/png', 'image/svg+xml', 'image/avif' - Bilder
+* 'text/plain'                               - Text
+* 'video/mp4', 'video/webm'                  - Video
+* 'application/octet-stream'                 - Binärdatei
+
+Die Verfügbarkeit des Werts hängt ausschließlich von der Router-Datei ab.
+Wenn gesetzt, ist er verfügbar. Der Wert wird nicht erzwungen.
+Es liegt in der alleinigen Verantwortung der Komponente, jeden Wert
+zu prüfen und entsprechend zu reagieren.
+
+Referenz:
+
+1. https://developer.mozilla.org/de/docs/Web/HTTP/Guides/MIME_types

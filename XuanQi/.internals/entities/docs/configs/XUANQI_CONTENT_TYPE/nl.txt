@@ -1,0 +1,38 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_TYPE
+Deze configuratie stelt het MIME-type van het uitvoerbestand in.
+Dit wordt geconfigureerd door het routerbestand en geleverd aan een
+componentweergave-importshellscript. Voorbeelden:
+
+* 'font/woff', 'font/tff', 'font/otf'        - lettertypen
+* 'image/png', 'image/svg+xml', 'image/avif' - afbeeldingen
+* 'text/plain'                               - tekst
+* 'video/mp4', 'video/webm'                  - video
+* 'application/octet-stream'                 - binair bestand
+
+De beschikbaarheid van de waarde hangt uitsluitend af van het
+routerbestand. Als deze is ingesteld, is deze beschikbaar.
+De waarde wordt niet afgedwongen. Het is de volledige
+verantwoordelijkheid van de component om elke waarde
+te controleren en dienovereenkomstig te reageren.
+
+Referentie:
+
+1. https://developer.mozilla.org/nl/docs/Web/HTTP/Guides/MIME_types

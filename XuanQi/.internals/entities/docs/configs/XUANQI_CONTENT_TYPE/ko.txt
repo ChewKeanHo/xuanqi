@@ -1,0 +1,37 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_TYPE
+이 구성은 출력 파일의 MIME 유형을 설정합니다.
+라우터 파일에 의해 구성되며 컴포넌트의
+렌더링 임포터 셸 스크립트로 전달됩니다. 예:
+
+* 'font/woff', 'font/tff', 'font/otf'        - 폰트
+* 'image/png', 'image/svg+xml', 'image/avif' - 이미지
+* 'text/plain'                               - 텍스트
+* 'video/mp4', 'video/webm'                  - 비디오
+* 'application/octet-stream'                 - 바이너리 파일
+
+값의 가용성은 라우터 파일에만 의존합니다.
+설정된 경우 사용 가능합니다. 값이 강제되지 않습니다.
+컴포넌트는 모든 값을 확인하고 이에 따라 반응할
+전적인 책임이 있습니다.
+
+참조:
+
+1. https://developer.mozilla.org/ko/docs/Web/HTTP/Guides/MIME_types

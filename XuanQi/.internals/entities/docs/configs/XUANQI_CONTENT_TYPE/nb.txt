@@ -1,0 +1,37 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_TYPE
+Denne konfigurasjonen angir MIME-typen til utdatafilen.
+Dette konfigureres av ruterfilen og leveres til et
+komponentgjengetingsimporteringsskallscript. Eksempler:
+
+* 'font/woff', 'font/tff', 'font/otf'        - skrifter
+* 'image/png', 'image/svg+xml', 'image/avif' - bilder
+* 'text/plain'                               - tekst
+* 'video/mp4', 'video/webm'                  - video
+* 'application/octet-stream'                 - binær fil
+
+Verdiens tilgjengelighet avhenger alene av ruterfilen.
+Hvis den er satt, er den tilgjengelig. Verdien håndheves ikke.
+Det er komponentens fulle ansvar å sjekke og reagere
+på enhver verdi i tråd med dette.
+
+Referanse:
+
+1. https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/MIME_types
