@@ -119,6 +119,382 @@ $(interactors_print_components_init_css)\
         fi
 
 
+        # create sample css
+        ____dest_css="${1}/CSS/sample.css"
+        interactors_css_write_header "$____dest_css"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_page_break "$____dest_css" "0"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_opener "$____dest_css" ":root" "0"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_property \
+                "$____dest_css" \
+                "--page-padding" \
+                "8rem" \
+                "1"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_property \
+                "$____dest_css" \
+                "--page-font" \
+                "'Noto Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" \
+                "1"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_closer "$____dest_css" "0"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_page_break "$____dest_css" "0"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_opener "$____dest_css" "*" "0"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_property \
+                "$____dest_css" \
+                "box-sizing" \
+                "border-box" \
+                "1"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_property \
+                "$____dest_css" \
+                "margin" \
+                "0" \
+                "1"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_property \
+                "$____dest_css" \
+                "padding" \
+                "0" \
+                "1"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_property \
+                "$____dest_css" \
+                "transition" \
+                ".1s" \
+                "1"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_property \
+                "$____dest_css" \
+                "scroll-behavior" \
+                "smooth" \
+                "1"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_closer "$____dest_css" "0"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_page_break "$____dest_css" "0"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_opener "$____dest_css" "html" "0"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_property \
+                "$____dest_css" \
+                "width" \
+                "100%" \
+                "1"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_property \
+                "$____dest_css" \
+                "width" \
+                "calc(100vw - calc(100vw - 100%))" \
+                "1"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_property \
+                "$____dest_css" \
+                "height" \
+                "100%" \
+                "1"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_property \
+                "$____dest_css" \
+                "height" \
+                "calc(100vh - calc(100vh - 100%))" \
+                "1"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_property \
+                "$____dest_css" \
+                "font-size" \
+                "62.5% /* 1.6rem = 16px */" \
+                "1"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_closer "$____dest_css" "0"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_page_break "$____dest_css" "0"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_opener "$____dest_css" "body" "0"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_property \
+                "$____dest_css" \
+                "min-width" \
+                "100%" \
+                "1"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_property \
+                "$____dest_css" \
+                "width" \
+                "100%" \
+                "1"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_property \
+                "$____dest_css" \
+                "max-width" \
+                "100%" \
+                "1"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_property \
+                "$____dest_css" \
+                "min-height" \
+                "100%" \
+                "1"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_property \
+                "$____dest_css" \
+                "height" \
+                "100%" \
+                "1"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_property \
+                "$____dest_css" \
+                "max-height" \
+                "100%" \
+                "1"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_property \
+                "$____dest_css" \
+                "font-family" \
+                "var(--page-font)" \
+                "1"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_closer "$____dest_css" "0"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_page_break "$____dest_css" "0"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_opener "$____dest_css" "body > *" "0"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_property \
+                "$____dest_css" \
+                "padding" \
+                "0 var(--page-padding)" \
+                "1"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_closer "$____dest_css" "0"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_page_break "$____dest_css" "0"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_opener "$____dest_css" "body > *:first-child" "0"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_property \
+                "$____dest_css" \
+                "padding-top" \
+                "var(--page-padding)" \
+                "1"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        interactors_css_write_closer "$____dest_css" "0"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+
+        ## all good - export now
+        interactors_fs_export "$____dest_css"
+        if [ $? -ne 0 ]; then
+                interactors_fs_delete "$1"
+                unset ____dest_css
+                return 5
+        fi
+        unset ____dest_css
+
+
         # report status
         return 0
 }
