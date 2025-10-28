@@ -1,0 +1,27 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_BASE_URL
+Эта конфигурация предназначена для настройки базового URL для
+веб-приложений. Этот URL используется ими для правильного
+преобразования относительных URL в абсолютный URL.
+
+       >>>> **НЕ ИЗМЕНЯТЬ И НЕ ПЕРЕОПРЕДЕЛЯТЬ** <<<<
+           Это внутренняя системная конфигурация.
+
+Значение определяется автоматически при инициализации `router`.

@@ -1,0 +1,26 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_BASE_URL
+이 구성은 웹 기반 애플리케이션의 기본 URL을 구성하기 위한 것입니다.
+이 URL은 상대 URL을 절대 URL로 올바르게 확인하는 데 사용됩니다.
+
+         >>>> **수정 또는 재정의하지 마십시오** <<<<
+                이것은 내부 시스템 구성입니다.
+
+값은 `router` 초기화 시 자동으로 결정됩니다.
