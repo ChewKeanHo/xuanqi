@@ -27,7 +27,7 @@
 #               - multiline values where each line is an entry.
 #               - no need to prefix '#' comment syntax.
 #               - recommended entry format:
-#                       'Copyright [YEAR] [AUTHOR] [CONTACT (email/url)]'
+#                  'Copyright [YEAR] [AUTHOR] [CONTACT (email/url)]'
 #               - when left empty, a copyright holder sample is used.
 # Outputs:
 #       Write to '$____path_dest' File
