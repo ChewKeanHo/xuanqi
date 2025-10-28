@@ -25,7 +25,7 @@
 #               - multiline values where each line is an entry.
 #               - no need to prefix '#' comment syntax.
 #               - recommended entry format:
-#                       'Copyright [YEAR] [AUTHOR] [CONTACT (email/url)]'
+#                    'Copyright [YEAR] [AUTHOR] [CONTACT (email/url)]'
 #       ____source_notice
 #               - OPTIONAL
 #               - license notice/body string content or filepath.
@@ -44,7 +44,7 @@
 #       Return Code
 #               - '0' means ok; error otherwise.
 #               - error on empty/invalid '$____path_dest'.
-#               - error on empty '$____license_holders' (e.g. 'empty').
+#               - error on empty '$____license_holders'.
 #               - error on bad execution.
 views_shell_write_header() {
         #____path_dest="$1"
@@ -82,7 +82,7 @@ views_shell_write_header() {
                 return 1
         fi
 
-        ## write license header
+        ## write license copyright holder
         ____old_IFS="$IFS"
         while IFS="" read -r ____line || [ -n "$____line" ]; do
                 if [ ! "$____line" = "" ]; then
@@ -104,7 +104,7 @@ EOF
         IFS="$____old_IFS"
         unset ____line ____old_IFS
 
-        ## write spacing
+        ## write separator
         views_shell_write_raw_content "$1" "\
 #
 #
