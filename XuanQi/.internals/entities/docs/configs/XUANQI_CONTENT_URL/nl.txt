@@ -1,0 +1,30 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_URL
+Deze configuratie is voor het configureren van de URL van het
+doeluitvoercontent voor webgebaseerde toepassingen. Deze URL
+is een absoluut bestandspad opgebouwd met $XUANQI_CONTENT_BASE_URL
+en het relatieve bestandspad van het `router`-script.
+
+         >>>> **NIET WIJZIGEN OF OVERSCHRIJVEN** <<<<
+            Dit is een interne systeemconfiguratie.
+
+De waarde wordt automatisch bepaald bij `router`-initialisatie.
+Het is ontworpen voor content schrijven. Om als een bestandssysteempad
+te werken, gebruik in plaats daarvan $XUANQI_CONTENT_PATH.

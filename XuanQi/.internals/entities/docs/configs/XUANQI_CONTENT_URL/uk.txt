@@ -1,0 +1,30 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_URL
+Ця конфігурація призначена для налаштування URL-адреси цільового
+вихідного вмісту для веб-додатків. Ця URL-адреса є абсолютним
+шляхом до файлу, побудованим з використанням $XUANQI_CONTENT_BASE_URL
+та відносного шляху до файлу його скрипта `router`.
+
+        >>>> **НЕ ЗМІНЮЙТЕ ТА НЕ ПЕРЕВИЗНАЧАЙТЕ** <<<<
+              Це внутрішня системна конфігурація.
+
+Значення визначається автоматично при ініціалізації `router`. Воно
+призначене для запису вмісту. Для роботи у якості шляху файлової
+системи використовуйте натомість $XUANQI_CONTENT_PATH.

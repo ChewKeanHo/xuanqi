@@ -1,0 +1,30 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_URL
+Konfigurasi ini adalah untuk mengkonfigurasi URL kandungan output
+sasaran untuk aplikasi berasaskan web. URL ini adalah dalam laluan
+fail mutlak yang dibina menggunakan $XUANQI_CONTENT_BASE_URL dan
+laluan fail relatif skrip `router`-nya.
+
+           >>>> **JANGAN UBAH ATAU TINDAH LALU** <<<<
+             Ini adalah konfigurasi sistem dalaman.
+
+Nilai ditentukan secara automatik pada permulaan `router`.
+Ia direka untuk penulisan kandungan. Untuk beroperasi sebagai laluan
+sistem fail, gunakan $XUANQI_CONTENT_PATH sebaliknya.

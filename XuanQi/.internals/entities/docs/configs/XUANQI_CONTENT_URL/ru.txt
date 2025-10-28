@@ -1,0 +1,30 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_URL
+Эта конфигурация предназначена для настройки URL целевого выходного
+контента для веб-приложений. Этот URL представляет собой абсолютный
+путь к файлу, построенный с использованием $XUANQI_CONTENT_BASE_URL
+и относительного пути к файлу его скрипта `router`.
+
+         >>>> **НЕ ИЗМЕНЯТЬ И НЕ ПЕРЕОПРЕДЕЛЯТЬ** <<<<
+             Это внутренняя системная конфигурация.
+
+Значение определяется автоматически при инициализации `router`. Оно
+предназначено для записи контента. Для работы в качестве пути
+файловой системы используйте вместо этого $XUANQI_CONTENT_PATH.
