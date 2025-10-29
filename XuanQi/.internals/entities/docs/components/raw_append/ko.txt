@@ -1,0 +1,23 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+원본 추가에 의한 렌더링 출력
+XuanQi에 주어진 파일 경로를 그대로 렌더링된 출력 파일로로드하도
+록 지시합니다. 이를 통해 XuanQi의 내부 렌더링 기능을사용하는 대
+신 다른 기술을 자유롭게 사용하여 필요한 소스 파일을생성할 수 있
+습니다.
