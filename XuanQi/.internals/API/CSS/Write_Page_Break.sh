@@ -17,20 +17,25 @@
 
 
 
+# Specifications:
+#       - Designed for clear context separations inside a CSS
+#         source code for readability and code cleanliness.
+#       - Multiple newlines.
 # Parameters:
 #       ____path_dest
 #               - COMPULSORY
-#               - the destination file to write into.
+#               - The destination file to write into.
+#               - Resolve symlink.
 # Outputs:
 #       Write to '$____path_dest' File
-#               - the rendered output written into file.
-#               - no action on error.
+#               - The rendered output written into file.
+#               - No action on error.
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
-#               - error on empty/invalid '$____path_dest'.
-#               - error on bad execution.
-interactors_css_write_page_break() {
+#               - Error on empty/invalid '$____path_dest'.
+#               - Error on bad execution.
+XuanQi_CSS_Write_Page_Break() {
         #____path_dest="$1"
 
 
@@ -52,7 +57,7 @@ interactors_css_write_page_break() {
 
 
         # execute
-        views_css_write_page_break "$1"
+        interactors_css_write_page_break "$1"
         if [ $? -ne 0 ]; then
                 return 1
         fi
