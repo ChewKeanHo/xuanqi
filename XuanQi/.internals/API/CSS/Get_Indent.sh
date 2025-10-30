@@ -17,48 +17,45 @@
 
 
 
+# Specifications:
+#       - Designed for rendering CSS indentation with consistency.
+#       - Programmable nature enables continuous improvements.
 # Parameters:
 #       ____input
 #               - OPTIONAL
-#               - number type.
-#               - empty means 0.
-#               - error means 0.
-#               - invalid (e.g. not a number) means 0 indent.
+#               - Number type.
+#               - Empty means 0.
+#               - Error means 0.
+#               - 0 returns empty indent.
 # Outputs:
 #       String
-#               - the rendered indent spacing in string.
-#               - empty on error.
+#               - The rendered indent spacing in string.
+#               - Empty on error.
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
-#               - error on invalid input (e.g. not a number).
-#               - error on bad execution.
-views_css_get_indent() {
+#               - Error on invalid input (e.g. not a number).
+#               - Error on bad execution.
+XuanQi_CSS_Get_Indent() {
         #____count="$1"
 
 
-        # execute
+        # validate inputs
         case "$1" in
-        ""|*[!0-9]*)
-                printf -- ""
-                return 1
+        "")
+                ;;
+        *[!0-9]*)
                 ;;
         *)
-                ____indent=""
-                ____count="$1"
-                while [ $____count -gt 0 ]; do
-                        ____indent="${____indent}	"
-                        ____count="$(( $____count - 1 ))"
-                done
-
-                printf -- "%s" "$____indent"
-                if [ $? -ne 0 ]; then
-                        unset ____indent ____count
-                        return 1
-                fi
-                unset ____indent ____count
                 ;;
         esac
+
+
+        # execute
+        interactors_css_get_indent "$1"
+        if [ $? -ne 0 ]; then
+                return 1
+        fi
 
 
         # report status
