@@ -52,8 +52,7 @@ entities_time_format() {
 
 
         # validate inputs
-        command -v date > /dev/null
-        if [ $? -ne 0 ]; then
+        if [ ! "$(entities_time_is_available)" = "true" ]; then
                 printf -- ""
                 return 1
         fi

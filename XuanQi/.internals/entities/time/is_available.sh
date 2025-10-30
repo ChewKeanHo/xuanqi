@@ -19,29 +19,22 @@
 
 # Parameters:
 # Outputs:
-#       String
-#               - the UNIX epoch (uint32/uint64) number time.
+#       Boolean String
+#               - either 'true' or 'false'
 # Returns:
 #       Return Code
-#               - '0' means ok; error otherwise.
-#               - error on bad execution.
-entities_time_now() {
-        # validate inputs
-        if [ ! "$(entities_time_is_available)" = "true" ]; then
-                printf -- ""
-                return 1
-        fi
-
-
+#               - '0' means true; 1 means false.
+entities_time_is_available() {
         # execute
-        printf -- "%b" "$(date -u '+%s')"
-        if [ $? -ne 0 ]; then
-                return 1
+        if [ ! "$(entities_os_is_command_available "date")" = "" ]; then
+                printf -- "true"
+                return 0
         fi
 
 
         # report status
-        return 0
+        printf -- "false"
+        return 1
 }
 
 
