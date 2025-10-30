@@ -442,11 +442,11 @@ interactors_components_create_css_sample() {
                 "$____dest" \
                 "\
 XuanQi_CSS_Append_File \\
-        \"\$XUANQI_CONTENT_PATH\" \\
-        \"\${XUANQI_COMPONENT_PATH}/CSS/sample.css\"
+$(interactors_shell_get_indent "1")\"\$XUANQI_CONTENT_PATH\" \\
+$(interactors_shell_get_indent "1")\"\${XUANQI_COMPONENT_PATH}/CSS/sample.css\"
 if [ \$? -ne 0 ]; then
-        XuanQi_Responses_Errors_Bad_Execution
-        return 1
+$(interactors_shell_get_indent "1")XuanQi_Responses_Errors_Bad_Execution
+$(interactors_shell_get_indent "1")return 1
 fi
 "
         if [ $? -ne 0 ]; then
@@ -475,35 +475,35 @@ fi
                 "\
 XuanQi_CSS_Write_Page_Break \"\$XUANQI_CONTENT_PATH\" \"0\"
 if [ \$? -ne 0 ]; then
-        XuanQi_Responses_Errors_Bad_Execution
-        return 1
+$(interactors_shell_get_indent "1")XuanQi_Responses_Errors_Bad_Execution
+$(interactors_shell_get_indent "1")return 1
 fi
 
 XuanQi_CSS_Write_Opener \\
-        \"\$XUANQI_CONTENT_PATH\" \\
-        \"body > *:last-child\" \\
-        \"0\"
+$(interactors_shell_get_indent "1")\"\$XUANQI_CONTENT_PATH\" \\
+$(interactors_shell_get_indent "1")\"body > *:last-child\" \\
+$(interactors_shell_get_indent "1")\"0\"
 if [ \$? -ne 0 ]; then
-        XuanQi_Responses_Errors_Bad_Execution
-        return 1
+$(interactors_shell_get_indent "1")XuanQi_Responses_Errors_Bad_Execution
+$(interactors_shell_get_indent "1")return 1
 fi
 
 XuanQi_CSS_Write_Property \\
-        \"\$XUANQI_CONTENT_PATH\" \\
-        \"padding-bottom\" \\
-        \"var(--page-padding)\" \\
-        \"0\"
+$(interactors_shell_get_indent "1")\"\$XUANQI_CONTENT_PATH\" \\
+$(interactors_shell_get_indent "1")\"padding-bottom\" \\
+$(interactors_shell_get_indent "1")\"var(--page-padding)\" \\
+$(interactors_shell_get_indent "1")\"0\"
 if [ \$? -ne 0 ]; then
-        XuanQi_Responses_Errors_Bad_Execution
-        return 1
+$(interactors_shell_get_indent "1")XuanQi_Responses_Errors_Bad_Execution
+$(interactors_shell_get_indent "1")return 1
 fi
 
 XuanQi_CSS_Write_Closer \\
-        \"\$XUANQI_CONTENT_PATH\" \\
-        \"0\"
+$(interactors_shell_get_indent "1")\"\$XUANQI_CONTENT_PATH\" \\
+$(interactors_shell_get_indent "1")\"0\"
 if [ \$? -ne 0 ]; then
-        XuanQi_Responses_Errors_Bad_Execution
-        return 1
+$(interactors_shell_get_indent "1")XuanQi_Responses_Errors_Bad_Execution
+$(interactors_shell_get_indent "1")return 1
 fi
 "
         if [ $? -ne 0 ]; then
