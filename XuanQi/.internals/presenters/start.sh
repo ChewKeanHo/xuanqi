@@ -396,6 +396,12 @@ purge)
                 return 1
         fi
         ;;
+status)
+        . "${XUANQI_PATH_ROOT}/presenters/status/main.sh"
+        if [ $? -ne 0 ]; then
+                return 1
+        fi
+        ;;
 *)
         . "${XUANQI_PATH_ROOT}/presenters/help/main.sh"
         return 1
