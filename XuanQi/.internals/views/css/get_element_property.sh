@@ -48,10 +48,12 @@ views_css_get_element_property() {
 
         # validate inputs
         if [ "$1" = "" ]; then
+                printf -- ""
                 return 1
         fi
 
         if [ "$2" = "" ]; then
+                printf -- ""
                 return 1
         fi
 
@@ -59,10 +61,12 @@ views_css_get_element_property() {
         "")
                 ;;
         *[!0-9]*)
+                printf -- ""
                 return 1
                 ;;
         *)
                 if [ $3 -lt 0 ]; then
+                        printf -- ""
                         return 1
                 fi
                 ;;

@@ -18,29 +18,34 @@
 
 
 # Specifications:
-#       - https://www.w3.org/Style/CSS/specs.en.html
+#       - Designed to render a set of property precisely and correctly.
+#       - Programmable nature enables continuous improvements overtime.
+#       - Rendered to memory so ensure the total payload cannot be too
+#         big until run out of memory.
+#       - Learn more about property at:
+#                   https://www.w3.org/Style/CSS/specs.en.html
 # Parameters:
 #       ____name
 #               - COMPULSORY
-#               - property name (e.g.'margin').
+#               - Property name (e.g.'margin').
 #       ____value
 #               - COMPULSORY
-#               - property value (e.g.'1rem').
+#               - Property value (e.g.'1rem').
 #       ____indent_level
 #               - OPTIONAL
-#               - indentation level in round numerical number.
+#               - Indentation level in round numerical number.
 #               - '1' or empty means no default indentation.
 # Outputs:
 #       String
-#               - the rendered output string. Example: "margin: 1rem;".
+#               - The rendered output string. Example: "margin: 1rem;".
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
-#               - error on empty '$____name'.
-#               - error on empty '$____value'.
-#               - error on invalid '$____indent' (e.g. not a number).
-#               - error on bad execution.
-interactors_css_get_element_property() {
+#               - Error on empty '$____name'.
+#               - Error on empty '$____value'.
+#               - Error on invalid '$____indent' (e.g. not a number).
+#               - Error on bad execution.
+XuanQi_CSS_Get_Element_Property() {
         #____name="$1"
         #____value="$2"
         #____indent_level="$3"
@@ -74,7 +79,7 @@ interactors_css_get_element_property() {
 
 
         # execute
-        views_css_get_element_property "$1" "$2" "$3"
+        interactors_css_get_element_property "$1" "$2" "$3"
         if [ $? -ne 0 ]; then
                 return 1
         fi

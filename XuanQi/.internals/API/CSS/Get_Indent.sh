@@ -20,6 +20,8 @@
 # Specifications:
 #       - Designed for rendering CSS indentation with consistency.
 #       - Programmable nature enables continuous improvements.
+#       - Rendered to memory so ensure the total payload cannot be too
+#         big until run out of memory.
 # Parameters:
 #       ____input
 #               - OPTIONAL
