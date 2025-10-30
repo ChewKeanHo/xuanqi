@@ -56,7 +56,19 @@ interactors_data_read_directory() {
                 if [ -d "$____item" ]; then
                         interactors_data_read_directory "$____item"
                         continue
-                elif [ ! -f "$____item" ]; then
+                elif [ -f "$____item" ]; then
+                        : # accepted
+                elif [ -L "$____item" ]; then
+                        ____item="$(readlink --canonicalize "$____item")"
+                        if [ -d "$____item" ]; then
+                                interactors_data_read_directory "$____item"
+                                continue
+                        elif [ -f "$____item" ]; then
+                                : # accepted
+                        else
+                                continue
+                        fi
+                else
                         continue
                 fi
 
