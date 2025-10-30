@@ -47,6 +47,8 @@ XuanQi_CSS_Get_Indent() {
         "")
                 ;;
         *[!0-9]*)
+                printf -- ""
+                return 1
                 ;;
         *)
                 ;;

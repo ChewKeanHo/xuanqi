@@ -42,6 +42,8 @@ interactors_css_get_indent() {
         "")
                 ;;
         *[!0-9]*)
+                printf -- ""
+                return 1
                 ;;
         *)
                 ;;

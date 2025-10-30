@@ -56,6 +56,7 @@ XuanQi_CSS_Get_Element_Opener() {
 
         # validate inputs
         if [ "$1" = "" ]; then
+                printf -- ""
                 return 1
         fi
 
@@ -63,10 +64,12 @@ XuanQi_CSS_Get_Element_Opener() {
         "")
                 ;;
         *[!0-9]*)
+                printf -- ""
                 return 1
                 ;;
         *)
                 if [ $2 -lt 0 ]; then
+                        printf -- ""
                         return 1
                 fi
                 ;;

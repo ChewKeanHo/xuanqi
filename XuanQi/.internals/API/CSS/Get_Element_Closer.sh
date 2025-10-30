@@ -18,44 +18,30 @@
 
 
 # Specifications:
-#       - https://www.w3.org/Style/CSS/specs.en.html
+#       - Designed to create a closer (e.g. '}') reliably.
+#       - Programmable nature enables continuous improvement.
+#       - Rendered into memory so ensure the total payload cannot be too
+#         big until run out of memory.
+#       - Learn more at: https://www.w3.org/Style/CSS/specs.en.html
 # Parameters:
-#       ____selectors
-#               - COMPULSORY
-#               - list of selectors.
-#               - multi-line values where each line is a new entry.
-#               - each entry does not need to have tailing comma (,).
 #       ____indent_level
 #               - OPTIONAL
-#               - indentation level in round numerical number.
+#               - Indentation level in round numerical number.
 #               - '0' or empty means no default indentation.
 # Outputs:
 #       String
-#               - the rendered output string. Example:
-#                 "\
-#                 [Selector1],
-#                 [Selector2],
-#                 ...
-#                 [SelectorN] {
-#                 "
+#               - The rendered output string. Example: "}".
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
-#               - error on empty '$____selectors'.
-#               - error on invalid '$____indent' (e.g. not a number).
-#               - error on bad execution.
-interactors_css_get_element_opener() {
-        #____selectors="$1"
-        #____indent_level="$2"
+#               - Error on invalid '$____indent_level' (e.g. not a number).
+#               - Error on bad execution.
+XuanQi_CSS_Get_Element_Closer() {
+        #____indent_level="$1"
 
 
         # validate inputs
-        if [ "$1" = "" ]; then
-                printf -- ""
-                return 1
-        fi
-
-        case "$2" in
+        case "$1" in
         "")
                 ;;
         *[!0-9]*)
@@ -63,7 +49,7 @@ interactors_css_get_element_opener() {
                 return 1
                 ;;
         *)
-                if [ $2 -lt 0 ]; then
+                if [ $1 -lt 0 ]; then
                         printf -- ""
                         return 1
                 fi
@@ -72,7 +58,7 @@ interactors_css_get_element_opener() {
 
 
         # execute
-        views_css_get_element_opener "$1" "$2"
+        interactors_css_get_element_closer "${1:-0}"
         if [ $? -ne 0 ]; then
                 return 1
         fi

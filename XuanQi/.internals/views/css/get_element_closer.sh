@@ -41,10 +41,12 @@ views_css_get_element_closer() {
         "")
                 ;;
         *[!0-9]*)
+                printf -- ""
                 return 1
                 ;;
         *)
                 if [ $1 -lt 0 ]; then
+                        printf -- ""
                         return 1
                 fi
                 ;;

@@ -51,6 +51,7 @@ views_css_get_element_opener() {
 
         # validate inputs
         if [ "$1" = "" ]; then
+                printf -- ""
                 return 1
         fi
 
@@ -58,10 +59,12 @@ views_css_get_element_opener() {
         "")
                 ;;
         *[!0-9]*)
+                printf -- ""
                 return 1
                 ;;
         *)
                 if [ $2 -lt 0 ]; then
+                        printf -- ""
                         return 1
                 fi
                 ;;
