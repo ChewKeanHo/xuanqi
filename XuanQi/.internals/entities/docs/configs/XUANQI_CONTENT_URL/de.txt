@@ -17,14 +17,14 @@
 
 
 XUANQI_CONTENT_URL
-This configuration is for configuring the targeted output content's
-URL for web-based application. This URL is in absolute filepath
-constructed using the $XUANQI_CONTENT_BASE_URL and the relative
-filepath of its `router` script.
+Diese Konfiguration dient zur Konfiguration der URL des Zielinhalts
+für webbasierte Anwendungen. Diese URL ist ein absoluter Dateipfad,
+der mit dem $XUANQI_CONTENT_BASE_URL und dem relativen Dateipfad
+des `router`-Skripts erstellt wird.
 
-            >>>> **DO NOT MODIFY OR OVERRIDE** <<<<
-           This is an internal system configuration.
+       >>>> **NICHT MODIFIZIEREN ODER ÜBERSCHREIBEN** <<<<
+           Dies ist eine interne Systemkonfiguration.
 
-The value is determined automatically on `router` initialization.
-It is designed for content writing. To operate as a filesystem
-pathing, use $XUANQI_CONTENT_PATH instead.
+Der Wert wird automatisch bei der `router`-Initialisierung bestimmt.
+Er ist für das Schreiben von Inhalten ausgelegt. Für den Betrieb als
+Dateisystempfad verwenden Sie stattdessen $XUANQI_CONTENT_PATH.
