@@ -1,0 +1,29 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_RELATIVE_URL
+此配置用于通过`router`的相对路径来辨别输出文件。
+
+         >>>> **请勿修改或覆盖** <<<<
+               此为内部系统配置。
+
+该值在`router`初始化时自动确定。专为数值处理而设计。
+
+要想作为URL运用，请改用$XUANQI_CONTENT_URL。
+
+要想作为文件系统路径运用，请改用$XUANQI_CONTENT_PATH。

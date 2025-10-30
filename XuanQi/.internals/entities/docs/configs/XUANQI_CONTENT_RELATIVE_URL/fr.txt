@@ -1,0 +1,32 @@
+# Copyright 2025 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2024 (Holloway) Chew, Kean Ho <hello@hollowaykeanho.com>
+# Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+# Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under (Holloway) Chew, Kean Ho's Liberal License (the 'License').
+# You must comply with the license to use the content. Get the License at:
+#
+# https://doi.org/10.5281/zenodo.13770769
+#
+# You MUST ensure any interaction with the content STRICTLY COMPLIES with
+# the permissions and limitations set forth in the license.
+
+
+
+
+XUANQI_CONTENT_RELATIVE_URL
+Cette configuration permet d'identifier le fichier de sortie en
+utilisant le chemin relatif du `router`.
+
+         >>>> **NE MODIFIEZ PAS NI NE REMPLACEZ** <<<<
+         Il s'agit d'une configuration système interne.
+
+La valeur est déterminée automatiquement lors de l'initialisation
+du `router`. Elle est conçue pour le traitement des valeurs.
+
+Pour fonctionner comme URL, utilisez plutôt $XUANQI_CONTENT_URL.
+
+Pour fonctionner comme chemin du système de fichiers, utilisez
+plutôt $XUANQI_CONTENT_PATH.
