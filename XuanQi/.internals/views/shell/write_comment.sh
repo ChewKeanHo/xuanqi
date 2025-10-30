@@ -92,7 +92,7 @@ $(views_shell_get_indent "${3:-0}")#${____line}
                         return 1
                 fi
         done<<EOF
-${2}
+${2%[$(printf -- " \t\r\n\v")]}
 EOF
         IFS="$____old_IFS"
         unset ____line ____old_IFS
