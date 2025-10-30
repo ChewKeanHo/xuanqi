@@ -19,17 +19,17 @@
 #       ____input
 #               - OPTIONAL
 #               - number type.
+#               - empty means 0.
+#               - error means 0.
 #               - 0 returns empty indent.
-#               - empty means 0 indent.
-#               - invalid (e.g. not a number) means 0 indent.
 # Outputs:
 #       String
-#               - the rendered total indent count in string.
+#               - the rendered indent spacing in string.
 #               - empty on error.
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
-#               - error on invalid input (not a round number or <0).
+#               - error on invalid input (e.g. not a number).
 #               - error on bad execution.
 views_shell_get_indent() {
         #____count="$1"
@@ -38,7 +38,7 @@ views_shell_get_indent() {
         # execute
         case "$1" in
         ""|*[!0-9]*)
-                printf -- "%s" ""
+                printf -- ""
                 return 1
                 ;;
         *)
