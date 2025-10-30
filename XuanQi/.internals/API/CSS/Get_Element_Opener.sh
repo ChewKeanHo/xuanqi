@@ -18,60 +18,55 @@
 
 
 # Specifications:
-#       - Designed to render a set of property precisely and correctly.
-#       - Programmable nature enables continuous improvements overtime.
+#       - Designed to create an opener (e.g. 'media ... {' or 'body {')
+#         reliably.
+#       - Programmable nature enables continuous improvement.
 #       - Rendered into memory so ensure the total payload cannot be too
 #         big until run out of memory.
-#       - Learn more about property at:
-#                   https://www.w3.org/Style/CSS/specs.en.html
+#       - Learn more at: https://www.w3.org/Style/CSS/specs.en.html
 # Parameters:
-#       ____name
+#       ____selectors
 #               - COMPULSORY
-#               - Property name (e.g.'margin').
-#       ____value
-#               - COMPULSORY
-#               - Property value (e.g.'1rem').
+#               - List of selectors.
+#               - Multi-line values where each line is a new entry.
+#               - Each entry does not need to have tailing comma (,).
 #       ____indent_level
 #               - OPTIONAL
 #               - Indentation level in round numerical number.
-#               - '1' or empty means no default indentation.
+#               - '0' or empty means no default indentation.
 # Outputs:
 #       String
-#               - The rendered output string. Example: "margin: 1rem;".
+#               - The rendered output string. Example:
+#                 "\
+#                 [Selector1],
+#                 [Selector2],
+#                 ...
+#                 [SelectorN] {
+#                 "
 # Returns:
 #       Return Code
 #               - '0' means ok; error otherwise.
-#               - Error on empty '$____name'.
-#               - Error on empty '$____value'.
+#               - Error on empty '$____selectors'.
 #               - Error on invalid '$____indent' (e.g. not a number).
 #               - Error on bad execution.
-XuanQi_CSS_Get_Element_Property() {
-        #____name="$1"
-        #____value="$2"
-        #____indent_level="$3"
+XuanQi_CSS_Get_Element_Opener() {
+        #____selectors="$1"
+        #____indent_level="$2"
 
 
         # validate inputs
         if [ "$1" = "" ]; then
-                printf -- ""
                 return 1
         fi
 
-        if [ "$2" = "" ]; then
-                printf -- ""
-                return 1
-        fi
-
-        case "$3" in
+        case "$2" in
         "")
                 ;;
         *[!0-9]*)
-                printf -- ""
                 return 1
                 ;;
         *)
-                if [ $3 -lt 0 ]; then
-                        printf -- ""
+                if [ $2 -lt 0 ]; then
                         return 1
                 fi
                 ;;
@@ -79,7 +74,7 @@ XuanQi_CSS_Get_Element_Property() {
 
 
         # execute
-        interactors_css_get_element_property "$1" "$2" "$3"
+        interactors_css_get_element_opener "$1" "$2"
         if [ $? -ne 0 ]; then
                 return 1
         fi
