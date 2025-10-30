@@ -88,7 +88,7 @@ views_shell_write_switch_change_condition() {
         # execute
         if [ ! "$4" = "0" ]; then
                 printf -- "%s" "\
-$(views_get_indent_shell "$(( ${3:-0} + 1 ))");;
+$(views_shell_get_indent "$(( ${3:-0} + 1 ))");;
 " >> "${1}.tmp"
                 if [ $? -ne 0 ]; then
                         return 1
@@ -96,7 +96,7 @@ $(views_get_indent_shell "$(( ${3:-0} + 1 ))");;
         fi
 
         printf -- "%s" "\
-$(views_get_indent_shell "${3:-0}")${2})
+$(views_shell_get_indent "${3:-0}")${2})
 " >> "${1}.tmp"
         if [ $? -ne 0 ]; then
                 return 1
