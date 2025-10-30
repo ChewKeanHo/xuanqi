@@ -64,6 +64,11 @@ entities_fs_read_text_file() {
                         elif [ "${____line%%"//"*}" = "" ]; then
                                 # c comment
                                 continue
+                        elif [ "${____line%%"/*"*}" = "" ] ||
+                        [ "${____line%%" *"*}" = "" ] ||
+                        [ "${____line%%"*/"*}" = "" ]; then
+                                # long c / css comment
+                                continue
                         fi
 
                         ____state=1
